@@ -1,0 +1,11 @@
+Nesta seção apresentamos as definições básicas para o resto do texto.
+
+\subsection{Matroid}
+Seja $X$ um conjunto de objetos e $I \subseteq 2^X$ o conjunto de conjuntos independentes tal que:
+\begin{enumerate}
+\item $\emptyset \in I$
+\item $A \in I, B \subseteq A \implies B \in I$
+\item Axioma do troco, $A \in I, B \in I, |B| > |A| \implies \exists x \in B \setminus A : A \cup \{x\} \in I$
+\item Se $A \subseteq X$ e $I$ e $I'$ são conjuntos independentes maximais de A então $|I| = |I'|$
+\end{enumerate}
+Então $(X, I)$ é um matroide. O problema combinatório associado a ele é: Dada um função de peso $w(e) \geq 0 ~\forall e \in X$, encontre um subconjunto independente com maior soma de pesos possível.
