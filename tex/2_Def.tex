@@ -1,6 +1,51 @@
 Nesta seção apresentamos as definições básicas para o resto do texto.
 
-\subsection{Matroid}
+\section{Linguagem}
+\subsection{Sintaxe}
+Seja $P = \{p, q, r \dots\}$ um conjunto finito de símbolos proposicionais, $\Agents \subset \set{N}$ um conjunto finito, $\set{OB} = \{\land, \lor, \rightarrow, \leftrightarrow \}$ o conjunto de operadores binários e $\set{OU} = \{\nec{\agent}, \pos{\agent}, \neg \}$, onde $\agent \in \Agents$, o conjunto dos operadores unários. Definimos o conjunto de fórmulas $\mathcal{L}$ indutivamente.
+
+\begin{itemize}
+\item Se $\varphi \in \set{P}$ então $\varphi \in \set{L}$
+\item Se $\varphi \in \set{L}$ e $* \in \set{OU}$, então $* \varphi \in \set{L}$
+\item Se $\varphi \in \set{L}$, $\psi \in \set{L}$ e $* \in \set{OB}$, então $(\varphi * \psi) \in \set{L}$
+\item $\top \in \set{L}$
+\item $\bot \in \set{L}$
+\end{itemize}
+
+\subsection{Semântica}
+Definimos um conjunto $\set{W}$ de mundos, onde cada mundo contêm um conjunto de fórmula. A função $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, os conjuntos $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$ e uma estrutura de Kripke como $M = (\set{W}, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$
+\cite{chellas}. Então uma fórmula $\varphi$ é satisfatível na lógica modal K sob um mundo $\st$ se e somente se $M,w \models \varphi$.
+%\models
+
+\begin{itemize}
+\item $M,\st \models \top$
+\item $M,\st \not\models \bot$
+\item $M,\st \models \varphi$, se e somente se $\varphi \in \set{P}$ e $\pi(\st, \varphi) = \ctrue$
+\item $M,\st \models \neg\varphi$, se e somente se $M,\st \not\models \varphi$
+\item $M,\st \models (\varphi \land \psi)$, se e somente se $M,\st \models \varphi$ e $M,\st \models \psi $
+\item $M,\st \models (\varphi \lor \psi)$, se e somente se $M,\st \models \varphi$ ou $M,\st \models \psi $
+\item $M,\st \models (\varphi \then \psi)$, se e somente se $M,\st \not\models \varphi$ ou $M,\st \models \psi $
+\item $M,\st \models (\varphi \ifonlyif \psi)$, se e somente se $M,\st \models (\varphi \then \psi)$ e $M,\st \models (\psi \then \varphi)$
+
+\item $M,\st \models \pos{\agent}\varphi$, se e somente se $\exists\st', (\st, \st') \in \set{R}_\agent, M,\st' \models \varphi$
+\item $M,\st \models \nec{\agent}\varphi$, se e somente se $\forall\st', (\st, \st') \in \set{R}_\agent, M,\st' \models \varphi$
+
+\end{itemize}
+
+Estendemos a definição de satisfatibilidade de fórmulas para conjuntos. Dizemos que um conjunto $\set{T}$ é satisfatível na lógica modal K sob um mundo $\st$ se e somente se $M,\st \models \psi$, onde $\psi$ é a fórmula composta da conjunção dos elementos do conjunto $\set{T}$.
+
+
+\section{Forma normal}
+\section{Cálculo}
+\section{Resolução}
+% citar correcao e completude e terminacao do calculo
+% implementacao do calculo
+% loop principal do algoritmo
+% como funciona
+% quais estrategias eh baseado
+% quais opcoes existentes que sao relevantes pro meu prob(escolha de clausulas e selecao de literais)
+
+\section{Matroide}
 Seja $X$ um conjunto de objetos e $I \subseteq 2^X$ o conjunto de conjuntos independentes tal que:
 \begin{enumerate}
 \item $\emptyset \in I$
