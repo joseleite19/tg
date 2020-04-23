@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.8.24)  9 APR 2020 18:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.8.24)  23 APR 2020 16:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -904,20 +904,23 @@ exclude:
 \c@definition=\count149
 \c@apendice=\count150
 \c@anexo=\count151
-) (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+) (./symbols.tex
+\c@theorem=\count152
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2015/09/18 v0.5d Insert pages of external PDF documents (AM)
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count152
-\calc@Bcount=\count153
+\calc@Acount=\count153
+\calc@Bcount=\count154
 \calc@Adimen=\dimen139
 \calc@Bdimen=\dimen140
 \calc@Askip=\skip60
 \calc@Bskip=\skip61
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count154
+\calc@Ccount=\count155
 \calc@Cskip=\skip62
 )
 (/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
@@ -931,7 +934,7 @@ File: pppdftex.def 2015/09/18 v0.5d Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box35
 \AM@toc@title=\toks33
-\c@AM@survey=\count155
+\c@AM@survey=\count156
 \AM@templatesizebox=\box36
 )
 (./monografia.aux)
@@ -970,16 +973,16 @@ babelbib: Load BibTeX extensions \bibsamerican for american
 babelbib: Set language for keywords in the bibliography fixed to american
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count156
+\scratchcounter=\count157
 \scratchdimen=\dimen143
 \scratchbox=\box37
-\nofMPsegments=\count157
-\nofMParguments=\count158
+\nofMPsegments=\count158
+\nofMParguments=\count159
 \everyMPshowfont=\toks34
-\MPscratchCnt=\count159
+\MPscratchCnt=\count160
 \MPscratchDim=\dimen144
-\MPnumerator=\count160
-\makeMPintoPDFobject=\count161
+\MPnumerator=\count161
+\makeMPintoPDFobject=\count162
 \everyMPtoPDFconversion=\toks35
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -1038,7 +1041,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count162
+\c@section@level=\count163
 )
 LaTeX Info: Redefining \ref on input line 37.
 LaTeX Info: Redefining \pageref on input line 37.
@@ -1106,7 +1109,7 @@ LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <20> not available
 LaTeX Font Warning: Font shape `T1/ua1/bx/n' in size <20> not available
 (Font)              size <20.74> substituted on input line 37.
 
-<img/positivo_cor.pdf, id=32, 119.44624pt x 60.225pt>
+<img/positivo_cor.pdf, id=52, 119.44624pt x 60.225pt>
 File: img/positivo_cor.pdf Graphic file (type pdf)
 
 <use img/positivo_cor.pdf>
@@ -1169,11 +1172,36 @@ text indent by \l@... (toc, 0):  17.62474pt
 number indent by parent (toc, 0):  0.0pt
 text indent calculated (toc, 0): 13.5pt
 number indent calculated (toc, 0): 0.0pt
+number indent by \l@... (toc, 1):  17.62474pt
+text indent by \l@... (toc, 1):  27.02464pt
+number indent by parent (toc, 1):  13.5pt
+text indent calculated (toc, 1): 20.88887pt
+number indent calculated (toc, 1): 13.5pt
 number indent by \l@... (toc, 2):  44.64938pt
 text indent by \l@... (toc, 2):  37.59943pt
-number indent by parent (toc, 2):  44.64938pt
+number indent by parent (toc, 2):  34.38887pt
 text indent calculated (toc, 2): 30.02785pt
-number indent calculated (toc, 2): 44.64938pt
+number indent calculated (toc, 2): 34.38887pt
+number indent by \l@... (toc, 2):  44.64938pt
+text indent by \l@... (toc, 2):  37.59943pt
+number indent by parent (toc, 2):  34.38887pt
+text indent calculated (toc, 2): 30.02785pt
+number indent calculated (toc, 2): 34.38887pt
+number indent by \l@... (toc, 1):  17.62474pt
+text indent by \l@... (toc, 1):  27.02464pt
+number indent by parent (toc, 1):  13.5pt
+text indent calculated (toc, 1): 20.88887pt
+number indent calculated (toc, 1): 13.5pt
+number indent by \l@... (toc, 1):  17.62474pt
+text indent by \l@... (toc, 1):  27.02464pt
+number indent by parent (toc, 1):  13.5pt
+text indent calculated (toc, 1): 20.88887pt
+number indent calculated (toc, 1): 13.5pt
+number indent by \l@... (toc, 1):  17.62474pt
+text indent by \l@... (toc, 1):  27.02464pt
+number indent by parent (toc, 1):  13.5pt
+text indent calculated (toc, 1): 20.88887pt
+number indent calculated (toc, 1): 13.5pt
 )
 \tf@toc=\write7
 \openout7 = `monografia.toc'.
@@ -1214,20 +1242,45 @@ Cap\'{\i }tulo 2.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 39.
 (./tex/2_Def.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 3.
-
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 3.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 4.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 5.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 5.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 5.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 5.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 8.
+ (/usr/share/texmf/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 8.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 15.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 24.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 24.
+ [2
+
+]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 38.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 39.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 47.
 )
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 45.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 45.
- [2
-
-]
+ [3]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 45.
 
@@ -1238,7 +1291,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 45.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 45.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 45.
 Package rerunfilecheck Info: File `monografia.out' has not changed.
-(rerunfilecheck)             Checksum: 6008FC6A7AC7FF7E141EA0179B83BE39;348.
+(rerunfilecheck)             Checksum: DCB541211831A569E2CEBEA9130A6A53;646.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1251,27 +1304,29 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 45.
  )
 (\end occurred when \iffalse on line 120 was incomplete) 
 Here is how much of TeX's memory you used:
- 14022 strings out of 493029
- 208895 string characters out of 6136234
- 394211 words of memory out of 5000000
- 17183 multiletter control sequences out of 15000+600000
- 42529 words of font info for 36 fonts, out of 8000000 for 9000
+ 14165 strings out of 493029
+ 210795 string characters out of 6136234
+ 399355 words of memory out of 5000000
+ 17304 multiletter control sequences out of 15000+600000
+ 65919 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,6n,69p,1940b,355s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,12n,69p,1955b,408s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts
-/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvip
+/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/us
+r/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvip
 s/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr
 /share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/pub
-lic/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share
-/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/
-lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/
-sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb>
-Output written on monografia.pdf (9 pages, 124048 bytes).
+lic/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share
+/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/
+lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfrm2074.pfb>
+Output written on monografia.pdf (10 pages, 154850 bytes).
 PDF statistics:
- 140 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
- 62 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 178 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
+ 102 words of extra memory for PDF output out of 10000 (max. 10000000)
 

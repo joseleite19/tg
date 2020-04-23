@@ -13,9 +13,8 @@ Seja $P = \{p, q, r \dots\}$ um conjunto finito de símbolos proposicionais, $\A
 \end{itemize}
 
 \subsection{Semântica}
-Definimos um conjunto $\set{W}$ de mundos, onde cada mundo contêm um conjunto de fórmula. A função $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, os conjuntos $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$ e uma estrutura de Kripke como $M = (\set{W}, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$
-\cite{chellas}. Então uma fórmula $\varphi$ é satisfatível na lógica modal K sob um mundo $\st$ se e somente se $M,w \models \varphi$.
-%\models
+A semântica para lógica modal proposicional é dada por estruturas de Kripke. Uma estrutura de Kripke $M$ é da forma $M = (\set{W}, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, onde % TODO Cita
+$\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Uma fórmula $\varphi$ é satisfatível na lógica modal K sob um mundo $\st$ se, e somente se, $M,w \models \varphi$.
 
 \begin{itemize}
 \item $M,\st \models \top$
@@ -32,11 +31,7 @@ Definimos um conjunto $\set{W}$ de mundos, onde cada mundo contêm um conjunto d
 
 \end{itemize}
 
-Estendemos a definição de satisfatibilidade de fórmulas para conjuntos. Dizemos que um conjunto $\set{T}$ é satisfatível na lógica modal K sob um mundo $\st$ se e somente se $M,\st \models \psi$, onde $\psi$ é a fórmula composta da conjunção dos elementos do conjunto $\set{T}$.
-
-
 \section{Forma normal}
-\section{Cálculo}
 \section{Resolução}
 % citar correcao e completude e terminacao do calculo
 % implementacao do calculo

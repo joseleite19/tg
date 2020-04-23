@@ -4,4 +4,9 @@
 \BOOKMARK [0][-]{abstract.0}{Abstract}{}% 4
 \BOOKMARK [0][-]{chapter.1}{Introdu\347\343o}{}% 5
 \BOOKMARK [0][-]{chapter.2}{Definicoes}{}% 6
-\BOOKMARK [1][-]{subsection.2.0.1}{Matroid}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.1}{Linguagem}{chapter.2}% 7
+\BOOKMARK [2][-]{subsection.2.1.1}{Sintaxe}{section.2.1}% 8
+\BOOKMARK [2][-]{subsection.2.1.2}{Sem\342ntica}{section.2.1}% 9
+\BOOKMARK [1][-]{section.2.2}{Forma normal}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.3}{Resolu\347\343o}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.4}{Matroide}{chapter.2}% 12
