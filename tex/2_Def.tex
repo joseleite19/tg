@@ -1,24 +1,23 @@
+
 Nesta seção apresentamos as definições básicas para o resto do texto.
 
 \section{Linguagem}
-\subsection{Sintaxe}
-Seja $P = \{p, q, r \dots\}$ um conjunto finito de símbolos proposicionais, $\Agents \subset \set{N}$ um conjunto finito, $\set{OB} = \{\land, \lor, \rightarrow, \leftrightarrow \}$ o conjunto de operadores binários e $\set{OU} = \{\nec{\agent}, \pos{\agent}, \neg \}$, onde $\agent \in \Agents$, o conjunto dos operadores unários. Definimos o conjunto de fórmulas $\mathcal{L}$ indutivamente.
+Trabalharemos com a linguagem lógica modal K.
+
+\begin{definition}
+Seja $P = \{p, q, r, \dots\}$ um conjunto finito de símbolos proposicionais, $\Agents = \{1, 2, 3, \dots, n\}, n \in \mathbb{N}$. Definimos o conjunto de fórmulas $\mathcal{FBF}$ indutivamente.
 
 \begin{itemize}
-\item Se $\varphi \in \set{P}$ então $\varphi \in \set{L}$
-\item Se $\varphi \in \set{L}$ e $* \in \set{OU}$, então $* \varphi \in \set{L}$
-\item Se $\varphi \in \set{L}$, $\psi \in \set{L}$ e $* \in \set{OB}$, então $(\varphi * \psi) \in \set{L}$
-\item $\top \in \set{L}$
-\item $\bot \in \set{L}$
+\item Se $\varphi \in \set{P}$ então $\varphi \in \set{FBF}$ e $\neg\varphi \in \set{FBF}$
+\item Se $\varphi \in \set{FBF}$, $\psi \in \set{FBF}$ e $\agent \in \Agents$, então $(\varphi \land \psi) \in \set{FBF}$, $(\varphi \lor \psi) \in \set{L}$, $(\varphi \rightarrow \psi) \in \set{FBF}$, $(\varphi \leftrightarrow \psi) \in \set{FBF}$, $\nec{\agent} \varphi \in \set{FBF}$ e $\pos{\agent} \varphi \in \set{FBF}$
 \end{itemize}
+\end{definition}
 
-\subsection{Semântica}
+
 A semântica para lógica modal proposicional é dada por estruturas de Kripke. Uma estrutura de Kripke $M$ é da forma $M = (\set{W}, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, onde % TODO Cita
-$\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Uma fórmula $\varphi$ é satisfatível na lógica modal K sob um mundo $\st$ se, e somente se, $M,w \models \varphi$.
+$\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfatível na lógica modal K sob um mundo $\st$ se, e somente se, $M,w \models \varphi$.
 
 \begin{itemize}
-\item $M,\st \models \top$
-\item $M,\st \not\models \bot$
 \item $M,\st \models \varphi$, se e somente se $\varphi \in \set{P}$ e $\pi(\st, \varphi) = \ctrue$
 \item $M,\st \models \neg\varphi$, se e somente se $M,\st \not\models \varphi$
 \item $M,\st \models (\varphi \land \psi)$, se e somente se $M,\st \models \varphi$ e $M,\st \models \psi $
@@ -31,14 +30,38 @@ $\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \righ
 
 \end{itemize}
 
-\section{Forma normal}
+% 1) definir literal e literal modal
+% 2) definir polaridade
+
+\begin{definition}
+$\set{LP}$ é o conjunto de literais proposicionais e $\set{LM}$ é o conjunto de literais modais.
+$\forall p \in \set{P}, \forall \agent \in \set{A}$, então $ p \in \set{LP}, \neg p \in \set{LP}, \nec{\agent} p \in \set{LM}, \nec{\agent} \neg p \in \set{LM}, \pos{\agent} p \in \set{LM}, \pos{\agent} \neg p \in \set{LM}$
+\end{definition}
+
+\begin{definition}
+$pol \colon \set{LP} \cup \set{LM} \mapsto \{\text{positiva, negativa}\}$. É uma função que define a polaridade de um literal.
+
+$pol(\varphi)=
+\begin{cases}
+\text{positiva},\text{se } \varphi = p \text{ ou } \varphi = \nec{\agent} p \text{ ou } \varphi = \pos{\agent} p \text{ onde } p \in \set{P}, \agent \in \set{A}\\
+\text{negativa},\text{caso contrário}\\
+\end{cases}$
+\end{definition}
+
+% \section{Forma normal}
 \section{Resolução}
+% \subsection{Proposicional}
+
+% \subsection{Modal}
 % citar correcao e completude e terminacao do calculo
 % implementacao do calculo
 % loop principal do algoritmo
 % como funciona
 % quais estrategias eh baseado
 % quais opcoes existentes que sao relevantes pro meu prob(escolha de clausulas e selecao de literais)
+
+\section{Grafo}
+Um grafo é um par um ordenado $(V, E)$, onde $E \subseteq V\times V$, chamamos $V$ o conjunto de vértices e $E$ o conjunto de arestas.
 
 \section{Matroide}
 Seja $X$ um conjunto de objetos e $I \subseteq 2^X$ o conjunto de conjuntos independentes tal que:
