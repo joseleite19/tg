@@ -9,7 +9,7 @@ Seja $P = \{p, q, r, \dots\}$ um conjunto finito de símbolos proposicionais, $\
 
 \begin{itemize}
 \item Se $\varphi \in \set{P}$ então $\varphi \in \set{FBF}$ e $\neg\varphi \in \set{FBF}$
-\item Se $\varphi \in \set{FBF}$, $\psi \in \set{FBF}$ e $\agent \in \Agents$, então $(\varphi \land \psi) \in \set{FBF}$, $(\varphi \lor \psi) \in \set{L}$, $(\varphi \rightarrow \psi) \in \set{FBF}$, $(\varphi \leftrightarrow \psi) \in \set{FBF}$, $\nec{\agent} \varphi \in \set{FBF}$ e $\pos{\agent} \varphi \in \set{FBF}$
+\item Se $\varphi \in \set{FBF}$, $\psi \in \set{FBF}$ e $\agent \in \Agents$, então $(\varphi \land \psi) \in \set{FBF}$, $(\varphi \lor \psi) \in \set{FBF}$, $(\varphi \rightarrow \psi) \in \set{FBF}$, $(\varphi \leftrightarrow \psi) \in \set{FBF}$, $\nec{\agent} \varphi \in \set{FBF}$ e $\pos{\agent} \varphi \in \set{FBF}$
 \end{itemize}
 \end{definition}
 
@@ -43,10 +43,25 @@ $pol \colon \set{LP} \cup \set{LM} \mapsto \{\text{positiva, negativa}\}$. É um
 
 $pol(\varphi)=
 \begin{cases}
-\text{positiva},\text{se } \varphi = p \text{ ou } \varphi = \nec{\agent} p \text{ ou } \varphi = \pos{\agent} p \text{ onde } p \in \set{P}, \agent \in \set{A}\\
+\text{positiva},\text{se } \varphi = p \text{ ou } \varphi = \nec{\agent} p \text{ ou } \varphi = \pos{\agent} p \text{ onde } p \in \set{LP}, \agent \in \set{A}\\
 \text{negativa},\text{caso contrário}\\
 \end{cases}$
 \end{definition}
+
+\begin{definition}
+O nível modal de uma fórmula. $mlevel \colon \set{FBF} \mapsto \mathbb{N}$
+
+$mlevel(\varphi)=
+\begin{cases}
+1 + mlevel(\psi),\text{ se } \varphi = \nec{\agent} \psi \text{ ou } \varphi = \pos{\agent} \psi \text{ onde } \psi \in \set{FBF}, \agent \in \set{A}\\
+mlevel(\psi),\text{ se } \varphi = \neg\psi \text{ onde } \psi \in \set{FBF}\\
+max(mlevel(\psi), mlevel(\phi)),\text{ se } \varphi = \psi \land \phi \text{ onde } \psi, \phi \in \set{FBF}\\
+max(mlevel(\psi), mlevel(\phi)),\text{ se } \varphi = \psi \lor \phi \text{ onde } \psi, \phi \in \set{FBF}\\
+max(mlevel(\psi), mlevel(\phi)),\text{ se } \varphi = \psi \rightarrow \phi \text{ onde } \psi, \phi \in \set{FBF}\\
+max(mlevel(\psi), mlevel(\phi)),\text{ se } \varphi = \psi \leftrightarrow \phi \text{ onde } \psi, \phi \in \set{FBF}\\
+\end{cases}$
+\end{definition}
+
 
 % \section{Forma normal}
 \section{Resolução}
