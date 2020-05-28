@@ -13,6 +13,39 @@ Seja $P = \{p, q, r, \dots\}$ um conjunto finito de símbolos proposicionais, $\
 \end{itemize}
 \end{definition}
 
+\begin{definition}
+$\set{LP}$ é o conjunto de literais proposicionais e $\set{LM}$ é o conjunto de literais modais.
+$\forall p \in \set{P}, \forall \agent \in \set{A}$, então $ p \in \set{LP}, \neg p \in \set{LP}, \nec{\agent} p \in \set{LM}, \nec{\agent} \neg p \in \set{LM}, \pos{\agent} p \in \set{LM}, \pos{\agent} \neg p \in \set{LM}$
+\end{definition}
+
+Seja $\Sigma = \{0, 1\}$, $\Sigma^*$ é o conjunto de todas as cadeias formadas com elementos de $\Sigma$. Em particular, $\epsilon$ representa a cadeia vazia. Construiremos cadeias em $\Sigma^*$ para codificar a posição de ocorrência de uma subfórmula em uma fórmula. Seja $inv \colon \{\text{positiva, negativa}\} \mapsto \{\text{positiva, negativa}\}$ tal que $inv(positiva) = negativa$ e $inv(negativa) = positiva$.
+
+\begin{definition}
+Definimos a polaridade de uma subfórmula pela função $pol \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \{\text{positiva, negativa}\}$.  Para $\varphi, \psi, \chi_1, \chi_2 \in \set{FBF}, s \in \Sigma^*, \agent \in \set{A}$.
+
+\begin{itemize}
+  \item[] $pol(\varphi, \varphi, \epsilon) = positiva$.
+  \item[] Se $\psi = \chi_1 \land \chi_2$ ou $\psi = \chi_1 \lor \chi_2$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \chi_2, s1) = pol(\varphi, \psi, s)$.
+  \item[] Se $\psi = \chi_1 \rightarrow \chi_2$, então $pol(\varphi, \chi_1, s0) = inv(pol(\varphi, \psi, s))$ e $pol(\varphi, \chi_2, s1) = pol(\varphi, \psi, s)$.
+  \item[] Se $\psi = \pos{\agent}\chi_1$ ou $\psi = \nec{\agent}\chi_1$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \psi, s)$.
+  \item[] Se $\psi = \neg\chi_1$, então $pol(\varphi, \chi_1, s0) = inv(pol(\varphi, \psi, s))$.
+\end{itemize}
+
+\end{definition}
+  Dizemos que a polaridade de $\chi_1$ em $\varphi$ na posição $s$ é $pol(\varphi, \chi_1, s)$.
+
+\begin{definition}
+Definimos o nível modal de uma subfórmula pela função $mlevel \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \mathbb{N}$
+
+\begin{itemize}
+  \item[] $mlevel(\varphi, \varphi, \epsilon) = 0$.
+  \item[] Se $\psi = \chi_1 \land \chi_2$ ou $\psi = \chi_1 \lor \chi_2$ ou $\psi = \chi_1 \rightarrow \chi_2$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \chi_2, s1) = mlevel(\varphi, \psi, s)$.
+  \item[] Se $\psi = \pos{\agent}\chi_1$ ou $\psi = \nec{\agent}\chi_1$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \psi, s)+1$.
+  \item[] Se $\psi = \neg\chi_1$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \psi, s)$.
+\end{itemize}
+\end{definition}
+Dizemos que o nível modal de $\chi_1$ em $\varphi$ na posição $s$ é $mlevel(\varphi, \psi, s)$.
+
 
 A semântica para lógica modal proposicional é dada por estruturas de Kripke. Uma estrutura de Kripke $M$ é da forma $M = (\set{W}, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, onde % TODO Cita
 $\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfatível na lógica modal K sob um mundo $\st$ se, e somente se, $M,w \models \varphi$.
@@ -29,46 +62,9 @@ $\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \righ
 
 \end{itemize}
 
-% 1) definir literal e literal modal
-% 2) definir polaridade
-
-\begin{definition}
-$\set{LP}$ é o conjunto de literais proposicionais e $\set{LM}$ é o conjunto de literais modais.
-$\forall p \in \set{P}, \forall \agent \in \set{A}$, então $ p \in \set{LP}, \neg p \in \set{LP}, \nec{\agent} p \in \set{LM}, \nec{\agent} \neg p \in \set{LM}, \pos{\agent} p \in \set{LM}, \pos{\agent} \neg p \in \set{LM}$
-\end{definition}
-
-Seja $\Sigma = \{0, 1\}$, $\Sigma^*$ é o conjunto de todas as cadeias formadas com elementos de $\Sigma$. Em particular, $\epsilon$ representa a cadeia vazia.
-
-\begin{definition}
-
-$pol \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \{\text{positiva, negativa}\}$. E seja $inv \colon \{\text{positiva, negativa}\} \mapsto \{\text{positiva, negativa}\}$ tal que $inv(positiva) = negativa$ e $inv(negativa) = positiva$. Para $\phi \in \set{FBF}, \varphi \in \set{FBF}, \psi \in \set{FBF}, \alpha \in \set{FBF}, s \in \Sigma^*, \agent \in \set{A}$.
-
-\begin{itemize}
-  \item[] $pol(\varphi, \varphi, \epsilon) = positiva$.
-  \item[] Se $\phi = \psi \land \alpha$ ou $\phi = \psi \lor \alpha$, então $pol(\varphi, \psi, s0) = pol(\varphi, \alpha, s1) = pol(\varphi, \phi, s)$.
-  \item[] Se $\phi = \psi \rightarrow \alpha$, então $pol(\varphi, \psi, s0) = inv(pol(\varphi, \phi, s))$ e $pol(\varphi, \alpha, s1) = pol(\varphi, \phi, s)$.
-  \item[] Se $\phi = \pos{\agent}\psi$ ou $\phi = \nec{\agent}\psi$, então $pol(\varphi, \psi, s0) = pol(\varphi, \phi, s)$.
-  \item[] Se $\phi = \neg\psi$, então $pol(\varphi, \psi, s0) = inv(pol(\varphi, \phi, s))$.
-\end{itemize}
-
-\end{definition}
-A cadeia $s$ codifica a ocorrência de uma fórmula $\psi$ em uma fórmula $\varphi$.  Dizemos que a polaridade de $\psi$ em $\varphi$ na posição $s$ é $pol(\varphi, \psi, s)$.
-
-\begin{definition}
-O nível modal de uma fórmula. $mlevel \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \mathbb{N}$
-
-\begin{itemize}
-  \item[] $mlevel(\varphi, \varphi, \epsilon) = 0$.
-  \item[] Se $\phi = \psi \land \alpha$ ou $\phi = \psi \lor \alpha$ ou $\phi = \psi \rightarrow \alpha$, então $mlevel(\varphi, \psi, s0) = mlevel(\varphi, \alpha, s1) = mlevel(\varphi, \phi, s)$.
-\item[] Se $\phi = \pos{\agent}\psi$ ou $\phi = \nec{\agent}\psi$, então $mlevel(\varphi, \psi, s0) = pol(\varphi, \phi, s)+1$.
-  \item[] Se $\phi = \neg\psi$, então $mlevel(\varphi, \psi, s0) = mlevel(\varphi, \phi, s)$.
-\end{itemize}
-\end{definition}
-Similar à definição de polaridade. Dizemos que o nível modal de $\psi$ em $\varphi$ na posição $s$ é $mlevel(\varphi, \psi, s)$.
 
 % \section{Forma normal}
 \section{Resolução}
-% \subsection{Proposicional}
 
 % \subsection{Modal}
 % citar correcao e completude e terminacao do calculo
