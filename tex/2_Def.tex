@@ -1,4 +1,4 @@
-
+	
 Nesta seção apresentamos as definições básicas para o resto do texto.
 
 \section{Linguagem}
@@ -9,7 +9,7 @@ Seja $P = \{p, q, r, \dots\}$ um conjunto finito de símbolos proposicionais, $\
 
 \begin{itemize}
 \item Se $\varphi \in \set{P}$ então $\varphi \in \set{FBF}$ e $\neg\varphi \in \set{FBF}$
-\item Se $\varphi \in \set{FBF}$, $\psi \in \set{FBF}$ e $\agent \in \Agents$, então $(\varphi \land \psi) \in \set{FBF}$, $(\varphi \lor \psi) \in \set{FBF}$, $(\varphi \rightarrow \psi) \in \set{FBF}$, $(\varphi \leftrightarrow \psi) \in \set{FBF}$, $\nec{\agent} \varphi \in \set{FBF}$ e $\pos{\agent} \varphi \in \set{FBF}$
+\item Se $\varphi \in \set{FBF}$, $\psi \in \set{FBF}$ e $\agent \in \Agents$, então $(\varphi \land \psi) \in \set{FBF}$, $(\varphi \lor \psi) \in \set{FBF}$, $(\varphi \rightarrow \psi) \in \set{FBF}$, $\nec{\agent} \varphi \in \set{FBF}$, $\pos{\agent} \varphi \in \set{FBF}$ e $\neg\varphi \in \set{FBF}$.
 \end{itemize}
 \end{definition}
 
@@ -23,7 +23,6 @@ $\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \righ
 \item $M,\st \models (\varphi \land \psi)$, se e somente se $M,\st \models \varphi$ e $M,\st \models \psi $
 \item $M,\st \models (\varphi \lor \psi)$, se e somente se $M,\st \models \varphi$ ou $M,\st \models \psi $
 \item $M,\st \models (\varphi \then \psi)$, se e somente se $M,\st \not\models \varphi$ ou $M,\st \models \psi $
-\item $M,\st \models (\varphi \ifonlyif \psi)$, se e somente se $M,\st \models (\varphi \then \psi)$ e $M,\st \models (\psi \then \varphi)$
 
 \item $M,\st \models \pos{\agent}\varphi$, se e somente se $\exists\st', (\st, \st') \in \set{R}_\agent, M,\st' \models \varphi$
 \item $M,\st \models \nec{\agent}\varphi$, se e somente se $\forall\st', (\st, \st') \in \set{R}_\agent, M,\st' \models \varphi$
@@ -38,30 +37,34 @@ $\set{LP}$ é o conjunto de literais proposicionais e $\set{LM}$ é o conjunto d
 $\forall p \in \set{P}, \forall \agent \in \set{A}$, então $ p \in \set{LP}, \neg p \in \set{LP}, \nec{\agent} p \in \set{LM}, \nec{\agent} \neg p \in \set{LM}, \pos{\agent} p \in \set{LM}, \pos{\agent} \neg p \in \set{LM}$
 \end{definition}
 
-\begin{definition}
-$pol \colon \set{LP} \cup \set{LM} \mapsto \{\text{positiva, negativa}\}$. É uma função que define a polaridade de um literal.
-
-$pol(\varphi)=
-\begin{cases}
-\text{positiva},\text{se } \varphi = p \text{ ou } \varphi = \nec{\agent} p \text{ ou } \varphi = \pos{\agent} p \text{ onde } p \in \set{LP}, \agent \in \set{A}\\
-\text{negativa},\text{caso contrário}\\
-\end{cases}$
-\end{definition}
+Seja $\Sigma = \{0, 1\}$, $\Sigma^*$ é o conjunto de todas as cadeias formadas com elementos de $\Sigma$. Em particular, $\epsilon$ representa a cadeia vazia.
 
 \begin{definition}
-O nível modal de uma fórmula. $mlevel \colon \set{FBF} \mapsto \mathbb{N}$
 
-$mlevel(\varphi)=
-\begin{cases}
-1 + mlevel(\psi),\text{ se } \varphi = \nec{\agent} \psi \text{ ou } \varphi = \pos{\agent} \psi \text{ onde } \psi \in \set{FBF}, \agent \in \set{A}\\
-mlevel(\psi),\text{ se } \varphi = \neg\psi \text{ onde } \psi \in \set{FBF}\\
-max(mlevel(\psi), mlevel(\phi)),\text{ se } \varphi = \psi \land \phi \text{ onde } \psi, \phi \in \set{FBF}\\
-max(mlevel(\psi), mlevel(\phi)),\text{ se } \varphi = \psi \lor \phi \text{ onde } \psi, \phi \in \set{FBF}\\
-max(mlevel(\psi), mlevel(\phi)),\text{ se } \varphi = \psi \rightarrow \phi \text{ onde } \psi, \phi \in \set{FBF}\\
-max(mlevel(\psi), mlevel(\phi)),\text{ se } \varphi = \psi \leftrightarrow \phi \text{ onde } \psi, \phi \in \set{FBF}\\
-\end{cases}$
+$pol \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \{\text{positiva, negativa}\}$. E seja $inv \colon \{\text{positiva, negativa}\} \mapsto \{\text{positiva, negativa}\}$ tal que $inv(positiva) = negativa$ e $inv(negativa) = positiva$. Para $\phi \in \set{FBF}, \varphi \in \set{FBF}, \psi \in \set{FBF}, \alpha \in \set{FBF}, s \in \Sigma^*, \agent \in \set{A}$.
+
+\begin{itemize}
+  \item[] $pol(\varphi, \varphi, \epsilon) = positiva$.
+  \item[] Se $\phi = \psi \land \alpha$ ou $\phi = \psi \lor \alpha$, então $pol(\varphi, \psi, s0) = pol(\varphi, \alpha, s1) = pol(\varphi, \phi, s)$.
+  \item[] Se $\phi = \psi \rightarrow \alpha$, então $pol(\varphi, \psi, s0) = inv(pol(\varphi, \phi, s))$ e $pol(\varphi, \alpha, s1) = pol(\varphi, \phi, s)$.
+  \item[] Se $\phi = \pos{\agent}\psi$ ou $\phi = \nec{\agent}\psi$, então $pol(\varphi, \psi, s0) = pol(\varphi, \phi, s)$.
+  \item[] Se $\phi = \neg\psi$, então $pol(\varphi, \psi, s0) = inv(pol(\varphi, \phi, s))$.
+\end{itemize}
+
 \end{definition}
+A cadeia $s$ codifica a ocorrência de uma fórmula $\psi$ em uma fórmula $\varphi$.  Dizemos que a polaridade de $\psi$ em $\varphi$ na posição $s$ é $pol(\varphi, \psi, s)$.
 
+\begin{definition}
+O nível modal de uma fórmula. $mlevel \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \mathbb{N}$
+
+\begin{itemize}
+  \item[] $mlevel(\varphi, \varphi, \epsilon) = 0$.
+  \item[] Se $\phi = \psi \land \alpha$ ou $\phi = \psi \lor \alpha$ ou $\phi = \psi \rightarrow \alpha$, então $mlevel(\varphi, \psi, s0) = mlevel(\varphi, \alpha, s1) = mlevel(\varphi, \phi, s)$.
+\item[] Se $\phi = \pos{\agent}\psi$ ou $\phi = \nec{\agent}\psi$, então $mlevel(\varphi, \psi, s0) = pol(\varphi, \phi, s)+1$.
+  \item[] Se $\phi = \neg\psi$, então $mlevel(\varphi, \psi, s0) = mlevel(\varphi, \phi, s)$.
+\end{itemize}
+\end{definition}
+Similar à definição de polaridade. Dizemos que o nível modal de $\psi$ em $\varphi$ na posição $s$ é $mlevel(\varphi, \psi, s)$.
 
 % \section{Forma normal}
 \section{Resolução}
