@@ -24,11 +24,11 @@ Seja $\Sigma = \{0, 1\}$, $\Sigma^*$ é o conjunto de todas as cadeias formadas 
 Definimos a polaridade de uma subfórmula pela função $pol \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \{\text{positiva, negativa}\}$.  Para $\varphi, \psi, \chi_1, \chi_2 \in \set{FBF}, s \in \Sigma^*, \agent \in \set{A}$.
 
 \begin{itemize}
-  \item[] $pol(\varphi, \varphi, \epsilon) = positiva$.
-  \item[] Se $\psi = \chi_1 \land \chi_2$ ou $\psi = \chi_1 \lor \chi_2$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \chi_2, s1) = pol(\varphi, \psi, s)$.
-  \item[] Se $\psi = \chi_1 \rightarrow \chi_2$, então $pol(\varphi, \chi_1, s0) = inv(pol(\varphi, \psi, s))$ e $pol(\varphi, \chi_2, s1) = pol(\varphi, \psi, s)$.
-  \item[] Se $\psi = \pos{\agent}\chi_1$ ou $\psi = \nec{\agent}\chi_1$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \psi, s)$.
-  \item[] Se $\psi = \neg\chi_1$, então $pol(\varphi, \chi_1, s0) = inv(pol(\varphi, \psi, s))$.
+\item[] $pol(\varphi, \varphi, \epsilon) = positiva$.
+  \item Se $\psi = \chi_1 \land \chi_2$ ou $\psi = \chi_1 \lor \chi_2$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \chi_2, s1) = pol(\varphi, \psi, s)$.
+  \item Se $\psi = \chi_1 \rightarrow \chi_2$, então $pol(\varphi, \chi_1, s0) = inv(pol(\varphi, \psi, s))$ e $pol(\varphi, \chi_2, s1) = pol(\varphi, \psi, s)$.
+  \item Se $\psi = \pos{\agent}\chi_1$ ou $\psi = \nec{\agent}\chi_1$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \psi, s)$.
+  \item Se $\psi = \neg\chi_1$, então $pol(\varphi, \chi_1, s0) = inv(pol(\varphi, \psi, s))$.
 \end{itemize}
 
 \end{definition}
@@ -38,10 +38,10 @@ Definimos a polaridade de uma subfórmula pela função $pol \colon \set{FBF} \t
 Definimos o nível modal de uma subfórmula pela função $mlevel \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \mathbb{N}$
 
 \begin{itemize}
-  \item[] $mlevel(\varphi, \varphi, \epsilon) = 0$.
-  \item[] Se $\psi = \chi_1 \land \chi_2$ ou $\psi = \chi_1 \lor \chi_2$ ou $\psi = \chi_1 \rightarrow \chi_2$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \chi_2, s1) = mlevel(\varphi, \psi, s)$.
-  \item[] Se $\psi = \pos{\agent}\chi_1$ ou $\psi = \nec{\agent}\chi_1$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \psi, s)+1$.
-  \item[] Se $\psi = \neg\chi_1$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \psi, s)$.
+  \item $mlevel(\varphi, \varphi, \epsilon) = 0$.
+  \item Se $\psi = \chi_1 \land \chi_2$ ou $\psi = \chi_1 \lor \chi_2$ ou $\psi = \chi_1 \rightarrow \chi_2$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \chi_2, s1) = mlevel(\varphi, \psi, s)$.
+  \item Se $\psi = \pos{\agent}\chi_1$ ou $\psi = \nec{\agent}\chi_1$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \psi, s)+1$.
+  \item Se $\psi = \neg\chi_1$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \psi, s)$.
 \end{itemize}
 \end{definition}
 Dizemos que o nível modal de $\chi_1$ em $\varphi$ na posição $s$ é $mlevel(\varphi, \psi, s)$.
