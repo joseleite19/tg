@@ -1,4 +1,4 @@
-	
+
 Nesta seção apresentamos as definições básicas para o resto do texto.
 
 \section{Linguagem}
@@ -18,34 +18,37 @@ $\set{LP}$ é o conjunto de literais proposicionais e $\set{LM}$ é o conjunto d
 $\forall p \in \set{P}, \forall \agent \in \set{A}$, então $ p \in \set{LP}, \neg p \in \set{LP}, \nec{\agent} p \in \set{LM}, \nec{\agent} \neg p \in \set{LM}, \pos{\agent} p \in \set{LM}, \pos{\agent} \neg p \in \set{LM}$
 \end{definition}
 
-Seja $\Sigma = \{0, 1\}$, $\Sigma^*$ é o conjunto de todas as cadeias formadas com elementos de $\Sigma$. Em particular, $\epsilon$ representa a cadeia vazia. Construiremos cadeias em $\Sigma^*$ para codificar a posição de ocorrência de uma subfórmula em uma fórmula. Seja $inv \colon \{\text{positiva, negativa}\} \mapsto \{\text{positiva, negativa}\}$ tal que $inv(positiva) = negativa$ e $inv(negativa) = positiva$.
+Seja $\Sigma = \{0, 1\}$, $\Sigma^*$ é o conjunto de todas as cadeias formadas com elementos de $\Sigma$. Em particular, $\epsilon$ representa a cadeia vazia. Construiremos cadeias em $\Sigma^*$ para codificar a posição de ocorrência de uma subfórmula em uma fórmula. Seja $inv \colon \{\text{positiva, negativa}\} \mapsto \{\text{positiva, negativa}\}$ tal que $inv(\text{positiva}) = \text{negativa}$ e $inv(\text{negativa}) = \text{positiva}$.
 
 \begin{definition}
-Definimos a polaridade de uma subfórmula pela função $pol \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \{\text{positiva, negativa}\}$.  Para $\varphi, \psi, \chi_1, \chi_2 \in \set{FBF}, s \in \Sigma^*, \agent \in \set{A}$.
+Definimos a polaridade de uma subfórmula pela função $pol \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \{\text{positiva, negativa}\}$.  Para $\varphi, \chi_1, \chi_2 \in \set{FBF}, s \in \Sigma^*, \agent \in \set{A}, val \in \{\text{positiva, negativa}\}$.
 
 \begin{itemize}
-\item[] $pol(\varphi, \varphi, \epsilon) = positiva$.
-  \item Se $\psi = \chi_1 \land \chi_2$ ou $\psi = \chi_1 \lor \chi_2$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \chi_2, s1) = pol(\varphi, \psi, s)$.
-  \item Se $\psi = \chi_1 \rightarrow \chi_2$, então $pol(\varphi, \chi_1, s0) = inv(pol(\varphi, \psi, s))$ e $pol(\varphi, \chi_2, s1) = pol(\varphi, \psi, s)$.
-  \item Se $\psi = \pos{\agent}\chi_1$ ou $\psi = \nec{\agent}\chi_1$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \psi, s)$.
-  \item Se $\psi = \neg\chi_1$, então $pol(\varphi, \chi_1, s0) = inv(pol(\varphi, \psi, s))$.
+  \item $pol(\varphi, \varphi, \epsilon) = \text{positiva}$.
+  \item Se $pol(\varphi, \chi_1 \lor \chi_2, s) = val$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \chi_2, s1) = val$
+  \item Se $pol(\varphi, \chi_1 \land \chi_2, s) = val$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \chi_2, s1) = val$
+  \item Se $pol(\varphi, \chi_1 \rightarrow \chi_2, s) = val$, então $pol(\varphi, \chi_1, s0) = inv(val)$ e $pol(\varphi, \chi_2, s1) = val$
+  \item Se $pol(\varphi, \pos{\agent}\chi_1, s) = val$, então $pol(\varphi, \chi_1, s0) = val$
+  \item Se $pol(\varphi, \nec{\agent}\chi_1, s) = val$, então $pol(\varphi, \chi_1, s0) = val$
+  \item Se $pol(\varphi, \neg\chi_1, s) = val$, então $pol(\varphi, \chi_1, s0) = inv(val)$
 \end{itemize}
 
 \end{definition}
   Dizemos que a polaridade de $\chi_1$ em $\varphi$ na posição $s$ é $pol(\varphi, \chi_1, s)$.
 
 \begin{definition}
-Definimos o nível modal de uma subfórmula pela função $mlevel \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \mathbb{N}$
+Definimos o nível modal de uma subfórmula pela função $mlevel \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \mathbb{N}$. Para $\varphi, \chi_1, \chi_2 \in \set{FBF}, s \in \Sigma^*, \agent \in \set{A}, val \in \mathbb{N}$.
 
 \begin{itemize}
-  \item $mlevel(\varphi, \varphi, \epsilon) = 0$.
-  \item Se $\psi = \chi_1 \land \chi_2$ ou $\psi = \chi_1 \lor \chi_2$ ou $\psi = \chi_1 \rightarrow \chi_2$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \chi_2, s1) = mlevel(\varphi, \psi, s)$.
-  \item Se $\psi = \pos{\agent}\chi_1$ ou $\psi = \nec{\agent}\chi_1$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \psi, s)+1$.
-  \item Se $\psi = \neg\chi_1$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \psi, s)$.
+	\item $mlevel(\varphi, \varphi, \epsilon) = 0$.
+	\item Se $mlevel(\varphi, \chi_1 \lor \chi_2, s) = val$ ou $mlevel(\varphi, \chi_1 \land \chi_2, s) = val$ ou $mlevel(\varphi, \chi_1 \rightarrow \chi_2, s) = val$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \chi_2, s1) = val$
+	\item Se $mlevel(\varphi, \pos{\agent}\chi_1, s) = val$ ou $mlevel(\varphi, \nec{\agent}\chi_1, s) = val$, então $pol(\varphi, \chi_1, s0) = val+1$
+	\item Se $mlevel(\varphi, \neg\chi_1, s) = val$, então $mlevel(\varphi, \chi_1, s0) = val$
 \end{itemize}
 \end{definition}
-Dizemos que o nível modal de $\chi_1$ em $\varphi$ na posição $s$ é $mlevel(\varphi, \psi, s)$.
 
+
+Dizemos que o nível modal de $\chi_1$ em $\varphi$ na posição $s$ é $mlevel(\varphi, \psi, s)$.
 
 A semântica para lógica modal proposicional é dada por estruturas de Kripke. Uma estrutura de Kripke $M$ é da forma $M = (\set{W}, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, onde % TODO Cita
 $\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfatível na lógica modal K sob um mundo $\st$ se, e somente se, $M,w \models \varphi$.
@@ -61,7 +64,8 @@ $\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \righ
 \item $M,\st \models \nec{\agent}\varphi$, se e somente se $\forall\st', (\st, \st') \in \set{R}_\agent, M,\st' \models \varphi$
 
 \end{itemize}
-
+% satisfatibilidade global, local(sem e com restricoes globais)
+% insatisfatibilidade
 
 % \section{Forma normal}
 \section{Resolução}
