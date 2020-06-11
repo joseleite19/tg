@@ -51,7 +51,7 @@ Definimos o nível modal de uma subfórmula pela função $mlevel \colon \set{FB
 Dizemos que o nível modal de $\chi_1$ em $\varphi$ na posição $s$ é $mlevel(\varphi, \psi, s)$.
 
 A semântica para lógica modal proposicional é dada por estruturas de Kripke. Uma estrutura de Kripke $M$ é da forma $M = (\set{W}, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, onde % TODO Cita
-$\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfatível na lógica modal K sob um mundo $\st$ se, e somente se, $M,w \models \varphi$.
+$\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfatível na lógica modal K sob o modelo $M$ no mundo $\st$ se, e somente se, $M,w \models \varphi$.
 
 \begin{itemize}
 \item $M,\st \models \varphi$, se e somente se $\varphi \in \set{P}$ e $\pi(\st, \varphi) = \ctrue$
@@ -64,10 +64,17 @@ $\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \righ
 \item $M,\st \models \nec{\agent}\varphi$, se e somente se $\forall\st', (\st, \st') \in \set{R}_\agent, M,\st' \models \varphi$
 
 \end{itemize}
-% satisfatibilidade global, local(sem e com restricoes globais)
-% insatisfatibilidade
 
-% \section{Forma normal}
+Uma fórmula $\varphi$ é localmente satisfeita se existe um modelo $M$ e um mundo $\st$ tal que $M,\st \models \varphi$. Uma formula $\varphi$ é globalmente satisfeita se existe um modelo $M$ tal que para todo $\st \in \set{W}$ temos que $M,\st \models \varphi$. Uma formula $\varphi$ é insatisfeita caso não seja localmente satisfeita e nem globalmente satisfeita.
+
+% satisfatibilidade local(sem e com restricoes globais)
+
+\begin{definition}
+Uma fórmula está na forma normal negada caso seja formada somente por simbolos proposicionais, $\neg$, $\land$, $\lor$, $\nec{\agent}$ e $\pos{\agent}$ para $\agent \in \set{A}$, e a negação só é aplicada a simbolos proposicionais.
+\end{definition}
+
+\section{Forma Normal em Camadas}
+
 \section{Resolução}
 
 % \subsection{Modal}
