@@ -5,75 +5,103 @@ Nesta seção apresentamos as definições básicas para o resto do texto.
 Trabalharemos com a linguagem lógica modal K.
 
 \begin{definition}
-Seja $P = \{p, q, r, \dots\}$ um conjunto finito de símbolos proposicionais, $\Agents = \{1, 2, 3, \dots, n\}, n \in \mathbb{N}$. Definimos o conjunto de fórmulas $\mathcal{FBF}$ indutivamente.
-
-\begin{itemize}
-\item Se $\varphi \in \set{P}$ então $\varphi \in \set{FBF}$ e $\neg\varphi \in \set{FBF}$
-\item Se $\varphi \in \set{FBF}$, $\psi \in \set{FBF}$ e $\agent \in \Agents$, então $(\varphi \land \psi) \in \set{FBF}$, $(\varphi \lor \psi) \in \set{FBF}$, $(\varphi \rightarrow \psi) \in \set{FBF}$, $\nec{\agent} \varphi \in \set{FBF}$, $\pos{\agent} \varphi \in \set{FBF}$ e $\neg\varphi \in \set{FBF}$.
-\end{itemize}
+	Seja $P = \{p, q, r, \dots\}$ um conjunto finito de símbolos proposicionais, $\Agents = \{1, 2, 3, \dots, n\}, n \in \mathbb{N}$. Definimos o conjunto de fórmulas $\mathcal{FBF}$ indutivamente.
+	
+	\begin{itemize}
+		\item Se $\varphi \in \set{P}$ então $\varphi \in \set{FBF}$ e $\neg\varphi \in \set{FBF}$
+		\item Se $\varphi \in \set{FBF}$, $\psi \in \set{FBF}$ e $\agent \in \Agents$, então $(\varphi \land \psi) \in \set{FBF}$, $(\varphi \lor \psi) \in \set{FBF}$, $(\varphi \rightarrow \psi) \in \set{FBF}$, $\nec{\agent} \varphi \in \set{FBF}$, $\pos{\agent} \varphi \in \set{FBF}$ e $\neg\varphi \in \set{FBF}$.
+	\end{itemize}
 \end{definition}
 
 \begin{definition}
-$\set{LP}$ é o conjunto de literais proposicionais e $\set{LM}$ é o conjunto de literais modais.
-$\forall p \in \set{P}, \forall \agent \in \set{A}$, então $ p \in \set{LP}, \neg p \in \set{LP}, \nec{\agent} p \in \set{LM}, \nec{\agent} \neg p \in \set{LM}, \pos{\agent} p \in \set{LM}, \pos{\agent} \neg p \in \set{LM}$
+	$\set{LP}$ é o conjunto de literais proposicionais e $\set{LM}$ é o conjunto de literais modais.
+	$\forall p \in \set{P}, \forall \agent \in \set{A}$, então $ p \in \set{LP}, \neg p \in \set{LP}, \nec{\agent} p \in \set{LM}, \nec{\agent} \neg p \in \set{LM}, \pos{\agent} p \in \set{LM}, \pos{\agent} \neg p \in \set{LM}$
+\end{definition}
+
+\begin{definition}
+	Uma cláusula proposicional é uma disjunção de literais proposicionais.
 \end{definition}
 
 Seja $\Sigma = \{0, 1\}$, $\Sigma^*$ é o conjunto de todas as cadeias formadas com elementos de $\Sigma$. Em particular, $\epsilon$ representa a cadeia vazia. Construiremos cadeias em $\Sigma^*$ para codificar a posição de ocorrência de uma subfórmula em uma fórmula. Seja $inv \colon \{\text{positiva, negativa}\} \mapsto \{\text{positiva, negativa}\}$ tal que $inv(\text{positiva}) = \text{negativa}$ e $inv(\text{negativa}) = \text{positiva}$.
 
 \begin{definition}
-Definimos a polaridade de uma subfórmula pela função $pol \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \{\text{positiva, negativa}\}$.  Para $\varphi, \chi_1, \chi_2 \in \set{FBF}, s \in \Sigma^*, \agent \in \set{A}, val \in \{\text{positiva, negativa}\}$.
-
-\begin{itemize}
-  \item $pol(\varphi, \varphi, \epsilon) = \text{positiva}$.
-  \item Se $pol(\varphi, \chi_1 \lor \chi_2, s) = val$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \chi_2, s1) = val$
-  \item Se $pol(\varphi, \chi_1 \land \chi_2, s) = val$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \chi_2, s1) = val$
-  \item Se $pol(\varphi, \chi_1 \rightarrow \chi_2, s) = val$, então $pol(\varphi, \chi_1, s0) = inv(val)$ e $pol(\varphi, \chi_2, s1) = val$
-  \item Se $pol(\varphi, \pos{\agent}\chi_1, s) = val$, então $pol(\varphi, \chi_1, s0) = val$
-  \item Se $pol(\varphi, \nec{\agent}\chi_1, s) = val$, então $pol(\varphi, \chi_1, s0) = val$
-  \item Se $pol(\varphi, \neg\chi_1, s) = val$, então $pol(\varphi, \chi_1, s0) = inv(val)$
-\end{itemize}
-
+	Definimos a polaridade de uma subfórmula pela função $pol \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \{\text{positiva, negativa}\}$.  Para $\varphi, \chi_1, \chi_2 \in \set{FBF}, s \in \Sigma^*, \agent \in \set{A}, val \in \{\text{positiva, negativa}\}$.
+	
+	\begin{itemize}
+		\item $pol(\varphi, \varphi, \epsilon) = \text{positiva}$.
+		\item Se $pol(\varphi, \chi_1 \lor \chi_2, s) = val$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \chi_2, s1) = val$
+		\item Se $pol(\varphi, \chi_1 \land \chi_2, s) = val$, então $pol(\varphi, \chi_1, s0) = pol(\varphi, \chi_2, s1) = val$
+		\item Se $pol(\varphi, \chi_1 \rightarrow \chi_2, s) = val$, então $pol(\varphi, \chi_1, s0) = inv(val)$ e $pol(\varphi, \chi_2, s1) = val$
+		\item Se $pol(\varphi, \pos{\agent}\chi_1, s) = val$, então $pol(\varphi, \chi_1, s0) = val$
+		\item Se $pol(\varphi, \nec{\agent}\chi_1, s) = val$, então $pol(\varphi, \chi_1, s0) = val$
+		\item Se $pol(\varphi, \neg\chi_1, s) = val$, então $pol(\varphi, \chi_1, s0) = inv(val)$
+	\end{itemize}
+	
 \end{definition}
-  Dizemos que a polaridade de $\chi_1$ em $\varphi$ na posição $s$ é $pol(\varphi, \chi_1, s)$.
+Dizemos que a polaridade de $\chi_1$ em $\varphi$ na posição $s$ é $pol(\varphi, \chi_1, s)$.
 
 \begin{definition}
-Definimos o nível modal de uma subfórmula pela função $mlevel \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \mathbb{N}$. Para $\varphi, \chi_1, \chi_2 \in \set{FBF}, s \in \Sigma^*, \agent \in \set{A}, val \in \mathbb{N}$.
-
-\begin{itemize}
-	\item $mlevel(\varphi, \varphi, \epsilon) = 0$.
-	\item Se $mlevel(\varphi, \chi_1 \lor \chi_2, s) = val$ ou $mlevel(\varphi, \chi_1 \land \chi_2, s) = val$ ou $mlevel(\varphi, \chi_1 \rightarrow \chi_2, s) = val$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \chi_2, s1) = val$
-	\item Se $mlevel(\varphi, \pos{\agent}\chi_1, s) = val$ ou $mlevel(\varphi, \nec{\agent}\chi_1, s) = val$, então $pol(\varphi, \chi_1, s0) = val+1$
-	\item Se $mlevel(\varphi, \neg\chi_1, s) = val$, então $mlevel(\varphi, \chi_1, s0) = val$
-\end{itemize}
+	Definimos o nível modal de uma subfórmula pela função $mlevel \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \mathbb{N}$. Para $\varphi, \chi_1, \chi_2 \in \set{FBF}, s \in \Sigma^*, \agent \in \set{A}, val \in \mathbb{N}$.
+	
+	\begin{itemize}
+		\item $mlevel(\varphi, \varphi, \epsilon) = 0$.
+		\item Se $mlevel(\varphi, \chi_1 \lor \chi_2, s) = val$ ou $mlevel(\varphi, \chi_1 \land \chi_2, s) = val$ ou $mlevel(\varphi, \chi_1 \rightarrow \chi_2, s) = val$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \chi_2, s1) = val$
+		\item Se $mlevel(\varphi, \pos{\agent}\chi_1, s) = val$ ou $mlevel(\varphi, \nec{\agent}\chi_1, s) = val$, então $pol(\varphi, \chi_1, s0) = val+1$
+		\item Se $mlevel(\varphi, \neg\chi_1, s) = val$, então $mlevel(\varphi, \chi_1, s0) = val$
+	\end{itemize}
 \end{definition}
 
 
 Dizemos que o nível modal de $\chi_1$ em $\varphi$ na posição $s$ é $mlevel(\varphi, \psi, s)$.
 
 A semântica para lógica modal proposicional é dada por estruturas de Kripke. Uma estrutura de Kripke $M$ é da forma $M = (\set{W}, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, onde % TODO Cita
-$\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfatível na lógica modal K sob o modelo $M$ no mundo $\st$ se, e somente se, $M,w \models \varphi$.
+$\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfatível na lógica modal K sob o modelo $M$ no mundo $\st$ se, e somente se, $\langle M,w \rangle \models \varphi$.
 
 \begin{itemize}
-\item $M,\st \models \varphi$, se e somente se $\varphi \in \set{P}$ e $\pi(\st, \varphi) = \ctrue$
-\item $M,\st \models \neg\varphi$, se e somente se $M,\st \not\models \varphi$
-\item $M,\st \models (\varphi \land \psi)$, se e somente se $M,\st \models \varphi$ e $M,\st \models \psi $
-\item $M,\st \models (\varphi \lor \psi)$, se e somente se $M,\st \models \varphi$ ou $M,\st \models \psi $
-\item $M,\st \models (\varphi \then \psi)$, se e somente se $M,\st \not\models \varphi$ ou $M,\st \models \psi $
-
-\item $M,\st \models \pos{\agent}\varphi$, se e somente se $\exists\st', (\st, \st') \in \set{R}_\agent, M,\st' \models \varphi$
-\item $M,\st \models \nec{\agent}\varphi$, se e somente se $\forall\st', (\st, \st') \in \set{R}_\agent, M,\st' \models \varphi$
-
+	\item $\langle M,\st \rangle \models \varphi$, se e somente se $\varphi \in \set{P}$ e $\pi(\st, \varphi) = \ctrue$
+	\item $\langle M,\st \rangle \models \neg\varphi$, se e somente se $\langle M,\st \rangle \not\models \varphi$
+	\item $\langle M,\st \rangle \models (\varphi \land \psi)$, se e somente se $\langle M,\st \rangle \models \varphi$ e $\langle M,\st \rangle \models \psi $
+	\item $\langle M,\st \rangle \models (\varphi \lor \psi)$, se e somente se $\langle M,\st \rangle \models \varphi$ ou $\langle M,\st \rangle \models \psi $
+	\item $\langle M,\st \rangle \models (\varphi \then \psi)$, se e somente se $\langle M,\st \rangle \not\models \varphi$ ou $\langle M,\st \rangle \models \psi $
+	
+	\item $\langle M,\st \rangle \models \pos{\agent}\varphi$, se e somente se $\exists\st', (\st, \st') \in \set{R}_\agent, \langle M,\st \rangle' \models \varphi$
+	\item $\langle M,\st \rangle \models \nec{\agent}\varphi$, se e somente se $\forall\st', (\st, \st') \in \set{R}_\agent, \langle M,\st \rangle' \models \varphi$
+	
 \end{itemize}
 
-Uma fórmula $\varphi$ é localmente satisfeita se existe um modelo $M$ e um mundo $\st$ tal que $M,\st \models \varphi$. Uma formula $\varphi$ é globalmente satisfeita se existe um modelo $M$ tal que para todo $\st \in \set{W}$ temos que $M,\st \models \varphi$. Uma formula $\varphi$ é insatisfeita caso não seja localmente satisfeita e nem globalmente satisfeita.
+Uma fórmula $\varphi$ é localmente satisfatível se existe um modelo $M$ e um mundo $\st$ tal que $\langle M,\st \rangle \models \varphi$. Uma formula $\varphi$ é globalmente satisfatível se existe um modelo $M$ tal que para todo $\st \in \set{W}$ temos que $\langle M,\st \rangle \models \varphi$.
+
+Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatibilidade local com a extensão pelo operador universal $\nec{*}$. Seja $M = (\set{W}, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, $\langle M,\st \rangle \models \nec{*}\varphi$ se, e somente se, para todo $\st' \in \set{W}$, $\langle M,\st \rangle \models \varphi$.
 
 % satisfatibilidade local(sem e com restricoes globais)
 
 \begin{definition}
-Uma fórmula está na forma normal negada caso seja formada somente por simbolos proposicionais, $\neg$, $\land$, $\lor$, $\nec{\agent}$ e $\pos{\agent}$ para $\agent \in \set{A}$, e a negação só é aplicada a simbolos proposicionais.
+	Uma fórmula está na forma normal negada caso seja formada somente por simbolos proposicionais, $\neg$, $\land$, $\lor$, $\nec{\agent}$ e $\pos{\agent}$ para $\agent \in \set{A}$, e a negação só é aplicada a simbolos proposicionais.
 \end{definition}
 
+É importante ressaltar $\varphi \in \set{FBF}$ que não está na forma normal negada pode ser reescrita em $\psi \in \set{FBF}$ na forma normal negada com sua satisfatibilidade preservada. Isto é, para todo $\langle M, w \rangle$, $\langle M, w \rangle \models \varphi$ se, e somente se, $\langle M, w \rangle \models \psi$ \cite{alguemqueprovaisso}. % TODO
+
 \section{Forma Normal em Camadas}
+O provador utiliza uma outra linguagem chamada de Forma Normal Separada em Níveis Modais($SNF$).
+
+\begin{definition}
+	Uma fórmula em $SNF$ é uma conjunção de cláusulas. Para $ml \in \mathbf{N} \cup \{*\}$ e $l_1, l_2 \in \set{LP}$. Cada cláusula está em um dos três formatos:
+	\begin{itemize}
+		\item $ml: c$, onde $c$ é uma cláusula proposicional
+		\item $ml: l_1 \rightarrow \nec{a}l_2$
+		\item $ml: l_1 \rightarrow \pos{a}l_2$
+	\end{itemize}
+\end{definition}
+
+A satisfatibilidade de $SNF$ é definida pela satisfatibilidade de $K$. Sejam $ml: \varphi$ e $ml: \psi$ cláusulas $SNF$ e $M$ um modelo na lógica $K$.
+
+\begin{itemize}
+	\item $M \models *: \varphi$ se, e somente se, $M \models \nec{*}\varphi$.
+	\item $M \models (ml: \varphi) \land (ml: \psi)$ se, e somente se, $M \models ml: \varphi$ e $M \models ml: \psi$.
+	\item $M \models ml: \varphi$ se, e somente se, para todo $\st$ tal que $depth(\st) = ml$, temos $\langle M, \st \rangle \models ml: \varphi$.
+\end{itemize}
+
+\cite{nalontocl} descreve uma função de tradução de $K$ para $SNF$ bem como prova que a tradução de uma fórmula mantém sua satisfatibilidade.
 
 \section{Resolução}
 
@@ -91,9 +119,9 @@ Um grafo é um par um ordenado $(V, E)$, onde $E \subseteq V\times V$, chamamos 
 \section{Matroide}
 Seja $X$ um conjunto de objetos e $I \subseteq 2^X$ o conjunto de conjuntos independentes tal que:
 \begin{enumerate}
-\item $\emptyset \in I$
-\item $A \in I, B \subseteq A \implies B \in I$
-\item Axioma do troco, $A \in I, B \in I, |B| > |A| \implies \exists x \in B \setminus A : A \cup \{x\} \in I$
-\item Se $A \subseteq X$ e $I$ e $I'$ são conjuntos independentes maximais de A então $|I| = |I'|$
+	\item $\emptyset \in I$
+	\item $A \in I, B \subseteq A \implies B \in I$
+	\item Axioma do troco, $A \in I, B \in I, |B| > |A| \implies \exists x \in B \setminus A : A \cup \{x\} \in I$
+	\item Se $A \subseteq X$ e $I$ e $I'$ são conjuntos independentes maximais de A então $|I| = |I'|$
 \end{enumerate}
 Então $(X, I)$ é um matroide. O problema combinatório associado a ele é: Dada um função de peso $w(e) \geq 0 ~\forall e \in X$, encontre um subconjunto independente com maior soma de pesos possível.
