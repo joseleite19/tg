@@ -104,13 +104,13 @@ A satisfatibilidade de $SNF_{ml}$ é definida pela satisfatibilidade de $K$. Sej
 \cite{nalontocl} descreve uma função de tradução de $K$ para $SNF_{ml}$ bem como prova que a tradução de uma fórmula mantém sua satisfatibilidade.
 
 \section{Regras de inferência}
-\cite{nalontocl} introduziu o cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$. Para lidar com $*$ as regras de inferência são simplificadas com o uso de uma função parcial de unificação $\sigma \colon P(\mathbf{N} \cup \{*\}) \mapsto \mathbf{N} \cup \{*\}$, tal que $\sigma(\{ml, *\}) = ml$, $\sigma(\{ml\}) = ml$. As regras de inferência de $REM_{ml}$ são apresentadas na Figura~\ref{figura:regrasinf}, onde $*-1=*$ e $m$ pode ser 0. Essas regras só valem se o resultado da unificação for definido. \cite{nalontocl} prova correção e corretude de todas as regras.
+\cite{nalontocl} introduziu o cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$. Para lidar com $*$ as regras de inferência são simplificadas com o uso de uma função parcial de unificação $\sigma \colon P(\mathbf{N} \cup \{*\}) \mapsto \mathbf{N} \cup \{*\}$, tal que $\sigma(\{ml, *\}) = ml$, $\sigma(\{ml\}) = ml$ e indefinida caso contrário. As regras de inferência de $REM_{ml}$ são apresentadas na Figura~\ref{figura:regrasinf}, onde $*-1=*$ e $m$ pode ser 0. Essas regras só valem se o resultado da unificação for definido. \cite{nalontocl} prova correção e corretude de todas as regras.
 
 \begin{figure*}[t]
 	\[
 	\begin{array}{c}
 	\begin{array}{ccc}
-
+	
 	\begin{array}{c}
 	ml: (D \lor l) \\
 	ml': (D' \lor \neg l) \\
@@ -118,32 +118,32 @@ A satisfatibilidade de $SNF_{ml}$ é definida pela satisfatibilidade de $K$. Sej
 	\sigma(\{ml, ml'\}): D \lor D' \\
 	\end{array}
 	&
-
+	
 	\begin{array}{c}
-	ml: (l_1 \rightarrow \nec{\st} l) \\
-	ml': (l_2 \rightarrow \pos{\st} \neg l) \\
+	ml: (l_1 \rightarrow \nec{\agent} l) \\
+	ml': (l_2 \rightarrow \pos{\agent} \neg l) \\
 	\hline
 	\sigma(\{ml, ml'\}): \neg l_1 \lor \neg l_2 \\
 	\end{array}
 	&
-
+	
 	\begin{array}{c}
-	ml_1: (l_1' \rightarrow \nec{\st} l_1) \\
-	ml_2: (l_2' \rightarrow \nec{\st} \neg l_1) \\
-	ml_3: (l_3' \rightarrow \pos{\st} l_2) \\
+	ml_1: (l_1' \rightarrow \nec{\agent} l_1) \\
+	ml_2: (l_2' \rightarrow \nec{\agent} \neg l_1) \\
+	ml_3: (l_3' \rightarrow \pos{\agent} l_2) \\
 	\hline
 	\sigma(\{ml_1, ml_2, ml_3\}): \neg l_1' \lor \neg l_2' \lor \neg l_3' \\
 	\end{array}
 	
 	
 	\\ \end{array} \\
-
+	
 	\begin{array}{cc}
 	\begin{array}{c}
-	ml_1: (l_1' \rightarrow \nec{\st} l_1) \\
+	ml_1: (l_1' \rightarrow \nec{\agent} l_1) \\
 	\vdots \\
-	ml_m: (l_m' \rightarrow \nec{\st} \neg l_m) \\
-	ml_{m+1}: (l' \rightarrow \pos{\st} \neg l) \\
+	ml_m: (l_m' \rightarrow \nec{\agent} \neg l_m) \\
+	ml_{m+1}: (l' \rightarrow \pos{\agent} \neg l) \\
 	ml_{m+2}: (l_1 \lor \ldots \lor \ldots \lor l_m \lor l) \\
 	\hline
 	ml: \neg l_1' \lor \ldots \lor \neg l_m' \lor \neg l' \\
@@ -151,10 +151,10 @@ A satisfatibilidade de $SNF_{ml}$ é definida pela satisfatibilidade de $K$. Sej
 	\end{array}
 	&
 	\begin{array}{c}
-	ml_1: (l_1' \rightarrow \nec{\st} l_1) \\
+	ml_1: (l_1' \rightarrow \nec{\agent} l_1) \\
 	\vdots \\
-	ml_m: (l_m' \rightarrow \nec{\st} \neg l_m) \\
-	ml_{m+1}: (l' \rightarrow \pos{\st} l) \\
+	ml_m: (l_m' \rightarrow \nec{\agent} \neg l_m) \\
+	ml_{m+1}: (l' \rightarrow \pos{\agent} l) \\
 	ml_{m+2}: (l_1 \lor \ldots \lor \ldots \lor l_m) \\
 	\hline
 	ml: \neg l_1' \lor \ldots \lor \neg l_m' \lor \neg l' \\
@@ -171,7 +171,7 @@ A satisfatibilidade de $SNF_{ml}$ é definida pela satisfatibilidade de $K$. Sej
 \section{Algoritmo}
 
 \subsection{Seleção de cláusula}
-A ordem nas quais as cláusulas são escolhidas para aplicação de regras de inferência podem mudar drásticamente o tamanho da prova. %TODO exemplo pequeno e "grande"
+A ordem nas quais as cláusulas são escolhidas para aplicação de regras de inferência podem mudar drasticamente o tamanho da prova. %TODO exemplo pequeno e "grande"
 Sendo assim, é comum o estudo de métodos de seleção para implementação de provadores de teoremas. Alguns deles são Conjunto de Suporte, Resolução Negativa e Resolução Ordenada. \cite{nalontocl} propôs extensões de Resolução Negativa e Resolução Ordenada para $RES_{ml}$ as quais descreveremos a seguir.
 
 % \subsection{Modal}
