@@ -54,8 +54,8 @@ Dizemos que a polaridade de $\chi_1$ em $\varphi$ na posição $s$ é $pol(\varp
 
 Dizemos que o nível modal de $\chi_1$ em $\varphi$ na posição $s$ é $mlevel(\varphi, \psi, s)$.
 
-A semântica para lógica modal proposicional é dada por estruturas de Kripke. Uma estrutura de Kripke $M$ é da forma $M = (\set{W}, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, onde % TODO Cita
-$\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfatível na lógica modal K sob o modelo $M$ no mundo $\st$ se, e somente se, $\langle M,w \rangle \models \varphi$.
+A semântica para lógica modal proposicional é dada por estruturas de Kripke. Uma estrutura de Kripke $M$ é da forma $M = (\set{W}, \st_0, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, onde % TODO Cita
+$\set{W}$ é um conjunto de mundos possíveis, $\st_0 \in \set{W}$, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfatível na lógica modal K sob o modelo $M$ no mundo $\st$ se, e somente se, $\langle M,w \rangle \models \varphi$.
 
 \begin{itemize}
 	\item $\langle M,\st \rangle \models \varphi$, se e somente se $\varphi \in \set{P}$ e $\pi(\st, \varphi) = \ctrue$
@@ -69,7 +69,7 @@ $\set{W}$ é um conjunto de mundos possíveis, $\pi:\set{W} \times \set{P} \righ
 	
 \end{itemize}
 
-Uma fórmula $\varphi$ é localmente satisfatível se existe um modelo $M$ e um mundo $\st$ tal que $\langle M,\st \rangle \models \varphi$. Uma formula $\varphi$ é globalmente satisfatível se existe um modelo $M$ tal que para todo $\st \in \set{W}$ temos que $\langle M,\st \rangle \models \varphi$.
+Uma fórmula $\varphi$ é localmente satisfatível se existe um modelo $M$ e um mundo $\st$ tal que $\langle M,\st \rangle \models \varphi$. Uma formula $\varphi$ é globalmente satisfatível se existe um modelo $M$ tal que para todo $\st \in \set{W}$ temos que $\langle M,\st \rangle \models \varphi$. Escrevemos $M \models \varphi$ se, e somente se, $\langle M, \st_0 \rangle \models \varphi$
 
 Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatibilidade local com a extensão pelo operador universal $\nec{*}$. Seja $M = (\set{W}, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, $\langle M,\st \rangle \models \nec{*}\varphi$ se, e somente se, para todo $\st' \in \set{W}$, $\langle M,\st \rangle \models \varphi$.
 
@@ -82,7 +82,7 @@ Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatib
 É importante ressaltar $\varphi \in \set{FBF}$ que não está na forma normal negada pode ser reescrita em $\psi \in \set{FBF}$ na forma normal negada com sua satisfatibilidade preservada. Isto é, para todo $\langle M, w \rangle$, $\langle M, w \rangle \models \varphi$ se, e somente se, $\langle M, w \rangle \models \psi$ \cite{alguemqueprovaisso}. % TODO
 
 \section{Forma Normal em Camadas}
-O provador utiliza uma outra linguagem chamada de Forma Normal Separada em Níveis Modais($SNF$).
+O provador utiliza uma outra linguagem chamada de Forma Normal Separada em Níveis Modais($SNF_{ml}$).
 
 \begin{definition}
 	Uma fórmula em $SNF$ é uma conjunção de cláusulas. Para $ml \in \mathbf{N} \cup \{*\}$ e $l_1, l_2 \in \set{LP}$. Cada cláusula está em um dos três formatos:
@@ -93,7 +93,7 @@ O provador utiliza uma outra linguagem chamada de Forma Normal Separada em Níve
 	\end{itemize}
 \end{definition}
 
-A satisfatibilidade de $SNF$ é definida pela satisfatibilidade de $K$. Sejam $ml: \varphi$ e $ml: \psi$ cláusulas $SNF$ e $M$ um modelo na lógica $K$.
+A satisfatibilidade de $SNF_{ml}$ é definida pela satisfatibilidade de $K$. Sejam $ml: \varphi$ e $ml: \psi$ cláusulas $SNF$ e $M$ um modelo na lógica $K$.
 
 \begin{itemize}
 	\item $M \models *: \varphi$ se, e somente se, $M \models \nec{*}\varphi$.
@@ -101,9 +101,78 @@ A satisfatibilidade de $SNF$ é definida pela satisfatibilidade de $K$. Sejam $m
 	\item $M \models ml: \varphi$ se, e somente se, para todo $\st$ tal que $depth(\st) = ml$, temos $\langle M, \st \rangle \models ml: \varphi$.
 \end{itemize}
 
-\cite{nalontocl} descreve uma função de tradução de $K$ para $SNF$ bem como prova que a tradução de uma fórmula mantém sua satisfatibilidade.
+\cite{nalontocl} descreve uma função de tradução de $K$ para $SNF_{ml}$ bem como prova que a tradução de uma fórmula mantém sua satisfatibilidade.
 
-\section{Resolução}
+\section{Regras de inferência}
+\cite{nalontocl} introduziu o cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$. Para lidar com $*$ as regras de inferência são simplificadas com o uso de uma função parcial de unificação $\sigma \colon P(\mathbf{N} \cup \{*\}) \mapsto \mathbf{N} \cup \{*\}$, tal que $\sigma(\{ml, *\}) = ml$, $\sigma(\{ml\}) = ml$. As regras de inferência de $REM_{ml}$ são apresentadas na Figura~\ref{figura:regrasinf}, onde $*-1=*$ e $m$ pode ser 0. Essas regras só valem se o resultado da unificação for definido. \cite{nalontocl} prova correção e corretude de todas as regras.
+
+\begin{figure*}[t]
+	\[
+	\begin{array}{c}
+	\begin{array}{ccc}
+
+	\begin{array}{c}
+	ml: (D \lor l) \\
+	ml': (D' \lor \neg l) \\
+	\hline
+	\sigma(\{ml, ml'\}): D \lor D' \\
+	\end{array}
+	&
+
+	\begin{array}{c}
+	ml: (l_1 \rightarrow \nec{\st} l) \\
+	ml': (l_2 \rightarrow \pos{\st} \neg l) \\
+	\hline
+	\sigma(\{ml, ml'\}): \neg l_1 \lor \neg l_2 \\
+	\end{array}
+	&
+
+	\begin{array}{c}
+	ml_1: (l_1' \rightarrow \nec{\st} l_1) \\
+	ml_2: (l_2' \rightarrow \nec{\st} \neg l_1) \\
+	ml_3: (l_3' \rightarrow \pos{\st} l_2) \\
+	\hline
+	\sigma(\{ml_1, ml_2, ml_3\}): \neg l_1' \lor \neg l_2' \lor \neg l_3' \\
+	\end{array}
+	
+	
+	\\ \end{array} \\
+
+	\begin{array}{cc}
+	\begin{array}{c}
+	ml_1: (l_1' \rightarrow \nec{\st} l_1) \\
+	\vdots \\
+	ml_m: (l_m' \rightarrow \nec{\st} \neg l_m) \\
+	ml_{m+1}: (l' \rightarrow \pos{\st} \neg l) \\
+	ml_{m+2}: (l_1 \lor \ldots \lor \ldots \lor l_m \lor l) \\
+	\hline
+	ml: \neg l_1' \lor \ldots \lor \neg l_m' \lor \neg l' \\
+	ml = \sigma(\{ml_1, \ldots, ml_{m+1}, ml_{m+2}-1\}) \\
+	\end{array}
+	&
+	\begin{array}{c}
+	ml_1: (l_1' \rightarrow \nec{\st} l_1) \\
+	\vdots \\
+	ml_m: (l_m' \rightarrow \nec{\st} \neg l_m) \\
+	ml_{m+1}: (l' \rightarrow \pos{\st} l) \\
+	ml_{m+2}: (l_1 \lor \ldots \lor \ldots \lor l_m) \\
+	\hline
+	ml: \neg l_1' \lor \ldots \lor \neg l_m' \lor \neg l' \\
+	ml = \sigma(\{ml_1, \ldots, ml_{m+1}, ml_{m+2}-1\}) \\
+	\end{array}
+	
+	\\ \end{array} \\
+	\end{array} 
+	\]
+	\caption{Regras de inferência}
+	\label{figura:regrasinf}
+\end{figure*}
+
+\section{Algoritmo}
+
+\subsection{Seleção de cláusula}
+A ordem nas quais as cláusulas são escolhidas para aplicação de regras de inferência podem mudar drásticamente o tamanho da prova. %TODO exemplo pequeno e "grande"
+Sendo assim, é comum o estudo de métodos de seleção para implementação de provadores de teoremas. Alguns deles são Conjunto de Suporte, Resolução Negativa e Resolução Ordenada. \cite{nalontocl} propôs extensões de Resolução Negativa e Resolução Ordenada para $RES_{ml}$ as quais descreveremos a seguir.
 
 % \subsection{Modal}
 % citar correcao e completude e terminacao do calculo
