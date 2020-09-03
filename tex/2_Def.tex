@@ -2,19 +2,19 @@
 Nesta seção apresentamos as definições básicas para o resto do texto.
 
 \section{Linguagem}
-Trabalharemos com a linguagem lógica modal K.
+Trabalharemos com a linguagem lógica modal $K_n$.
 
 \begin{definition}
 	Seja $P = \{p, q, r, \dots\}$ um conjunto finito de símbolos proposicionais, $\Agents = \{1, 2, 3, \dots, n\}, n \in \mathbb{N}$. Definimos o conjunto de fórmulas $\mathcal{FBF}$ indutivamente.
 	
 	\begin{itemize}
-		\item Se $\varphi \in \set{P}$ então $\varphi \in \set{FBF}$ e $\neg\varphi \in \set{FBF}$
-		\item Se $\varphi \in \set{FBF}$, $\psi \in \set{FBF}$ e $\agent \in \Agents$, então $(\varphi \land \psi) \in \set{FBF}$, $(\varphi \lor \psi) \in \set{FBF}$, $(\varphi \rightarrow \psi) \in \set{FBF}$, $\nec{\agent} \varphi \in \set{FBF}$, $\pos{\agent} \varphi \in \set{FBF}$ e $\neg\varphi \in \set{FBF}$.
+		\item Se $\varphi \in \set{P}$ então $\varphi \in \set{FBF}$
+		\item Se $\varphi \in \set{FBF}$, $\psi \in \set{FBF}$ e $\agent \in \Agents$, então $(\varphi \land \psi) \in \set{FBF}$, $(\varphi \lor \psi) \in \set{FBF}$, $(\varphi \rightarrow \psi) \in \set{FBF}$, $\nec{\agent} \varphi \in \set{FBF}$, $\pos{\agent} \varphi \in \set{FBF}$ e $\neg\varphi \in \set{FBF}$
 	\end{itemize}
 \end{definition}
 
 \begin{definition}
-	$\set{LP}$ é o conjunto de literais proposicionais e $\set{LM}$ é o conjunto de literais modais.
+	Denotamos por $\set{LP}$ o conjunto de literais proposicionais e por $\set{LM}$ o conjunto de literais modais.
 	$\forall p \in \set{P}, \forall \agent \in \set{A}$, então $ p \in \set{LP}, \neg p \in \set{LP}, \nec{\agent} p \in \set{LM}, \nec{\agent} \neg p \in \set{LM}, \pos{\agent} p \in \set{LM}, \pos{\agent} \neg p \in \set{LM}$
 \end{definition}
 
@@ -46,7 +46,7 @@ Dizemos que a polaridade de $\chi_1$ em $\varphi$ na posição $s$ é $pol(\varp
 	\begin{itemize}
 		\item $mlevel(\varphi, \varphi, \epsilon) = 0$.
 		\item Se $mlevel(\varphi, \chi_1 \lor \chi_2, s) = val$ ou $mlevel(\varphi, \chi_1 \land \chi_2, s) = val$ ou $mlevel(\varphi, \chi_1 \rightarrow \chi_2, s) = val$, então $mlevel(\varphi, \chi_1, s0) = mlevel(\varphi, \chi_2, s1) = val$
-		\item Se $mlevel(\varphi, \pos{\agent}\chi_1, s) = val$ ou $mlevel(\varphi, \nec{\agent}\chi_1, s) = val$, então $pol(\varphi, \chi_1, s0) = val+1$
+		\item Se $mlevel(\varphi, \pos{\agent}\chi_1, s) = val$ ou $mlevel(\varphi, \nec{\agent}\chi_1, s) = val$, então $mlevel(\varphi, \chi_1, s0) = val+1$
 		\item Se $mlevel(\varphi, \neg\chi_1, s) = val$, então $mlevel(\varphi, \chi_1, s0) = val$
 	\end{itemize}
 \end{definition}
@@ -55,7 +55,7 @@ Dizemos que a polaridade de $\chi_1$ em $\varphi$ na posição $s$ é $pol(\varp
 Dizemos que o nível modal de $\chi_1$ em $\varphi$ na posição $s$ é $mlevel(\varphi, \psi, s)$.
 
 A semântica para lógica modal proposicional é dada por estruturas de Kripke. Uma estrutura de Kripke $M$ é da forma $M = (\set{W}, \st_0, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, onde % TODO Cita
-$\set{W}$ é um conjunto de mundos possíveis, $\st_0 \in \set{W}$, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfatível na lógica modal K sob o modelo $M$ no mundo $\st$ se, e somente se, $\langle M,w \rangle \models \varphi$.
+$\set{W}$ é um conjunto de mundos possíveis, $\st_0 \in \set{W}$, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfeita na lógica modal K no modelo $M$ no mundo $\st$ se, e somente se, $\langle M,w \rangle \models \varphi$, conforme segue:
 
 \begin{itemize}
 	\item $\langle M,\st \rangle \models \varphi$, se e somente se $\varphi \in \set{P}$ e $\pi(\st, \varphi) = \ctrue$
@@ -64,14 +64,14 @@ $\set{W}$ é um conjunto de mundos possíveis, $\st_0 \in \set{W}$, $\pi:\set{W}
 	\item $\langle M,\st \rangle \models (\varphi \lor \psi)$, se e somente se $\langle M,\st \rangle \models \varphi$ ou $\langle M,\st \rangle \models \psi $
 	\item $\langle M,\st \rangle \models (\varphi \then \psi)$, se e somente se $\langle M,\st \rangle \not\models \varphi$ ou $\langle M,\st \rangle \models \psi $
 	
-	\item $\langle M,\st \rangle \models \pos{\agent}\varphi$, se e somente se $\exists\st', (\st, \st') \in \set{R}_\agent, \langle M,\st \rangle' \models \varphi$
-	\item $\langle M,\st \rangle \models \nec{\agent}\varphi$, se e somente se $\forall\st', (\st, \st') \in \set{R}_\agent, \langle M,\st \rangle' \models \varphi$
+	\item $\langle M,\st \rangle \models \pos{\agent}\varphi$, se e somente se $\exists\st', (\st, \st') \in \set{R}_\agent, \langle M,\st' \rangle \models \varphi$
+	\item $\langle M,\st \rangle \models \nec{\agent}\varphi$, se e somente se $\forall\st', (\st, \st') \in \set{R}_\agent, \langle M,\st' \rangle \models \varphi$
 	
 \end{itemize}
 
-Uma fórmula $\varphi$ é localmente satisfatível se existe um modelo $M$ e um mundo $\st$ tal que $\langle M,\st \rangle \models \varphi$. Uma formula $\varphi$ é globalmente satisfatível se existe um modelo $M$ tal que para todo $\st \in \set{W}$ temos que $\langle M,\st \rangle \models \varphi$. Escrevemos $M \models \varphi$ se, e somente se, $\langle M, \st_0 \rangle \models \varphi$
+Uma fórmula $\varphi$ é localmente satisfatível se existe um modelo $M$ tal que $\langle M,\st_0 \rangle \models \varphi$. Uma formula $\varphi$ é globalmente satisfatível se existe um modelo $M$ tal que para todo $\st \in \set{W}$ temos que $\langle M,\st \rangle \models \varphi$. Escrevemos $M \models \varphi$ se, e somente se, $\langle M, \st_0 \rangle \models \varphi$
 
-Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatibilidade local com a extensão pelo operador universal $\nec{*}$. Seja $M = (\set{W}, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, $\langle M,\st \rangle \models \nec{*}\varphi$ se, e somente se, para todo $\st' \in \set{W}$, $\langle M,\st \rangle \models \varphi$.
+Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatibilidade local com a extensão da linguagem K pelo operador universal $\nec{*}$. Seja $M = (\set{W}, \st_0, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, $\langle M,\st \rangle \models \nec{*}\varphi$ se, e somente se, para todo $\st' \in \set{W}$, $\langle M,\st \rangle \models \varphi$.
 
 % satisfatibilidade local(sem e com restricoes globais)
 
@@ -79,13 +79,13 @@ Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatib
 	Uma fórmula está na forma normal negada caso seja formada somente por simbolos proposicionais, $\neg$, $\land$, $\lor$, $\nec{\agent}$ e $\pos{\agent}$ para $\agent \in \set{A}$, e a negação só é aplicada a simbolos proposicionais.
 \end{definition}
 
-É importante ressaltar $\varphi \in \set{FBF}$ que não está na forma normal negada pode ser reescrita em $\psi \in \set{FBF}$ na forma normal negada com sua satisfatibilidade preservada. Isto é, para todo $\langle M, w \rangle$, $\langle M, w \rangle \models \varphi$ se, e somente se, $\langle M, w \rangle \models \psi$ \cite{alguemqueprovaisso}. % TODO
+É importante ressaltar se $\varphi \in \set{FBF}$ que não está na forma normal negada pode ser reescrita como $\psi \in \set{FBF}$ na forma normal negada com sua semântica seja preservada. Isto é, para todo $\langle M, w \rangle$, $\langle M, w \rangle \models \varphi$ se, e somente se, $\langle M, w \rangle \models \psi$. % TODO \cite{alguemqueprovaisso}
 
 \section{Forma Normal em Camadas}
-O provador utiliza uma outra linguagem chamada de Forma Normal Separada em Níveis Modais($SNF_{ml}$).
+O cálculo a ser apresentado utiliza uma outra linguagem chamada de Forma Normal Separada em Níveis Modais($SNF_{ml}$).
 
 \begin{definition}
-	Uma fórmula em $SNF$ é uma conjunção de cláusulas. Para $ml \in \mathbf{N} \cup \{*\}$ e $l_1, l_2 \in \set{LP}$. Cada cláusula está em um dos três formatos:
+	Uma fórmula em $SNF_{ml}$ é uma conjunção de cláusulas. Para $ml \in \mathbf{N} \cup \{*\}$ e $l_1, l_2 \in \set{LP}$, cada cláusula está em um dos três formatos:
 	\begin{itemize}
 		\item $ml: c$, onde $c$ é uma cláusula proposicional
 		\item $ml: l_1 \rightarrow \nec{a}l_2$
@@ -93,7 +93,7 @@ O provador utiliza uma outra linguagem chamada de Forma Normal Separada em Níve
 	\end{itemize}
 \end{definition}
 
-A satisfatibilidade de $SNF_{ml}$ é definida pela satisfatibilidade de $K$. Sejam $ml: \varphi$ e $ml: \psi$ cláusulas $SNF$ e $M$ um modelo na lógica $K$.
+A satisfatibilidade de uma fórmula em $SNF_{ml}$ é definida a partir da satisfatibilidade de $K_n$. Sejam $ml: \varphi$ e $ml: \psi$ cláusulas $SNF_{ml}$ e $M$ um modelo na lógica $K_n$.
 
 \begin{itemize}
 	\item $M \models *: \varphi$ se, e somente se, $M \models \nec{*}\varphi$.
@@ -101,10 +101,10 @@ A satisfatibilidade de $SNF_{ml}$ é definida pela satisfatibilidade de $K$. Sej
 	\item $M \models ml: \varphi$ se, e somente se, para todo $\st$ tal que $depth(\st) = ml$, temos $\langle M, \st \rangle \models ml: \varphi$.
 \end{itemize}
 
-\cite{nalontocl} descreve uma função de tradução de $K$ para $SNF_{ml}$ bem como prova que a tradução de uma fórmula mantém sua satisfatibilidade.
+\cite{nalontocl} descreve uma função de tradução de $K_n$ para $SNF_{ml}$ bem como prova que a tradução de uma fórmula mantém sua satisfatibilidade.
 
 \section{Regras de inferência}
-\cite{nalontocl} introduziu o cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$. Para lidar com $*$ as regras de inferência são simplificadas com o uso de uma função parcial de unificação $\sigma \colon P(\mathbf{N} \cup \{*\}) \mapsto \mathbf{N} \cup \{*\}$, tal que $\sigma(\{ml, *\}) = ml$, $\sigma(\{ml\}) = ml$ e indefinida caso contrário. As regras de inferência de $REM_{ml}$ são apresentadas na Figura~\ref{figura:regrasinf}, onde $*-1=*$ e $m$ pode ser 0. Essas regras só valem se o resultado da unificação for definido. \cite{nalontocl} prova correção e corretude de todas as regras.
+\cite{nalontocl} introduziu o cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$. Para lidar com $*$ as regras de inferência são simplificadas com o uso de uma função parcial de unificação $\sigma \colon P(\mathbf{N} \cup \{*\}) \mapsto \mathbf{N} \cup \{*\}$, tal que $\sigma(\{ml, *\}) = ml$, $\sigma(\{ml\}) = ml$ e indefinida caso contrário. As regras de inferência de $RES_{ml}$ são apresentadas na Figura~\ref{figura:regrasinf}, onde $*-1=*$ e $m$ pode ser 0. Essas regras só valem se o resultado da unificação for definido. \cite{nalontocl} prova correção e corretude de todas as regras.
 
 \begin{figure*}[t]
 	\[
@@ -144,7 +144,7 @@ A satisfatibilidade de $SNF_{ml}$ é definida pela satisfatibilidade de $K$. Sej
 	\vdots \\
 	ml_m: (l_m' \rightarrow \nec{\agent} \neg l_m) \\
 	ml_{m+1}: (l' \rightarrow \pos{\agent} \neg l) \\
-	ml_{m+2}: (l_1 \lor \ldots \lor \ldots \lor l_m \lor l) \\
+	ml_{m+2}: (l_1 \lor \ldots \lor l_m \lor l) \\
 	\hline
 	ml: \neg l_1' \lor \ldots \lor \neg l_m' \lor \neg l' \\
 	ml = \sigma(\{ml_1, \ldots, ml_{m+1}, ml_{m+2}-1\}) \\
@@ -155,7 +155,7 @@ A satisfatibilidade de $SNF_{ml}$ é definida pela satisfatibilidade de $K$. Sej
 	\vdots \\
 	ml_m: (l_m' \rightarrow \nec{\agent} \neg l_m) \\
 	ml_{m+1}: (l' \rightarrow \pos{\agent} l) \\
-	ml_{m+2}: (l_1 \lor \ldots \lor \ldots \lor l_m) \\
+	ml_{m+2}: (l_1 \lor \ldots \lor l_m) \\
 	\hline
 	ml: \neg l_1' \lor \ldots \lor \neg l_m' \lor \neg l' \\
 	ml = \sigma(\{ml_1, \ldots, ml_{m+1}, ml_{m+2}-1\}) \\
@@ -171,12 +171,9 @@ A satisfatibilidade de $SNF_{ml}$ é definida pela satisfatibilidade de $K$. Sej
 \section{Algoritmo}
 
 \subsection{Seleção de cláusula}
-A ordem nas quais as cláusulas são escolhidas para aplicação de regras de inferência podem mudar drasticamente o tamanho da prova. %TODO exemplo pequeno e "grande"
-Sendo assim, é comum o estudo de métodos de seleção para implementação de provadores de teoremas. Alguns deles são Conjunto de Suporte, Resolução Negativa e Resolução Ordenada. \cite{nalontocl} propôs extensões de Resolução Negativa e Resolução Ordenada para $RES_{ml}$ as quais descreveremos a seguir.
+Uma das formas de melhorar o desempenho de provadores de teoremas é restringir o conjunto de cláusulas as quais podemos aplicar resolução. É preciso, porém, garantir que a restrição aplicada mantém a corretude e completude do cálculo. Alguns exemplos de métodos de restrição são Conjunto de Suporte, Resolução Negativa e Resolução Ordenada. \cite{nalontocl} propôs extensões de Resolução Negativa e Resolução Ordenada para $RES_{ml}$ as quais descreveremos a seguir.
 
 % \subsection{Modal}
-% citar correcao e completude e terminacao do calculo
-% implementacao do calculo
 % loop principal do algoritmo
 % como funciona
 % quais estrategias eh baseado
