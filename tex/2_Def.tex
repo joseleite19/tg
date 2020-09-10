@@ -170,8 +170,49 @@ A satisfatibilidade de uma fórmula em $SNF_{ml}$ é definida a partir da satisf
 
 \section{Algoritmo}
 
-\subsection{Seleção de cláusula}
-Uma das formas de melhorar o desempenho de provadores de teoremas é restringir o conjunto de cláusulas as quais podemos aplicar resolução. É preciso, porém, garantir que a restrição aplicada mantém a corretude e completude do cálculo. Alguns exemplos de métodos de restrição são Conjunto de Suporte, Resolução Negativa e Resolução Ordenada. \cite{nalontocl} propôs extensões de Resolução Negativa e Resolução Ordenada para $RES_{ml}$ as quais descreveremos a seguir.
+A seguir, descrevemos o algoritmo implementado no KSP.
+
+\begin{algorithm}[H]
+	\SetAlgoLined
+	\KwResult{Satisfatibilidade da fórmula}
+	
+	preprocessamento-da-entrada\;
+	tradução-para-SNF\;
+	preprocessamento-de-clausulas\;
+
+	$\Gamma^{lit} \leftarrow \bigcup \Gamma^{lit}_{ml}$\;
+	\While{$\Gamma^{lit} \not= \emptyset$}{
+		\For{todo nível modal $ml$}{
+			$clausula$ $\leftarrow$ given($ml$)\;
+			\If{não \textrm{redundante}($clausula$)}{
+				GEN1($clausula, ml, ml - 1$)\;
+				GEN3($clausula, ml, ml - 1$)\;
+				LRES($clausula, ml, ml$)\;
+				$\Lambda^{lit}_{ml} \leftarrow \Lambda^{lit}_{ml} \cup \{clausula\}$\;
+			}
+			$\Gamma^{lit}_{ml} \leftarrow \Gamma^{lit}_{ml} \setminus \{clausula\}$\;
+			\If{$0: false \in \Gamma^{lit}_{0}$}{
+				\Return insatisfativel\;
+			}
+			$\Gamma^{lit} \leftarrow \bigcup \Gamma^{lit}_{ml}$\;
+		}
+		\Return satisfativel\;
+	}
+	\caption{KSP-Proof-Search}
+\end{algorithm}
+
+KSP utiliza uma variação de conjunto de suporte. Técnica que restringe os candidatos possíveis para resolução. \cite{nalontocl} demostra que a variação é a correta e completa em $SNF_{ml}$.
+
+As linhas 1-3 aplicam algumas regras de simplificação, traduzem a fórmula para linguagem $SNF_{ml}$ e constrõem os conjuntos \textit{usable} e de suporte. As Linhas 9-11 aplicam regras de inferências descritas em \ref{figura:regrasinf}.
+
+A função given, Linha 7, é responsável por escolher uma cláusula dentre todas as candidatas possíveis. KSP implementa cinco variações dessa função: Menor, Mais antiga, Mais nova, Mínima e Máxima; e o usuário pode escolher qual deseja utilizar. Cada nível modal é independente, possibilitando até estratégias diferentes em níveis diferentes. Naturalmente, a função given só considera as cláusulas do nível modal pedido.
+
+Na variação menor é escolhida uma cláusula com o menor tamanho. Na variação mais antiga, é usada uma estrutura de dados fila. Em mais nova, é usada uma estrutura de dados pilha. Em mínima, é escolhida uma cláusula com o menor tamanho dentre as cláusulas com mínimo literal máximo. Em máxima, é feita escolha análoga a mínima mas dentre cláusulas com máximo literal máximo.
+
+Neste trabalho propomos novos métodos para seleção de cláusulas e comparamos com os métodos previamente utilizados no KSP. %TODO citar o benchmark
+
+% \subsection{Seleção de cláusula}
+% Uma das formas de melhorar o desempenho de provadores de teoremas é restringir o conjunto de cláusulas as quais podemos aplicar resolução. É preciso, porém, garantir que a restrição aplicada mantém a corretude e completude do cálculo. Alguns exemplos de métodos de restrição são Conjunto de Suporte, Resolução Negativa e Resolução Ordenada. \cite{nalontocl} propôs extensões de Resolução Negativa e Resolução Ordenada para $RES_{ml}$ as quais descreveremos a seguir.
 
 % \subsection{Modal}
 % loop principal do algoritmo
