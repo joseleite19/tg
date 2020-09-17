@@ -1,0 +1,6 @@
+sos(formulas).
+
+~(((box (box (box (box (box (box (box (box (box (box (((((((((p1 & p2) & p3) & p4) & p5) & p6) & p7) & p8) & p9) & p10))))))))))) | ((dia (((dia (((dia (((dia (((dia (((dia (((dia (((dia (((dia (False | (dia (p1 <=> p2)))) | (box p3)) | (dia (dia (p2 <=> p3))))) | (box p4)) | (dia (dia (dia (p3 <=> p4)))))) | (box p5)) | (dia (dia (dia (dia (p4 <=> p5))))))) | (box p6)) | (dia (dia (dia (dia (dia (p5 <=> p6)))))))) | (box p7)) | (dia (dia (dia (dia (dia (dia (p6 <=> p7))))))))) | (box p8)) | (dia (dia (dia (dia (dia (dia (dia (p7 <=> p8)))))))))) | (box p9)) | (dia (dia (dia (dia (dia (dia (dia (dia (p8 <=> p9))))))))))) | (box p10)) | (dia (dia (dia (dia (dia (dia (dia (dia (dia (p9 <=> p1)))))))))))) | (box p11))) | (box (box (box (box (box (box (box (box (box (box ((((((((((~p2) & (~p4)) & (~p6)) & (~p8)) & (~p10)) & (~p12)) & (~p14)) & (~p16)) & (~p18)) & (~p20))))))))))))).
+
+end_of_list.
+

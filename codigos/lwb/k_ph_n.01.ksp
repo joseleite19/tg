@@ -1,0 +1,6 @@
+sos(formulas).
+
+~((dia (p101 & p201)) => (dia ((~p101) & p201))).
+
+end_of_list.
+

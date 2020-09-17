@@ -1,0 +1,6 @@
+sos(formulas).
+
+~((((((box p1) | (box p2)) | (box p3)) | (box p5)) | ((((((False | False) | (False | False)) | (False | False)) | (False | False)) | (False | False)) | (False | False))) | ((((dia (~p2)) | (dia (~p4))) | (dia (~p2))) | (dia (~p6)))).
+
+end_of_list.
+

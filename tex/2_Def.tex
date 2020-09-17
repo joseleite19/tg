@@ -76,10 +76,10 @@ Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatib
 % satisfatibilidade local(sem e com restricoes globais)
 
 \begin{definition}
-	Uma fórmula está na forma normal negada caso seja formada somente por simbolos proposicionais, $\neg$, $\land$, $\lor$, $\nec{\agent}$ e $\pos{\agent}$ para $\agent \in \set{A}$, e a negação só é aplicada a simbolos proposicionais.
+	Uma fórmula está na forma normal negada caso seja formada somente por símbolos proposicionais, $\neg$, $\land$, $\lor$, $\nec{\agent}$ e $\pos{\agent}$ para $\agent \in \set{A}$, e a negação só é aplicada a símbolos proposicionais.
 \end{definition}
 
-É importante ressaltar se $\varphi \in \set{FBF}$ que não está na forma normal negada pode ser reescrita como $\psi \in \set{FBF}$ na forma normal negada com sua semântica seja preservada. Isto é, para todo $\langle M, w \rangle$, $\langle M, w \rangle \models \varphi$ se, e somente se, $\langle M, w \rangle \models \psi$. % TODO \cite{alguemqueprovaisso}
+É importante ressaltar se $\varphi \in \set{FBF}$ que não está na forma normal negada pode ser reescrita como $\psi \in \set{FBF}$ na forma normal negada com semântica equivalente. Isto é, para todo $\langle M, w \rangle$, $\langle M, w \rangle \models \varphi$ se, e somente se, $\langle M, w \rangle \models \psi$. % TODO \cite{alguemqueprovaisso}
 
 \section{Forma Normal em Camadas}
 O cálculo a ser apresentado utiliza uma outra linguagem chamada de Forma Normal Separada em Níveis Modais($SNF_{ml}$).
@@ -101,16 +101,22 @@ A satisfatibilidade de uma fórmula em $SNF_{ml}$ é definida a partir da satisf
 	\item $M \models ml: \varphi$ se, e somente se, para todo $\st$ tal que $depth(\st) = ml$, temos $\langle M, \st \rangle \models ml: \varphi$.
 \end{itemize}
 
-\cite{nalontocl} descreve uma função de tradução de $K_n$ para $SNF_{ml}$ bem como prova que a tradução de uma fórmula mantém sua satisfatibilidade.
+Um função de tradução de $K_n$ para $SNF_{ml}$ bem como prova que a tradução de uma fórmula tem satisfatibilidade equivalente podem ser encontradas em \cite{nalontocl}.
 
-\section{Regras de inferência}
-\cite{nalontocl} introduziu o cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$. Para lidar com $*$ as regras de inferência são simplificadas com o uso de uma função parcial de unificação $\sigma \colon P(\mathbf{N} \cup \{*\}) \mapsto \mathbf{N} \cup \{*\}$, tal que $\sigma(\{ml, *\}) = ml$, $\sigma(\{ml\}) = ml$ e indefinida caso contrário. As regras de inferência de $RES_{ml}$ são apresentadas na Figura~\ref{figura:regrasinf}, onde $*-1=*$ e $m$ pode ser 0. Essas regras só valem se o resultado da unificação for definido. \cite{nalontocl} prova correção e corretude de todas as regras.
+\begin{definition}
+	O literal $l$ é máximo em $\varphi \in SNF_{ml}$ se e somente se $l$ ocorre em $\varphi$ e não há $l_2$ em $\varphi$ tal que $l_2 > l$ para uma ordem total fixa.
+\end{definition}
+
+Note que podemos escolher qualquer ordem, assim $l$ pode ser máximo numa ordem e não ser máximo em outra ordem.
+
+\section{Regras de inferência} \label{secao:regrasinf}
+O cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$ foi descrito em \cite{nalontocl}. Para simplificar a descrição das regras de inferência faremos uso de uma função parcial de unificação $\sigma \colon P(\mathbf{N} \cup \{*\}) \mapsto \mathbf{N} \cup \{*\}$, tal que $\sigma(\{ml, *\}) = ml$, $\sigma(\{ml\}) = ml$, e indefinida caso contrário. As regras de inferência de $RES_{ml}$ são apresentadas na Figura~\ref{figura:regrasinf}, onde $*-1=*$ e $m$ pode ser 0. Essas regras só valem se o resultado da unificação for definido. Demostrações de correção e corretude podem ser encotradas em \cite{nalontocl}.
 
 \begin{figure*}[t]
 	\[
 	\begin{array}{c}
-	\begin{array}{ccc}
-	
+	\begin{array}{lll}
+	\textnormal{[LRES]} & \textnormal{[MRES]} & \textnormal{[GEN2]} \\
 	\begin{array}{c}
 	ml: (D \lor l) \\
 	ml': (D' \lor \neg l) \\
@@ -136,9 +142,11 @@ A satisfatibilidade de uma fórmula em $SNF_{ml}$ é definida a partir da satisf
 	\end{array}
 	
 	
-	\\ \end{array} \\
+	\\ \end{array} \\ \\
 	
-	\begin{array}{cc}
+	\begin{array}{ll}
+	\textnormal{[GEN1]} & \textnormal{[GEN3]} \\
+	
 	\begin{array}{c}
 	ml_1: (l_1' \rightarrow \nec{\agent} l_1) \\
 	\vdots \\
@@ -168,6 +176,8 @@ A satisfatibilidade de uma fórmula em $SNF_{ml}$ é definida a partir da satisf
 	\label{figura:regrasinf}
 \end{figure*}
 
+
+
 \section{Algoritmo}
 
 A seguir, descrevemos o algoritmo implementado no KSP.
@@ -192,33 +202,45 @@ A seguir, descrevemos o algoritmo implementado no KSP.
 			}
 			$\Gamma^{lit}_{ml} \leftarrow \Gamma^{lit}_{ml} \setminus \{clausula\}$\;
 			\If{$0: false \in \Gamma^{lit}_{0}$}{
-				\Return insatisfativel\;
+				\Return insatísfativel\;
 			}
 			$\Gamma^{lit} \leftarrow \bigcup \Gamma^{lit}_{ml}$\;
 		}
-		\Return satisfativel\;
+		\Return satísfativel\;
 	}
 	\caption{KSP-Proof-Search}
 \end{algorithm}
 
-KSP utiliza uma variação de conjunto de suporte. Técnica que restringe os candidatos possíveis para resolução. \cite{nalontocl} demostra que a variação é a correta e completa em $SNF_{ml}$.
+KSP utiliza uma variação de conjunto de suporte, técnica que restringe os candidatos possíveis para resolução, e a demostração da correção e completude dessa extensão para $SNF_{ml}$ pode ser encontrada em \cite{nalontocl}.
 
-As linhas 1-3 aplicam algumas regras de simplificação, traduzem a fórmula para linguagem $SNF_{ml}$ e constrõem os conjuntos \textit{usable} e de suporte. As Linhas 9-11 aplicam regras de inferências descritas em \ref{figura:regrasinf}.
+Na versão para lógica clássica de conjunto de suporte o conjunto de cláusulas $\Delta$ é particionado em dois conjuntos $\Gamma$, o conjunto de suporte ou não processado, e $\Lambda$, o conjunto \textit{usable} ou processado. Cláusulas são selecionadas de $\Gamma$, e passam para $\Lambda$, para aplicação de regras de inferência, os resolventes são inseridos em $\Gamma$.
 
-A função given, Linha 7, é responsável por escolher uma cláusula dentre todas as candidatas possíveis. KSP implementa cinco variações dessa função: Menor, Mais antiga, Mais nova, Mínima e Máxima; e o usuário pode escolher qual deseja utilizar. Cada nível modal é independente, possibilitando até estratégias diferentes em níveis diferentes. Naturalmente, a função given só considera as cláusulas do nível modal pedido.
+Na extensão para $SNF_{ml}$, onde as clásulas são rotuladas pelo nível modal, as clásulas de todo nível modal é particionado em três conjuntos $\Gamma^{lit}_{ml}$, $\Lambda^{lit}_{ml}$ e $\Lambda^{mod}_{ml}$. Cláusulas proposicionais são particionadas em $\Gamma^{lit}_{ml}$ e $\Lambda^{lit}_{ml}$ como no caso em lógica clássica. Clásulas modais são armazenadas em $\Lambda^{mod}_{ml}$. Note que nenhuma regra de inferência descrita na seção \ref{secao:regrasinf} produz novas cláusulas modais.
 
-Na variação menor é escolhida uma cláusula com o menor tamanho. Na variação mais antiga, é usada uma estrutura de dados fila. Em mais nova, é usada uma estrutura de dados pilha. Em mínima, é escolhida uma cláusula com o menor tamanho dentre as cláusulas com mínimo literal máximo. Em máxima, é feita escolha análoga a mínima mas dentre cláusulas com máximo literal máximo.
+As Linhas 1-3 aplicam algumas regras de simplificação, traduzem a fórmula para linguagem $SNF_{ml}$ e constrõem os conjuntos \textit{usable} e de suporte. As Linhas 9-11 aplicam regras de inferências descritas na Seção~\ref{secao:regrasinf}.
 
-Neste trabalho propomos novos métodos para seleção de cláusulas e comparamos com os métodos previamente utilizados no KSP. %TODO citar o benchmark
+A função {\sf given}, Linha 7, é responsável por escolher uma cláusula dentre todas as candidatas possíveis. Cada nível modal é independente, possibilitando até estratégias diferentes em níveis diferentes. Naturalmente, a função {\sf given} só considera as cláusulas do nível modal pedido. KSP implementa cinco variações dessa função: \textit{menor}, \textit{mais antiga}, \textit{mais nova}, \textit{mínima} e \textit{máxima}; e o usuário pode escolher qual deseja utilizar.
 
-% \subsection{Seleção de cláusula}
-% Uma das formas de melhorar o desempenho de provadores de teoremas é restringir o conjunto de cláusulas as quais podemos aplicar resolução. É preciso, porém, garantir que a restrição aplicada mantém a corretude e completude do cálculo. Alguns exemplos de métodos de restrição são Conjunto de Suporte, Resolução Negativa e Resolução Ordenada. \cite{nalontocl} propôs extensões de Resolução Negativa e Resolução Ordenada para $RES_{ml}$ as quais descreveremos a seguir.
+Na variação \textit{menor}, é selecionada uma cláusula com o menor tamanho de $\Gamma^{lit}_{ml}$.
 
-% \subsection{Modal}
-% loop principal do algoritmo
-% como funciona
-% quais estrategias eh baseado
-% quais opcoes existentes que sao relevantes pro meu prob(escolha de clausulas e selecao de literais)
+Na variação \textit{mais antiga}, é salvo a ordem nas quais as cláusulas foram adicionadas à $\Gamma^{lit}_{ml}$ e é selecionada a que foi adicionada antes de todas as outras.
+
+\textit{Mais nova} é análoga a \textit{mais antiga}, mas é selecionada a que foi adicionada depois de todas as outras.
+
+Em \textit{mínima}, é escolhida uma cláusula com o menor tamanho dentre as cláusulas com o menor literal máximo em $\Gamma^{lit}_{ml}$.
+
+Em \textit{máxima}, é feita escolha análoga a \textit{mínima} mas dentre cláusulas com o maior literal máximo em $\Gamma^{lit}_{ml}$.
+
+Neste trabalho propomos novos métodos para seleção de cláusulas e comparamos com os métodos previamente utilizados no KSP. Para comparação usaremos o \textit{benchmark} \cite{lwb} contendo 378 formulas modais, medade satisfatíveis e metade insatisfatíveis.
+
+$
+\begin{array}{|c|c|c|c|c|c|}
+	\hline - & \textit{mais antiga} & \textit{mais nova} & \textit{mínima} & \textit{máxima} & \textit{menor} \\
+	\hline \textnormal{Número de cláusulas resolvidas} & 96 & 88 & 89 & 88 & 112 \\
+
+	\hline
+\end{array}
+$
 
 \section{Grafo}
 Um grafo é um par um ordenado $(V, E)$, onde $E \subseteq V\times V$, chamamos $V$ o conjunto de vértices e $E$ o conjunto de arestas.

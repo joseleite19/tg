@@ -1,0 +1,6 @@
+sos(formulas).
+
+~((False | ((box ((box p1) => p1)) | (box ((box p1) => p1)))) | False).
+
+end_of_list.
+
