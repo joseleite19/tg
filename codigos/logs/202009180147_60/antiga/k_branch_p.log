@@ -1,0 +1,105 @@
+Processing file ../../lwb/k_branch_p.01.ksp
+0.00 0.00 0.00 seconds
+Unsatisfiable.
+Inferences: 30
+
+Processing file ../../lwb/k_branch_p.02.ksp
+10.07 0.09 10.18 seconds
+Unsatisfiable.
+Inferences: 47743
+
+Processing file ../../lwb/k_branch_p.03.ksp
+59.74 0.26 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.04.ksp
+59.71 0.29 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.05.ksp
+59.65 0.35 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.06.ksp
+59.62 0.39 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.07.ksp
+59.54 0.47 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.08.ksp
+59.38 0.64 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.09.ksp
+59.52 0.49 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.10.ksp
+59.49 0.54 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.11.ksp
+59.45 0.56 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.12.ksp
+59.45 0.55 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.13.ksp
+59.48 0.55 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.14.ksp
+59.39 0.60 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.15.ksp
+59.31 0.72 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.16.ksp
+59.45 0.58 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.17.ksp
+59.47 0.56 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.18.ksp
+59.35 0.67 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.19.ksp
+59.39 0.64 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.20.ksp
+59.34 0.68 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.21.ksp
+59.40 0.63 60.04 seconds
+Unable
+Inferences: -1
+

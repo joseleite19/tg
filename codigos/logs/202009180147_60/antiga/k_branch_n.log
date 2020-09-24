@@ -1,0 +1,105 @@
+Processing file ../../lwb/k_branch_n.01.ksp
+0.00 0.00 0.09 seconds
+Satisfiable.
+Inferences: 941
+
+Processing file ../../lwb/k_branch_n.02.ksp
+59.85 0.15 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.03.ksp
+59.80 0.21 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.04.ksp
+59.77 0.23 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.05.ksp
+59.83 0.17 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.06.ksp
+59.68 0.33 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.07.ksp
+59.46 0.56 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.08.ksp
+59.45 0.56 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.09.ksp
+59.50 0.52 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.10.ksp
+59.49 0.53 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.11.ksp
+59.56 0.45 60.05 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.12.ksp
+59.50 0.47 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.13.ksp
+59.50 0.51 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.14.ksp
+59.43 0.59 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.15.ksp
+59.33 0.69 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.16.ksp
+59.34 0.69 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.17.ksp
+59.52 0.51 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.18.ksp
+59.40 0.63 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.19.ksp
+59.47 0.55 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.20.ksp
+59.45 0.57 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.21.ksp
+59.46 0.57 60.04 seconds
+Unable
+Inferences: -1
+

@@ -1,0 +1,34 @@
+In this directory, the file
+
+all.conf
+
+contains all the available options for KSP.
+
+The following files:
+
+cord.conf
+negative.conf
+negative_ordered.conf
+ordered.conf
+plain.conf
+positive.conf
+
+contain the configurations used for the evaluation of KSP given in the IJCAR 2016 paper. 
+
+The following files:
+
+snf+#negative_jar.conf  
+snf++#ordered_jar.conf  
+snf#plain_jar.conf  
+snf-#positive_jar.conf
+
+contain the configurations used for the evaluation of KSP given in the JAR paper.
+
+
+Some other examples are given here:
+
+cord_early_mlple.conf
+ordered_selection.conf
+
+
+

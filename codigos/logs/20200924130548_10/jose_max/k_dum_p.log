@@ -1,0 +1,105 @@
+Processing file lwb/k_dum_p.01.ksp
+0.00 0.00 0.00 seconds
+Unsatisfiable.
+Inferences: 677
+
+Processing file lwb/k_dum_p.02.ksp
+0.03 0.00 0.04 seconds
+Unsatisfiable.
+Inferences: 4792
+
+Processing file lwb/k_dum_p.03.ksp
+0.04 0.00 0.04 seconds
+Unsatisfiable.
+Inferences: 4792
+
+Processing file lwb/k_dum_p.04.ksp
+0.04 0.00 0.04 seconds
+Unsatisfiable.
+Inferences: 4795
+
+Processing file lwb/k_dum_p.05.ksp
+0.02 0.00 0.03 seconds
+Unsatisfiable.
+Inferences: 4855
+
+Processing file lwb/k_dum_p.06.ksp
+0.04 0.00 0.05 seconds
+Unsatisfiable.
+Inferences: 6701
+
+Processing file lwb/k_dum_p.07.ksp
+0.09 0.00 0.10 seconds
+Unsatisfiable.
+Inferences: 10839
+
+Processing file lwb/k_dum_p.08.ksp
+0.10 0.02 0.13 seconds
+Unsatisfiable.
+Inferences: 12870
+
+Processing file lwb/k_dum_p.09.ksp
+0.16 0.00 0.17 seconds
+Unsatisfiable.
+Inferences: 15495
+
+Processing file lwb/k_dum_p.10.ksp
+0.17 0.00 0.17 seconds
+Unsatisfiable.
+Inferences: 15925
+
+Processing file lwb/k_dum_p.11.ksp
+0.11 0.00 0.12 seconds
+Unsatisfiable.
+Inferences: 11753
+
+Processing file lwb/k_dum_p.12.ksp
+0.12 0.00 0.12 seconds
+Unsatisfiable.
+Inferences: 12279
+
+Processing file lwb/k_dum_p.13.ksp
+0.12 0.00 0.12 seconds
+Unsatisfiable.
+Inferences: 12431
+
+Processing file lwb/k_dum_p.14.ksp
+0.13 0.00 0.14 seconds
+Unsatisfiable.
+Inferences: 12982
+
+Processing file lwb/k_dum_p.15.ksp
+0.13 0.00 0.14 seconds
+Unsatisfiable.
+Inferences: 13134
+
+Processing file lwb/k_dum_p.16.ksp
+0.14 0.00 0.15 seconds
+Unsatisfiable.
+Inferences: 13685
+
+Processing file lwb/k_dum_p.17.ksp
+0.15 0.00 0.15 seconds
+Unsatisfiable.
+Inferences: 13837
+
+Processing file lwb/k_dum_p.18.ksp
+0.16 0.00 0.16 seconds
+Unsatisfiable.
+Inferences: 14388
+
+Processing file lwb/k_dum_p.19.ksp
+0.16 0.00 0.16 seconds
+Unsatisfiable.
+Inferences: 14540
+
+Processing file lwb/k_dum_p.20.ksp
+0.15 0.00 0.16 seconds
+Unsatisfiable.
+Inferences: 15091
+
+Processing file lwb/k_dum_p.21.ksp
+0.15 0.01 0.16 seconds
+Unsatisfiable.
+Inferences: 15243
+

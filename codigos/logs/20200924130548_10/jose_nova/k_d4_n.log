@@ -1,0 +1,105 @@
+Processing file lwb/k_d4_n.01.ksp
+0.00 0.00 0.00 seconds
+Satisfiable.
+Inferences: 2
+
+Processing file lwb/k_d4_n.02.ksp
+0.10 0.00 0.10 seconds
+Satisfiable.
+Inferences: 6354
+
+Processing file lwb/k_d4_n.03.ksp
+1.15 0.04 1.19 seconds
+Satisfiable.
+Inferences: 44511
+
+Processing file lwb/k_d4_n.04.ksp
+5.68 0.07 5.75 seconds
+Satisfiable.
+Inferences: 179285
+
+Processing file lwb/k_d4_n.05.ksp
+9.83 0.15 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.06.ksp
+9.86 0.14 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.07.ksp
+9.84 0.16 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.08.ksp
+9.91 0.09 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.09.ksp
+9.90 0.10 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.10.ksp
+9.93 0.07 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.11.ksp
+9.87 0.12 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.12.ksp
+9.89 0.11 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.13.ksp
+9.88 0.12 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.14.ksp
+9.91 0.09 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.15.ksp
+9.90 0.10 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.16.ksp
+9.90 0.10 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.17.ksp
+9.84 0.15 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.18.ksp
+9.91 0.09 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.19.ksp
+9.90 0.10 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.20.ksp
+9.88 0.12 10.01 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_d4_n.21.ksp
+9.87 0.13 10.01 seconds
+Unable
+Inferences: -1
+

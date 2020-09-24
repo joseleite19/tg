@@ -1,0 +1,38 @@
+\begin{thebibliography}{1}
+  \providebibliographyfont{name}{}%
+  \providebibliographyfont{lastname}{}%
+  \providebibliographyfont{title}{\emph}%
+  \providebibliographyfont{jtitle}{\btxtitlefont}%
+  \providebibliographyfont{etal}{\emph}%
+  \providebibliographyfont{journal}{}%
+  \providebibliographyfont{volume}{}%
+  \providebibliographyfont{ISBN}{\MakeUppercase}%
+  \providebibliographyfont{ISSN}{\MakeUppercase}%
+  \providebibliographyfont{url}{\url}%
+  \providebibliographyfont{numeral}{}%
+  \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+
+\expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+\bibitem {nalontocl}
+\btxnamefont {\btxlastnamefont {Nalon}, Cl\'{a}udia}, \btxnamefont {Clare
+  \btxlastnamefont {Dixon}}\btxandcomma {} \btxandlong {}\ \btxnamefont
+  {Ullrich \btxlastnamefont {Hustadt}}\btxauthorcolon\ \btxjtitlefont
+  {\btxifchangecase {Modal resolution: Proofs, layers, and refinements}{Modal
+  Resolution: Proofs, Layers, and Refinements}}.
+\newblock \btxjournalfont {ACM Trans. Comput. Logic}, 20(4),
+  \btxprintmonthyear{.}{8}{2019}{long}\ifbtxprintISSN {,
+  \mbox{\btxISSN~\btxISSNfont {1529-3785}}}.
+\newblock {\latintext \btxurlfont{https://doi.org/10.1145/3331448}}.
+
+\bibitem {lwb}
+\btxnamefont {\btxlastnamefont {Balsiger}, Peter}, \btxnamefont {Alain
+  \btxlastnamefont {Heuerding}}\btxandcomma {} \btxandlong {}\ \btxnamefont
+  {Stefan \btxlastnamefont {Schwendimann}}\btxauthorcolon\ \btxjtitlefont
+  {\btxifchangecase {A benchmark method for the propositional modal logics k,
+  kt, s4}{A Benchmark Method for the Propositional Modal Logics K, KT, S4}}.
+\newblock \btxjournalfont {J. Autom. Reason.}, 24(3):297–317,
+  \btxprintmonthyear{.}{4}{2000}{long}\ifbtxprintISSN {,
+  \mbox{\btxISSN~\btxISSNfont {0168-7433}}}.
+\newblock {\latintext \btxurlfont{https://doi.org/10.1023/A:1006249507577}}.
+
+\end{thebibliography}

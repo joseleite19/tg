@@ -1,0 +1,105 @@
+Processing file lwb/k_grz_n.01.ksp
+0.00 0.00 0.00 seconds
+Satisfiable.
+Inferences: 719
+
+Processing file lwb/k_grz_n.02.ksp
+0.01 0.00 0.01 seconds
+Satisfiable.
+Inferences: 950
+
+Processing file lwb/k_grz_n.03.ksp
+0.08 0.00 0.08 seconds
+Satisfiable.
+Inferences: 6118
+
+Processing file lwb/k_grz_n.04.ksp
+0.52 0.00 0.53 seconds
+Satisfiable.
+Inferences: 19713
+
+Processing file lwb/k_grz_n.05.ksp
+0.53 0.00 0.54 seconds
+Satisfiable.
+Inferences: 19713
+
+Processing file lwb/k_grz_n.06.ksp
+0.53 0.01 0.55 seconds
+Satisfiable.
+Inferences: 19713
+
+Processing file lwb/k_grz_n.07.ksp
+0.53 0.00 0.54 seconds
+Satisfiable.
+Inferences: 19713
+
+Processing file lwb/k_grz_n.08.ksp
+0.53 0.00 0.54 seconds
+Satisfiable.
+Inferences: 19713
+
+Processing file lwb/k_grz_n.09.ksp
+0.53 0.00 0.54 seconds
+Satisfiable.
+Inferences: 19713
+
+Processing file lwb/k_grz_n.10.ksp
+7.58 0.09 7.67 seconds
+Satisfiable.
+Inferences: 113842
+
+Processing file lwb/k_grz_n.11.ksp
+7.56 0.07 7.63 seconds
+Satisfiable.
+Inferences: 113842
+
+Processing file lwb/k_grz_n.12.ksp
+7.59 0.04 7.64 seconds
+Satisfiable.
+Inferences: 113842
+
+Processing file lwb/k_grz_n.13.ksp
+7.56 0.08 7.64 seconds
+Satisfiable.
+Inferences: 113842
+
+Processing file lwb/k_grz_n.14.ksp
+9.93 0.06 10.00 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_grz_n.15.ksp
+9.94 0.05 10.00 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_grz_n.16.ksp
+9.94 0.06 10.00 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_grz_n.17.ksp
+9.94 0.06 10.00 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_grz_n.18.ksp
+9.94 0.06 10.00 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_grz_n.19.ksp
+9.92 0.08 10.00 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_grz_n.20.ksp
+9.93 0.06 10.00 seconds
+Unable
+Inferences: -1
+
+Processing file lwb/k_grz_n.21.ksp
+9.91 0.09 10.00 seconds
+Unable
+Inferences: -1
+

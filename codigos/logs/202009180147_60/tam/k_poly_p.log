@@ -1,0 +1,105 @@
+Processing file ../../lwb/k_poly_p.01.ksp
+0.00 0.00 0.00 seconds
+Unsatisfiable.
+Inferences: 35
+
+Processing file ../../lwb/k_poly_p.02.ksp
+0.02 0.00 0.02 seconds
+Unsatisfiable.
+Inferences: 783
+
+Processing file ../../lwb/k_poly_p.03.ksp
+0.05 0.00 0.06 seconds
+Unsatisfiable.
+Inferences: 1877
+
+Processing file ../../lwb/k_poly_p.04.ksp
+0.40 0.00 0.40 seconds
+Unsatisfiable.
+Inferences: 6511
+
+Processing file ../../lwb/k_poly_p.05.ksp
+1.01 0.02 1.03 seconds
+Unsatisfiable.
+Inferences: 10397
+
+Processing file ../../lwb/k_poly_p.06.ksp
+3.31 0.03 3.35 seconds
+Unsatisfiable.
+Inferences: 22297
+
+Processing file ../../lwb/k_poly_p.07.ksp
+5.96 0.04 6.01 seconds
+Unsatisfiable.
+Inferences: 30695
+
+Processing file ../../lwb/k_poly_p.08.ksp
+17.50 0.10 17.61 seconds
+Unsatisfiable.
+Inferences: 53347
+
+Processing file ../../lwb/k_poly_p.09.ksp
+25.54 0.17 25.72 seconds
+Unsatisfiable.
+Inferences: 67985
+
+Processing file ../../lwb/k_poly_p.10.ksp
+58.18 0.20 58.40 seconds
+Unsatisfiable.
+Inferences: 104845
+
+Processing file ../../lwb/k_poly_p.11.ksp
+59.74 0.26 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.12.ksp
+59.81 0.19 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.13.ksp
+59.78 0.21 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.14.ksp
+59.81 0.19 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.15.ksp
+59.77 0.23 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.16.ksp
+59.73 0.26 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.17.ksp
+59.85 0.15 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.18.ksp
+59.81 0.19 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.19.ksp
+59.84 0.16 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.20.ksp
+59.79 0.20 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.21.ksp
+59.83 0.15 60.01 seconds
+Unable
+Inferences: -1
+

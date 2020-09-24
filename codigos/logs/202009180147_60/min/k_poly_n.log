@@ -1,0 +1,105 @@
+Processing file ../../lwb/k_poly_n.01.ksp
+0.00 0.00 0.03 seconds
+Satisfiable.
+Inferences: 144
+
+Processing file ../../lwb/k_poly_n.02.ksp
+0.01 0.00 0.03 seconds
+Satisfiable.
+Inferences: 600
+
+Processing file ../../lwb/k_poly_n.03.ksp
+0.13 0.01 0.15 seconds
+Satisfiable.
+Inferences: 3240
+
+Processing file ../../lwb/k_poly_n.04.ksp
+0.32 0.00 0.33 seconds
+Satisfiable.
+Inferences: 5808
+
+Processing file ../../lwb/k_poly_n.05.ksp
+1.60 0.01 1.63 seconds
+Satisfiable.
+Inferences: 14400
+
+Processing file ../../lwb/k_poly_n.06.ksp
+3.13 0.04 3.18 seconds
+Satisfiable.
+Inferences: 20808
+
+Processing file ../../lwb/k_poly_n.07.ksp
+9.20 0.05 9.31 seconds
+Satisfiable.
+Inferences: 38808
+
+Processing file ../../lwb/k_poly_n.08.ksp
+13.31 0.11 13.47 seconds
+Satisfiable.
+Inferences: 50784
+
+Processing file ../../lwb/k_poly_n.09.ksp
+28.09 0.15 28.28 seconds
+Satisfiable.
+Inferences: 81648
+
+Processing file ../../lwb/k_poly_n.10.ksp
+47.17 0.22 47.42 seconds
+Satisfiable.
+Inferences: 100920
+
+Processing file ../../lwb/k_poly_n.11.ksp
+59.75 0.24 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.12.ksp
+59.75 0.22 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.13.ksp
+59.70 0.26 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.14.ksp
+59.70 0.27 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.15.ksp
+59.80 0.18 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.16.ksp
+59.77 0.19 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.17.ksp
+59.81 0.19 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.18.ksp
+59.76 0.21 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.19.ksp
+59.75 0.21 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.20.ksp
+59.81 0.16 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.21.ksp
+59.81 0.16 60.01 seconds
+Unable
+Inferences: -1
+

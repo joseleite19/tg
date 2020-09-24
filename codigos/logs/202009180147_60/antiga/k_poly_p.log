@@ -1,0 +1,105 @@
+Processing file ../../lwb/k_poly_p.01.ksp
+0.00 0.00 0.00 seconds
+Unsatisfiable.
+Inferences: 79
+
+Processing file ../../lwb/k_poly_p.02.ksp
+0.04 0.00 0.05 seconds
+Unsatisfiable.
+Inferences: 1191
+
+Processing file ../../lwb/k_poly_p.03.ksp
+0.11 0.00 0.12 seconds
+Unsatisfiable.
+Inferences: 2611
+
+Processing file ../../lwb/k_poly_p.04.ksp
+0.72 0.01 0.73 seconds
+Unsatisfiable.
+Inferences: 8139
+
+Processing file ../../lwb/k_poly_p.05.ksp
+1.40 0.01 1.42 seconds
+Unsatisfiable.
+Inferences: 12631
+
+Processing file ../../lwb/k_poly_p.06.ksp
+4.97 0.06 5.04 seconds
+Unsatisfiable.
+Inferences: 26031
+
+Processing file ../../lwb/k_poly_p.07.ksp
+7.97 0.07 8.04 seconds
+Unsatisfiable.
+Inferences: 35323
+
+Processing file ../../lwb/k_poly_p.08.ksp
+21.06 0.16 21.22 seconds
+Unsatisfiable.
+Inferences: 60051
+
+Processing file ../../lwb/k_poly_p.09.ksp
+32.72 0.24 32.97 seconds
+Unsatisfiable.
+Inferences: 75871
+
+Processing file ../../lwb/k_poly_p.10.ksp
+57.35 0.41 57.77 seconds
+Unsatisfiable.
+Inferences: 115383
+
+Processing file ../../lwb/k_poly_p.11.ksp
+59.62 0.40 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.12.ksp
+59.45 0.58 60.05 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.13.ksp
+59.48 0.54 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.14.ksp
+59.55 0.47 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.15.ksp
+59.58 0.46 60.05 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.16.ksp
+59.56 0.44 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.17.ksp
+59.71 0.33 60.05 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.18.ksp
+59.61 0.39 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.19.ksp
+59.59 0.43 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.20.ksp
+59.60 0.43 60.04 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_p.21.ksp
+59.66 0.36 60.03 seconds
+Unable
+Inferences: -1
+

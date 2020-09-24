@@ -1,0 +1,105 @@
+Processing file ../../lwb/k_poly_n.01.ksp
+0.00 0.00 0.00 seconds
+Satisfiable.
+Inferences: 180
+
+Processing file ../../lwb/k_poly_n.02.ksp
+0.02 0.00 0.02 seconds
+Satisfiable.
+Inferences: 1196
+
+Processing file ../../lwb/k_poly_n.03.ksp
+0.55 0.01 0.58 seconds
+Satisfiable.
+Inferences: 15466
+
+Processing file ../../lwb/k_poly_n.04.ksp
+1.89 0.04 1.94 seconds
+Satisfiable.
+Inferences: 39265
+
+Processing file ../../lwb/k_poly_n.05.ksp
+15.02 0.22 15.25 seconds
+Satisfiable.
+Inferences: 174860
+
+Processing file ../../lwb/k_poly_n.06.ksp
+38.76 0.55 39.33 seconds
+Satisfiable.
+Inferences: 320444
+
+Processing file ../../lwb/k_poly_n.07.ksp
+59.63 0.38 60.03 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.08.ksp
+59.72 0.28 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.09.ksp
+59.73 0.27 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.10.ksp
+59.74 0.27 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.11.ksp
+59.79 0.21 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.12.ksp
+59.77 0.22 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.13.ksp
+59.76 0.23 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.14.ksp
+59.82 0.18 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.15.ksp
+59.77 0.24 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.16.ksp
+59.82 0.18 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.17.ksp
+59.76 0.24 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.18.ksp
+59.76 0.19 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.19.ksp
+59.77 0.22 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.20.ksp
+59.84 0.17 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_poly_n.21.ksp
+59.77 0.24 60.02 seconds
+Unable
+Inferences: -1
+

@@ -1,15 +1,40 @@
 #!/bin/bash
 
-for file in lwb/*.ksp;
+TIME=10
+[ "$#" -eq 1 ] && TIME=$1
+
+DATE=$(date +"%Y%m%d%H%M%S")
+pfolder=logs/${DATE}_${TIME}
+mkdir -p $pfolder
+
+for conf in ksp-0.1.2/conf.files/jose_*.conf;
 do
-    echo "Processing file $file" 
-    exec 5>&1
-    echo "Processing file $file" &>> $file.ord.log
-    /usr/bin/time -f "%U %S %e seconds"  /usr/bin/timeout 10s ./ksp-0.1.2/ksp -c ksp-0.1.2/conf.files/jose_max.conf -i $file &> logs/max/$file.ord.log
-    if [ $? -eq 124 ]; then echo "Unable" &>>$file.ord.log; fi
-    if [ $? -eq 139 ]; then echo "Fail" &>>$file.ord.log; fi
-    exec 1>&5 5>&- 
+
+	tconf=${conf##*/}
+	tconf=${tconf%.conf}
+	folder=$pfolder/$tconf
+	mkdir -p $folder
+
+	for file in lwb/*.ksp;
+	do
+		echo "Processing file $file" 
+		exec 5>&1
+		outfile=${file#lwb/}
+		outfile=$folder/${outfile%.*.*}.log
+		echo "Processing file $file" &>> $outfile
+
+		OUT=$(/usr/bin/time -f "%U %S %e seconds" -q /usr/bin/timeout ${TIME}s ./ksp-0.1.2/ksp -c ${conf} -i $file 2>> $outfile)
+
+		if [ $? -eq 124 ]; then OUT="Unable\nInferences: -1"; fi
+		if [ $? -eq 139 ]; then OUT="Fails\nInferences: -1"; fi
+
+		echo -e "${OUT}" >> $outfile
+		echo >> $outfile
+
+		exec 1>&5 5>&- 
+	done
+
 done
 
-#Recovers stdout from file descriptor 5
+# Recovers stdout from file descriptor 5
 # exec 1>&5 5>&-  

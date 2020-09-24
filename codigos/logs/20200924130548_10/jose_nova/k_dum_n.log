@@ -1,0 +1,105 @@
+Processing file lwb/k_dum_n.01.ksp
+0.00 0.00 0.01 seconds
+Satisfiable.
+Inferences: 2081
+
+Processing file lwb/k_dum_n.02.ksp
+0.01 0.00 0.01 seconds
+Satisfiable.
+Inferences: 2081
+
+Processing file lwb/k_dum_n.03.ksp
+0.00 0.00 0.01 seconds
+Satisfiable.
+Inferences: 2081
+
+Processing file lwb/k_dum_n.04.ksp
+0.01 0.00 0.01 seconds
+Satisfiable.
+Inferences: 2081
+
+Processing file lwb/k_dum_n.05.ksp
+0.01 0.00 0.01 seconds
+Satisfiable.
+Inferences: 2839
+
+Processing file lwb/k_dum_n.06.ksp
+0.01 0.00 0.01 seconds
+Satisfiable.
+Inferences: 2964
+
+Processing file lwb/k_dum_n.07.ksp
+0.01 0.00 0.01 seconds
+Satisfiable.
+Inferences: 3190
+
+Processing file lwb/k_dum_n.08.ksp
+0.02 0.00 0.02 seconds
+Satisfiable.
+Inferences: 3480
+
+Processing file lwb/k_dum_n.09.ksp
+0.02 0.00 0.02 seconds
+Satisfiable.
+Inferences: 4085
+
+Processing file lwb/k_dum_n.10.ksp
+0.02 0.00 0.03 seconds
+Satisfiable.
+Inferences: 4834
+
+Processing file lwb/k_dum_n.11.ksp
+0.03 0.00 0.03 seconds
+Satisfiable.
+Inferences: 6072
+
+Processing file lwb/k_dum_n.12.ksp
+0.04 0.00 0.04 seconds
+Satisfiable.
+Inferences: 6697
+
+Processing file lwb/k_dum_n.13.ksp
+0.05 0.00 0.05 seconds
+Satisfiable.
+Inferences: 7912
+
+Processing file lwb/k_dum_n.14.ksp
+0.03 0.02 0.05 seconds
+Satisfiable.
+Inferences: 8661
+
+Processing file lwb/k_dum_n.15.ksp
+0.06 0.00 0.07 seconds
+Satisfiable.
+Inferences: 10061
+
+Processing file lwb/k_dum_n.16.ksp
+0.06 0.01 0.07 seconds
+Satisfiable.
+Inferences: 10686
+
+Processing file lwb/k_dum_n.17.ksp
+0.08 0.00 0.09 seconds
+Satisfiable.
+Inferences: 12169
+
+Processing file lwb/k_dum_n.18.ksp
+0.09 0.00 0.10 seconds
+Satisfiable.
+Inferences: 12918
+
+Processing file lwb/k_dum_n.19.ksp
+0.10 0.01 0.11 seconds
+Satisfiable.
+Inferences: 14400
+
+Processing file lwb/k_dum_n.20.ksp
+0.11 0.00 0.11 seconds
+Satisfiable.
+Inferences: 15025
+
+Processing file lwb/k_dum_n.21.ksp
+0.13 0.00 0.14 seconds
+Satisfiable.
+Inferences: 17242
+

@@ -1,0 +1,105 @@
+Processing file ../../lwb/k_d4_p.01.ksp
+0.00 0.00 0.00 seconds
+Unsatisfiable.
+Inferences: 30
+
+Processing file ../../lwb/k_d4_p.02.ksp
+0.00 0.00 0.02 seconds
+Unsatisfiable.
+Inferences: 138
+
+Processing file ../../lwb/k_d4_p.03.ksp
+0.00 0.00 0.01 seconds
+Unsatisfiable.
+Inferences: 283
+
+Processing file ../../lwb/k_d4_p.04.ksp
+0.01 0.00 0.02 seconds
+Unsatisfiable.
+Inferences: 510
+
+Processing file ../../lwb/k_d4_p.05.ksp
+0.01 0.00 0.02 seconds
+Unsatisfiable.
+Inferences: 661
+
+Processing file ../../lwb/k_d4_p.06.ksp
+0.02 0.00 0.03 seconds
+Unsatisfiable.
+Inferences: 792
+
+Processing file ../../lwb/k_d4_p.07.ksp
+0.02 0.00 0.02 seconds
+Unsatisfiable.
+Inferences: 922
+
+Processing file ../../lwb/k_d4_p.08.ksp
+0.03 0.00 0.03 seconds
+Unsatisfiable.
+Inferences: 1052
+
+Processing file ../../lwb/k_d4_p.09.ksp
+0.03 0.00 0.04 seconds
+Unsatisfiable.
+Inferences: 1182
+
+Processing file ../../lwb/k_d4_p.10.ksp
+0.04 0.00 0.04 seconds
+Unsatisfiable.
+Inferences: 1312
+
+Processing file ../../lwb/k_d4_p.11.ksp
+0.04 0.00 0.04 seconds
+Unsatisfiable.
+Inferences: 1442
+
+Processing file ../../lwb/k_d4_p.12.ksp
+0.04 0.00 0.05 seconds
+Unsatisfiable.
+Inferences: 1572
+
+Processing file ../../lwb/k_d4_p.13.ksp
+0.04 0.00 0.05 seconds
+Unsatisfiable.
+Inferences: 1702
+
+Processing file ../../lwb/k_d4_p.14.ksp
+0.06 0.00 0.06 seconds
+Unsatisfiable.
+Inferences: 1832
+
+Processing file ../../lwb/k_d4_p.15.ksp
+0.06 0.00 0.07 seconds
+Unsatisfiable.
+Inferences: 1962
+
+Processing file ../../lwb/k_d4_p.16.ksp
+0.06 0.00 0.07 seconds
+Unsatisfiable.
+Inferences: 2092
+
+Processing file ../../lwb/k_d4_p.17.ksp
+0.07 0.01 0.08 seconds
+Unsatisfiable.
+Inferences: 2222
+
+Processing file ../../lwb/k_d4_p.18.ksp
+0.07 0.01 0.09 seconds
+Unsatisfiable.
+Inferences: 2352
+
+Processing file ../../lwb/k_d4_p.19.ksp
+0.08 0.01 0.10 seconds
+Unsatisfiable.
+Inferences: 2482
+
+Processing file ../../lwb/k_d4_p.20.ksp
+0.09 0.00 0.10 seconds
+Unsatisfiable.
+Inferences: 2612
+
+Processing file ../../lwb/k_d4_p.21.ksp
+0.10 0.00 0.11 seconds
+Unsatisfiable.
+Inferences: 2742
+

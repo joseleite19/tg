@@ -1,0 +1,105 @@
+Processing file ../../lwb/k_grz_n.01.ksp
+0.05 0.00 0.05 seconds
+Satisfiable.
+Inferences: 2768
+
+Processing file ../../lwb/k_grz_n.02.ksp
+0.04 0.00 0.04 seconds
+Satisfiable.
+Inferences: 2347
+
+Processing file ../../lwb/k_grz_n.03.ksp
+0.11 0.00 0.12 seconds
+Satisfiable.
+Inferences: 3818
+
+Processing file ../../lwb/k_grz_n.04.ksp
+0.29 0.01 0.31 seconds
+Satisfiable.
+Inferences: 6849
+
+Processing file ../../lwb/k_grz_n.05.ksp
+0.28 0.02 0.31 seconds
+Satisfiable.
+Inferences: 6849
+
+Processing file ../../lwb/k_grz_n.06.ksp
+0.30 0.00 0.31 seconds
+Satisfiable.
+Inferences: 6849
+
+Processing file ../../lwb/k_grz_n.07.ksp
+0.29 0.01 0.31 seconds
+Satisfiable.
+Inferences: 6849
+
+Processing file ../../lwb/k_grz_n.08.ksp
+0.31 0.00 0.33 seconds
+Satisfiable.
+Inferences: 6849
+
+Processing file ../../lwb/k_grz_n.09.ksp
+0.29 0.01 0.31 seconds
+Satisfiable.
+Inferences: 6849
+
+Processing file ../../lwb/k_grz_n.10.ksp
+1.03 0.01 1.06 seconds
+Satisfiable.
+Inferences: 14097
+
+Processing file ../../lwb/k_grz_n.11.ksp
+1.24 0.02 1.28 seconds
+Satisfiable.
+Inferences: 14097
+
+Processing file ../../lwb/k_grz_n.12.ksp
+1.25 0.01 1.30 seconds
+Satisfiable.
+Inferences: 14097
+
+Processing file ../../lwb/k_grz_n.13.ksp
+1.24 0.01 1.26 seconds
+Satisfiable.
+Inferences: 14097
+
+Processing file ../../lwb/k_grz_n.14.ksp
+19.88 0.20 20.09 seconds
+Satisfiable.
+Inferences: 90028
+
+Processing file ../../lwb/k_grz_n.15.ksp
+21.09 0.15 21.24 seconds
+Satisfiable.
+Inferences: 90028
+
+Processing file ../../lwb/k_grz_n.16.ksp
+21.40 0.17 21.58 seconds
+Satisfiable.
+Inferences: 90028
+
+Processing file ../../lwb/k_grz_n.17.ksp
+21.50 0.11 21.63 seconds
+Satisfiable.
+Inferences: 90028
+
+Processing file ../../lwb/k_grz_n.18.ksp
+59.73 0.27 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_grz_n.19.ksp
+59.62 0.37 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_grz_n.20.ksp
+59.69 0.27 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_grz_n.21.ksp
+59.72 0.29 60.02 seconds
+Unable
+Inferences: -1
+

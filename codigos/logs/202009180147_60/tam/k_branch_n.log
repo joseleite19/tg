@@ -1,0 +1,105 @@
+Processing file ../../lwb/k_branch_n.01.ksp
+0.00 0.00 0.05 seconds
+Satisfiable.
+Inferences: 537
+
+Processing file ../../lwb/k_branch_n.02.ksp
+14.27 0.05 14.33 seconds
+Satisfiable.
+Inferences: 76319
+
+Processing file ../../lwb/k_branch_n.03.ksp
+59.80 0.20 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.04.ksp
+59.72 0.27 60.00 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.05.ksp
+59.75 0.26 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.06.ksp
+59.66 0.34 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.07.ksp
+59.62 0.39 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.08.ksp
+59.63 0.37 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.09.ksp
+59.74 0.27 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.10.ksp
+59.74 0.27 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.11.ksp
+59.69 0.32 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.12.ksp
+59.69 0.31 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.13.ksp
+59.78 0.22 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.14.ksp
+59.81 0.19 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.15.ksp
+59.78 0.23 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.16.ksp
+59.67 0.34 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.17.ksp
+59.67 0.33 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.18.ksp
+59.54 0.46 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.19.ksp
+59.67 0.33 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.20.ksp
+59.73 0.27 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_n.21.ksp
+59.73 0.27 60.02 seconds
+Unable
+Inferences: -1
+

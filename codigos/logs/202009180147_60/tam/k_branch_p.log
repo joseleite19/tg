@@ -1,0 +1,105 @@
+Processing file ../../lwb/k_branch_p.01.ksp
+0.00 0.00 0.00 seconds
+Unsatisfiable.
+Inferences: 3
+
+Processing file ../../lwb/k_branch_p.02.ksp
+0.53 0.00 0.54 seconds
+Unsatisfiable.
+Inferences: 9547
+
+Processing file ../../lwb/k_branch_p.03.ksp
+12.68 0.08 12.77 seconds
+Unsatisfiable.
+Inferences: 63490
+
+Processing file ../../lwb/k_branch_p.04.ksp
+59.69 0.32 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.05.ksp
+59.70 0.31 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.06.ksp
+59.69 0.32 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.07.ksp
+59.66 0.35 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.08.ksp
+59.68 0.33 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.09.ksp
+59.68 0.33 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.10.ksp
+59.65 0.35 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.11.ksp
+59.71 0.29 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.12.ksp
+59.70 0.28 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.13.ksp
+59.76 0.23 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.14.ksp
+59.74 0.26 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.15.ksp
+59.67 0.32 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.16.ksp
+59.68 0.32 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.17.ksp
+59.65 0.35 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.18.ksp
+59.63 0.37 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.19.ksp
+59.65 0.35 60.02 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.20.ksp
+59.75 0.25 60.01 seconds
+Unable
+Inferences: -1
+
+Processing file ../../lwb/k_branch_p.21.ksp
+59.76 0.24 60.02 seconds
+Unable
+Inferences: -1
+

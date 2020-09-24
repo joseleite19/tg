@@ -1,0 +1,105 @@
+Processing file ../../lwb/k_path_p.01.ksp
+0.00 0.00 0.00 seconds
+Unsatisfiable.
+Inferences: 1
+
+Processing file ../../lwb/k_path_p.02.ksp
+0.00 0.00 0.00 seconds
+Unsatisfiable.
+Inferences: 2
+
+Processing file ../../lwb/k_path_p.03.ksp
+0.00 0.00 0.00 seconds
+Unsatisfiable.
+Inferences: 4
+
+Processing file ../../lwb/k_path_p.04.ksp
+0.00 0.00 0.00 seconds
+Unsatisfiable.
+Inferences: 6
+
+Processing file ../../lwb/k_path_p.05.ksp
+0.00 0.00 0.01 seconds
+Unsatisfiable.
+Inferences: 8
+
+Processing file ../../lwb/k_path_p.06.ksp
+0.00 0.00 0.01 seconds
+Unsatisfiable.
+Inferences: 10
+
+Processing file ../../lwb/k_path_p.07.ksp
+0.01 0.00 0.01 seconds
+Unsatisfiable.
+Inferences: 12
+
+Processing file ../../lwb/k_path_p.08.ksp
+0.01 0.00 0.01 seconds
+Unsatisfiable.
+Inferences: 14
+
+Processing file ../../lwb/k_path_p.09.ksp
+0.01 0.00 0.02 seconds
+Unsatisfiable.
+Inferences: 16
+
+Processing file ../../lwb/k_path_p.10.ksp
+0.02 0.00 0.02 seconds
+Unsatisfiable.
+Inferences: 18
+
+Processing file ../../lwb/k_path_p.11.ksp
+0.03 0.00 0.03 seconds
+Unsatisfiable.
+Inferences: 20
+
+Processing file ../../lwb/k_path_p.12.ksp
+0.03 0.00 0.04 seconds
+Unsatisfiable.
+Inferences: 22
+
+Processing file ../../lwb/k_path_p.13.ksp
+0.04 0.00 0.05 seconds
+Unsatisfiable.
+Inferences: 24
+
+Processing file ../../lwb/k_path_p.14.ksp
+0.03 0.01 0.04 seconds
+Unsatisfiable.
+Inferences: 26
+
+Processing file ../../lwb/k_path_p.15.ksp
+0.06 0.00 0.06 seconds
+Unsatisfiable.
+Inferences: 28
+
+Processing file ../../lwb/k_path_p.16.ksp
+0.05 0.01 0.06 seconds
+Unsatisfiable.
+Inferences: 30
+
+Processing file ../../lwb/k_path_p.17.ksp
+0.07 0.00 0.09 seconds
+Unsatisfiable.
+Inferences: 32
+
+Processing file ../../lwb/k_path_p.18.ksp
+0.07 0.00 0.08 seconds
+Unsatisfiable.
+Inferences: 34
+
+Processing file ../../lwb/k_path_p.19.ksp
+0.11 0.00 0.12 seconds
+Unsatisfiable.
+Inferences: 36
+
+Processing file ../../lwb/k_path_p.20.ksp
+0.09 0.01 0.11 seconds
+Unsatisfiable.
+Inferences: 38
+
+Processing file ../../lwb/k_path_p.21.ksp
+0.13 0.02 0.15 seconds
+Unsatisfiable.
+Inferences: 40
+
