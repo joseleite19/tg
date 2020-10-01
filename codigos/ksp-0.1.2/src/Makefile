@@ -10,9 +10,9 @@ EXTRALIBS=-L/usr/lib64/libtcmalloc.so.4.1.0
 
 # production
 
-CFLAGS=-O3 -lpthread
-LFLAGS=-O3
-PFLAGS=-O3
+CFLAGS=-Ofast -lpthread
+LFLAGS=-Ofast
+PFLAGS=-Ofast
 
 # Some other hash functions:
 

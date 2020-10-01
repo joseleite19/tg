@@ -233,40 +233,41 @@ Em \textit{máxima}, é feita escolha análoga a \textit{mínima} mas dentre cl�
 
 Neste trabalho propomos novos métodos para seleção de cláusulas e comparamos com os métodos previamente utilizados no KSP. Para comparação usaremos o \textit{benchmark} \cite{lwb} contendo 9 famílias de fórmulas e para cada família 21 fórmulas satisfatíveis e 21 insatisfatíveis.
 
-A Tabela \ref{table:primeiro10} a baixo mostra a quantidade de fórmulas resolvidas em até dez segundos para cada família e cada uma das cinco estratégias disponíveis no KSP.
+A Tabela \ref{table:primeiro10} abaixo mostra o resultado para cada uma das cinco estratégias disponíveis no KSP. Cada célula da tabela tem a quantidade de fórmulas resolvidas em até dez segundos e a média de tempo entre as fórmulas resolvidas.
 
 \begin{table*}[t]
 	\[
 \begin{array}{|c|c|c|c|c|c|}
 	\hline - & \textit{mais antiga} & \textit{mais nova} & \textit{mínima} & \textit{máxima} & \textit{menor} \\
 
-	\hline \textnormal{k\_branch\_n} & 1 & 1 & 2 & 1 & 2 \\
-	\hline \textnormal{k\_branch\_p} & 2 & 1 & 3 & 1 & 3 \\
-	\hline \textnormal{k\_d4\_n} & 7 & 4 & 7 & 6 & 7 \\
-	\hline \textnormal{k\_d4\_p} & 21 & 21 & 21 & 21 & 21 \\
-	\hline \textnormal{k\_dum\_n} & 21 & 21 & 21 & 21 & 21 \\
-	\hline \textnormal{k\_dum\_p} & 21 & 21 & 21 & 21 & 21 \\
-	\hline \textnormal{k\_grz\_n} & 17 & 13 & 21 & 13 & 21 \\
-	\hline \textnormal{k\_grz\_p} & 21 & 21 & 21 & 21 & 21 \\
-	\hline \textnormal{k\_lin\_n} & 21 & 21 & 21 & 21 & 21 \\
-	\hline \textnormal{k\_lin\_p} & 21 & 21 & 21 & 21 & 21 \\
-	\hline \textnormal{k\_path\_n} & 21 & 21 & 21 & 21 & 21 \\
-	\hline \textnormal{k\_path\_p} & 21 & 21 & 21 & 21 & 21 \\
-	\hline \textnormal{k\_ph\_n} & 2 & 2 & 3 & 2 & 3 \\
-	\hline \textnormal{k\_ph\_p} & 2 & 2 & 3 & 2 & 3 \\
-	\hline \textnormal{k\_poly\_n} & 8 & 5 & 8 & 8 & 8 \\
-	\hline \textnormal{k\_poly\_p} & 8 & 6 & 9 & 8 & 9 \\
-	\hline \textnormal{k\_t4p\_n} & 21 & 21 & 21 & 21 & 21 \\
-	\hline \textnormal{k\_t4p\_p} & 21 & 21 & 21 & 21 & 21 \\
-
+	\hline \textnormal{k\_branch\_n} & 1(0.01) & 1(0.02) & 2(4.91) & 1(0.00) & 2(4.28) \\
+	\hline \textnormal{k\_branch\_p} & 2(1.54) & 1(0.00) & 3(1.38) & 1(0.00) & 3(1.38) \\
+	\hline \textnormal{k\_d4\_n} & 7(1.32) & 4(1.17) & 7(0.79) & 6(1.69) & 7(2.03) \\
+	\hline \textnormal{k\_d4\_p} & 21(0.14) & 21(0.16) & 21(0.04) & 21(0.18) & 21(0.04) \\
+	\hline \textnormal{k\_dum\_n} & 21(0.02) & 21(0.14) & 21(0.05) & 21(0.03) & 21(0.05) \\
+	\hline \textnormal{k\_dum\_p} & 21(0.09) & 21(0.36) & 21(0.04) & 21(0.10) & 21(0.04) \\
+	\hline \textnormal{k\_grz\_n} & 17(1.60) & 13(0.45) & 21(0.48) & 13(2.58) & 21(0.48) \\
+	\hline \textnormal{k\_grz\_p} & 21(0.00) & 21(0.00) & 21(0.00) & 21(0.00) & 21(0.00) \\
+	\hline \textnormal{k\_lin\_n} & 21(0.00) & 21(0.00) & 21(0.00) & 21(0.00) & 21(0.00) \\
+	\hline \textnormal{k\_lin\_p} & 21(0.00) & 21(0.00) & 21(0.00) & 21(0.00) & 21(0.00) \\
+	\hline \textnormal{k\_path\_n} & 21(0.01) & 21(0.02) & 21(0.03) & 21(0.01) & 21(0.03) \\
+	\hline \textnormal{k\_path\_p} & 21(0.01) & 21(0.04) & 21(0.04) & 21(0.01) & 21(0.04) \\
+	\hline \textnormal{k\_ph\_n} & 2(0.00) & 2(0.00) & 3(1.54) & 2(0.00) & 3(1.67) \\
+	\hline \textnormal{k\_ph\_p} & 2(0.00) & 2(0.00) & 3(0.01) & 2(0.00) & 3(0.02) \\
+	\hline \textnormal{k\_poly\_n} & 8(1.16) & 5(1.29) & 8(1.58) & 8(0.86) & 8(1.12) \\
+	\hline \textnormal{k\_poly\_p} & 8(2.21) & 6(1.12) & 9(1.18) & 8(1.76) & 9(1.26) \\
+	\hline \textnormal{k\_t4p\_n} & 21(0.05) & 21(0.14) & 21(0.10) & 21(0.05) & 21(0.03) \\
+	\hline \textnormal{k\_t4p\_p} & 21(0.03) & 21(0.09) & 21(0.04) & 21(0.03) & 21(0.01) \\
+	
 	\hline
+	
 \end{array}
 	\]
-\caption{Fórmulas resolvidas em até 10 seg.}
+\caption{Fórmulas resolvidas em até 10 seg e tempo médio em segundos.}
 \label{table:primeiro10}
 \end{table*}
 
-Os resultados indicam que o KSP é muito eficiente para a maioria das famílias independente da estratégia utilizada, mas muito pode ser melhorado em k\_branch\_n, k\_branch\_p, k\_d4\_n, k\_ph\_n, k\_ph\_p, k\_poly\_n e k\_poly\_p. Podemos, então, buscar estratégias de seleção de cláusulas direcionadas a estas famílias.
+Os resultados indicam que o KSP é muito eficiente para a maioria das famílias independente da estratégia utilizada, mas muito pode ser melhorado em k\_branch\_n, k\_branch\_p, k\_ph\_n e k\_ph\_p. Podemos, então, buscar estratégias de seleção de cláusulas direcionadas a estas famílias.
 
 \section{Grafo}
 Um grafo é um par um ordenado $(V, E)$, onde $E \subseteq V\times V$, chamamos $V$ o conjunto de vértices e $E$ o conjunto de arestas.

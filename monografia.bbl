@@ -35,4 +35,17 @@
   \mbox{\btxISSN~\btxISSNfont {0168-7433}}}.
 \newblock {\latintext \btxurlfont{https://doi.org/10.1023/A:1006249507577}}.
 
+\bibitem {stephan}
+\btxnamefont {\btxlastnamefont {Schulz}, Stephan} \btxandlong {}\ \btxnamefont
+  {Martin \btxlastnamefont {M{\"o}hrmann}}\btxauthorcolon\ \btxtitlefont
+  {\btxifchangecase {Performance of clause selection heuristics for
+  saturation-based theorem proving}{Performance of Clause Selection Heuristics
+  for Saturation-Based Theorem Proving}}.
+\newblock \Btxinlong {}\ \btxnamefont {\btxlastnamefont {Olivetti}, Nicola}
+  \btxandlong {}\ \btxnamefont {Ashish \btxlastnamefont {Tiwari}}\
+  (\btxeditorslong {}): \btxtitlefont {Automated Reasoning}, \btxpageslong {}\
+  330--345, Cham, 2016. \btxpublisherfont {Springer International
+  Publishing}\ifbtxprintISBN {, \mbox{\btxISBN~\btxISBNfont
+  {978-3-319-40229-1}}}.
+
 \end{thebibliography}
