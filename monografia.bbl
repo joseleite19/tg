@@ -48,4 +48,13 @@
   Publishing}\ifbtxprintISBN {, \mbox{\btxISBN~\btxISBNfont
   {978-3-319-40229-1}}}.
 
+\bibitem {TPTP}
+\btxnamefont {\btxlastnamefont {Sutcliffe}, Geoff}\btxauthorcolon\
+  \btxjtitlefont {\btxifchangecase {The tptp problem library and associated
+  infrastructure: ttthe fof and cnf parts, v3.5.0}{The TPTP problem library and
+  associated infrastructure: ttthe FOF and CNF Parts, v3.5.0}}.
+\newblock \btxjournalfont {Journal of Automated Reasoning}, 43(4):337--362,
+  \btxprintmonthyear{.}{1}{2009}{long}\ifbtxprintISSN {,
+  \mbox{\btxISSN~\btxISSNfont {0168-7433}}}.
+
 \end{thebibliography}

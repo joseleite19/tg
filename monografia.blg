@@ -2,52 +2,52 @@ This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: monografia.aux
 The style file: babunsrt.bst
-Illegal, another \bibdata command---line 93 of file monografia.aux
+Illegal, another \bibdata command---line 98 of file monografia.aux
  : \bibdata
  :         {bibliografia}
 I'm skipping whatever remains of this command
 Database file #1: bibliografia.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty language in nalontocl
-You've used 3 entries,
+You've used 4 entries,
             2465 wiz_defined-function locations,
-            612 strings with 6157 characters,
-and the built_in function-call counts, 1221 in all, are:
-= -- 95
-> -- 38
+            621 strings with 6331 characters,
+and the built_in function-call counts, 1506 in all, are:
+= -- 122
+> -- 42
 < -- 1
-+ -- 13
-- -- 10
-* -- 169
-:= -- 155
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 3
++ -- 15
+- -- 11
+* -- 207
+:= -- 193
+add.period$ -- 11
+call.type$ -- 4
+change.case$ -- 4
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 68
-empty$ -- 123
-format.name$ -- 30
-if$ -- 257
+cite$ -- 5
+duplicate$ -- 82
+empty$ -- 156
+format.name$ -- 32
+if$ -- 319
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 5
-newline$ -- 30
-num.names$ -- 5
-pop$ -- 8
+int.to.str$ -- 4
+missing$ -- 7
+newline$ -- 34
+num.names$ -- 6
+pop$ -- 10
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 28
+skip$ -- 33
 stack$ -- 0
-substring$ -- 59
-swap$ -- 36
+substring$ -- 84
+swap$ -- 40
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 8
-width$ -- 4
-write$ -- 54
+while$ -- 11
+width$ -- 5
+write$ -- 65
 (There was 1 error message)

@@ -3,7 +3,7 @@ Neste capítulo propomos novos métodos de seleção de cláusula para o KSP.
 \section{Trabalhos anteriores}
 Uma análise de heurísticas de seleção de cláusula para provadores de saturação, assim como KSP, foi feita por \cite{stephan}. O experimento é feito sobre 13774 fórmulas do \textit{benchmark} TPTP \cite{TPTP} com 300 segundos de tempo limite.
 
-As heurísticas avaliadas foram: \textit{First-in/First-out}, Contagem de Símbolos e Ordenada. Em \textit{First-in/First-out}, ou FIFO, é sempre selecionada cláusula não processada mais velha. Em Contagem de Símbolos, é atribuído um peso a cada símbolo, por exemplo todos 1, e é selecionada uma cláusula com a menor soma de pesos. Ordenada é uma variação de Contagem de Símbolos onde é preferida cláusulas com o menor número de literais máximos.
+As heurísticas avaliadas foram: \textit{First-in/First-out}, Contagem de Símbolos e Ordenada. Em \textit{First-in/First-out}, ou FIFO, é sempre selecionada cláusula não processada mais antiga. Em Contagem de Símbolos, é atribuído um peso a cada símbolo, por exemplo todos 1, e é selecionada uma cláusula com a menor soma de pesos. Ordenada é uma variação de Contagem de Símbolos onde é preferida cláusulas com o menor número de literais máximos.
 
 Também foram analisadas várias intercalações de duas dessas heurísticas em distribuições diferentes. Por exemplo, a cada 11 seleções de cláusulas, 10 são feitas pela heurística Contagem de Símbolo e 1 é feita pela heurística FIFO.
 
@@ -11,3 +11,18 @@ São apresentados vários resultados como número de fórmulas resolvidas, taman
 
 \section{Primeira proposta}
 Contagem de símbolo + FIFO 10:1
+
+
+
+\section{Primeira proposta}
+Contagem de símbolo + FIFO 10:1
+starexec
+
+montar inferencia
+
+
+todos os niveis usando msm razao 1:10
+razao diferente com base numa metrica
+selecao top com literal
+
+martin suda

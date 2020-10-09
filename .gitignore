@@ -13,6 +13,7 @@ monografia.pdf
 *.cb2
 .*.lb
 codigo/lwb/*
+codigo/ksp*/*
 
 ## Intermediate documents:
 *.dvi

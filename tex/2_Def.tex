@@ -55,10 +55,10 @@ Dizemos que a polaridade de $\chi_1$ em $\varphi$ na posição $s$ é $pol(\varp
 Dizemos que o nível modal de $\chi_1$ em $\varphi$ na posição $s$ é $mlevel(\varphi, \psi, s)$.
 
 A semântica para lógica modal proposicional é dada por estruturas de Kripke. Uma estrutura de Kripke $M$ é da forma $M = (\set{W}, \st_0, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, onde % TODO Cita
-$\set{W}$ é um conjunto de mundos possíveis, $\st_0 \in \set{W}$, $\pi:\set{W} \times \set{P} \rightarrow \{\ctrue, \cfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfeita na lógica modal K no modelo $M$ no mundo $\st$ se, e somente se, $\langle M,w \rangle \models \varphi$, conforme segue:
+$\set{W}$ é um conjunto de mundos possíveis, $\st_0 \in \set{W}$, $\pi:\set{W} \times \set{P} \rightarrow \{\vtrue, \vfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfeita na lógica modal K no modelo $M$ no mundo $\st$ se, e somente se, $\langle M,w \rangle \models \varphi$, conforme segue:
 
 \begin{itemize}
-	\item $\langle M,\st \rangle \models \varphi$, se e somente se $\varphi \in \set{P}$ e $\pi(\st, \varphi) = \ctrue$
+	\item $\langle M,\st \rangle \models \varphi$, se e somente se $\varphi \in \set{P}$ e $\pi(\st, \varphi) = \vtrue$
 	\item $\langle M,\st \rangle \models \neg\varphi$, se e somente se $\langle M,\st \rangle \not\models \varphi$
 	\item $\langle M,\st \rangle \models (\varphi \land \psi)$, se e somente se $\langle M,\st \rangle \models \varphi$ e $\langle M,\st \rangle \models \psi $
 	\item $\langle M,\st \rangle \models (\varphi \lor \psi)$, se e somente se $\langle M,\st \rangle \models \varphi$ ou $\langle M,\st \rangle \models \psi $
@@ -101,7 +101,7 @@ A satisfatibilidade de uma fórmula em $SNF_{ml}$ é definida a partir da satisf
 
 Uma função de tradução de $K_n$ para $SNF_{ml}$ bem como prova de que a tradução de uma fórmula preserva satisfatibilidade podem ser encontradas em \cite{nalontocl}.
 
-Seja $\ge$ uma ordem total sobre os símbolos proposicionais. Extendemos esta ordem para os Literais da seguinte forma: Se $p \in \set{P}$, então $\neg p \ge \neg p$ e $\neg p \ge p$; Se $p, q \in \set{P}$ e $p \ge q$, então $p \ge \neg q$.
+Seja $\ge$ uma ordem total sobre os símbolos proposicionais. Extendemos esta ordem para os literais da seguinte forma: Se $p \in \set{P}$, então $\neg p \ge \neg p$ e $\neg p \ge p$; Se $p, q \in \set{P}, p \not= q$ e $p \ge q$, então $p \ge \neg q$.
 
 \begin{definition}
 	O literal $l$ é máximo em $\varphi \in SNF_{ml}$ se e somente se $l$ ocorre em $\varphi$ e não há $l_2 \not= l$ em $\varphi$ tal que $l_2 \ge l$.
@@ -180,6 +180,8 @@ O cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$ foi des
 
 \section{Algoritmo}
 
+KSP é um provador baseado em resolução.
+
 A seguir, descrevemos o algoritmo implementado no KSP.
 
 \begin{algorithm}[H]
@@ -201,7 +203,7 @@ A seguir, descrevemos o algoritmo implementado no KSP.
 				$\Lambda^{lit}_{ml} \leftarrow \Lambda^{lit}_{ml} \cup \{clausula\}$\;
 			}
 			$\Gamma^{lit}_{ml} \leftarrow \Gamma^{lit}_{ml} \setminus \{clausula\}$\;
-			\If{$0: false \in \Gamma^{lit}_{0}$}{
+			\If{$0: \cfalse \in \Gamma^{lit}_{0}$}{
 				\Return insatisfatível\;
 			}
 			$\Gamma^{lit} \leftarrow \bigcup \Gamma^{lit}_{ml}$\;
@@ -213,13 +215,13 @@ A seguir, descrevemos o algoritmo implementado no KSP.
 
 KSP utiliza uma variação de conjunto de suporte, técnica que restringe os candidatos possíveis para resolução, e a demostração da correção e completude dessa extensão para $SNF_{ml}$ pode ser encontrada em \cite{nalontocl}.
 
-Na versão para lógica clássica de conjunto de suporte o conjunto de cláusulas $\Delta$ é particionado em dois conjuntos $\Gamma$, o conjunto de suporte ou não processado, e $\Lambda$, o conjunto \textit{usable} ou processado. Cláusulas são selecionadas de $\Gamma$, e passam para $\Lambda$, para aplicação de regras de inferência, os resolventes são inseridos em $\Gamma$.
+Na versão para lógica clássica de conjunto de suporte o conjunto de cláusulas $\Delta$ é particionado em dois conjuntos $\Gamma$, o conjunto de suporte ou não processado, e $\Lambda$, o conjunto \textit{usable} ou processado. Cláusulas são selecionadas de $\Gamma$ e resolvidas com cláusulas em $\Lambda$. A cláusula selecionada é removida de $\Gamma$ e acrescentada a $\Lambda$. Os resolventes produzidos são inseridos em $\Gamma$.
 
-Na extensão para $SNF_{ml}$, onde as clásulas são rotuladas pelo nível modal, as clásulas de todo nível modal é particionado em três conjuntos $\Gamma^{lit}_{ml}$, $\Lambda^{lit}_{ml}$ e $\Lambda^{mod}_{ml}$. Cláusulas proposicionais são particionadas em $\Gamma^{lit}_{ml}$ e $\Lambda^{lit}_{ml}$ como no caso em lógica clássica. Clásulas modais são armazenadas em $\Lambda^{mod}_{ml}$. Note que nenhuma regra de inferência descrita na Seção \ref{secao:regrasinf} produz novas cláusulas modais.
+Na extensão para $SNF_{ml}$, onde as clásulas são rotuladas pelo nível modal, as clásulas de todo nível modal $ml$ é particionado em três conjuntos $\Gamma^{lit}_{ml}$, $\Lambda^{lit}_{ml}$ e $\Lambda^{mod}_{ml}$. Cláusulas proposicionais são particionadas em $\Gamma^{lit}_{ml}$ e $\Lambda^{lit}_{ml}$ como no caso em lógica clássica. Cláusulas modais são armazenadas em $\Lambda^{mod}_{ml}$. Note que nenhuma regra de inferência descrita na Seção \ref{secao:regrasinf} produz novas cláusulas modais.
 
-As Linhas 1-3 aplicam algumas regras de simplificação, traduzem a fórmula para linguagem $SNF_{ml}$ e constrõem os conjuntos \textit{usable} e de suporte. As Linhas 9-11 aplicam regras de inferências descritas na Seção~\ref{secao:regrasinf}.
+As Linhas 1-3 aplicam algumas regras de simplificação, traduzem a fórmula para linguagem $SNF_{ml}$ e constroem os conjuntos \textit{usable} e de suporte. As Linhas 9-11 aplicam regras de inferências descritas na Seção~\ref{secao:regrasinf}.
 
-A função {\sf given}, Linha 7, é responsável por escolher uma cláusula dentre todas as candidatas possíveis. Cada nível modal é independente, possibilitando até estratégias diferentes em níveis diferentes. Naturalmente, a função {\sf given} só considera as cláusulas do nível modal pedido. KSP implementa cinco variações dessa função: \textit{menor}, \textit{mais antiga}, \textit{mais nova}, \textit{mínima} e \textit{máxima}; e o usuário pode escolher qual deseja utilizar.
+A função {\sf given}, Linha 7, é responsável por escolher uma cláusula dentre todas as candidatas possíveis do conjunto de suporte. Cada nível modal é independente. Naturalmente, a função {\sf given} só considera as cláusulas do nível modal pedido. KSP implementa cinco variações dessa função: \textit{menor}, \textit{mais antiga}, \textit{mais nova}, \textit{mínima} e \textit{máxima}; e o usuário pode escolher qual deseja utilizar.
 
 Na variação \textit{menor}, é selecionada uma cláusula com o menor tamanho de $\Gamma^{lit}_{ml}$.
 
