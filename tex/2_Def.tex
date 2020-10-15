@@ -109,6 +109,10 @@ Seja $\ge$ uma ordem total sobre os símbolos proposicionais. Extendemos esta or
 
 Note que podemos escolher qualquer ordem sobre os símbolos proposionais, assim $l$ pode ser máximo numa ordem e não ser máximo em outra ordem.
 
+\begin{definition}
+	O tamanho de uma cláusula em $SNF_{ml}$ é a cardinalidade do conjunto contendo somente os literais na cláusula.
+\end{definition}
+
 \section{Regras de inferência} \label{secao:regrasinf}
 O cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$ foi descrito em \cite{nalontocl}. Para simplificar a descrição das regras de inferência faremos uso de uma função parcial de unificação $\sigma \colon P(\Nat \cup \{*\}) \mapsto \Nat \cup \{*\}$, tal que $\sigma(\{ml, *\}) = ml$, $\sigma(\{ml\}) = ml$, e indefinida caso contrário. As regras de inferência de $RES_{ml}$ são apresentadas na Figura~\ref{figura:regrasinf}, onde $*-1=*$ e $m$ pode ser 0. Essas regras só valem se o resultado da unificação for definido. Demostrações de correção e corretude podem ser encotradas em \cite{nalontocl}.
 
@@ -179,15 +183,18 @@ O cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$ foi des
 
 
 \section{Algoritmo}
+Neste trabalho usaremos o provador KSP \cite{Nalon2020}. Provador baseado em resolução que provê a satisfatibilidade de fórmulas em $K_n$ bem como uma prova. Embora o KSP tome fórmulas em $K_n$ como entrada, este faz a tradução para $SNF_{ml}$ e todo o processamento é feito nessa linguagem.
 
-KSP é um provador baseado em resolução.
+KSP utiliza uma variação de conjunto de suporte, técnica que restringe os candidatos possíveis para resolução, e a demostração da correção e completude dessa extensão para $SNF_{ml}$ pode ser encontrada em \cite{nalontocl}.
+
+Na versão para lógica clássica de conjunto de suporte o conjunto de cláusulas $\Delta$ é particionado em dois conjuntos $\Gamma$, o conjunto de suporte ou não processado, e $\Lambda$, o conjunto \textit{usable} ou processado. Cláusulas são selecionadas de $\Gamma$ e resolvidas com cláusulas em $\Lambda$. A cláusula selecionada é removida de $\Gamma$ e acrescentada a $\Lambda$. Os resolventes produzidos são inseridos em $\Gamma$.
+
+Na extensão para $SNF_{ml}$, onde as clásulas são rotuladas pelo nível modal, as clásulas de todo nível modal $ml$ é particionado em três conjuntos $\Gamma^{lit}_{ml}$, $\Lambda^{lit}_{ml}$ e $\Lambda^{mod}_{ml}$. Cláusulas proposicionais são particionadas em $\Gamma^{lit}_{ml}$ e $\Lambda^{lit}_{ml}$ como no caso em lógica clássica. Cláusulas modais são armazenadas em $\Lambda^{mod}_{ml}$. Note que nenhuma regra de inferência descrita na Seção \ref{secao:regrasinf} produz novas cláusulas modais.
 
 A seguir, descrevemos o algoritmo implementado no KSP.
-
 \begin{algorithm}[H]
 	\SetAlgoLined
 	\KwResult{Satisfatibilidade da fórmula}
-	
 	preprocessamento-da-entrada\;
 	tradução-para-SNF\;
 	preprocessamento-de-clausulas\;
@@ -213,19 +220,13 @@ A seguir, descrevemos o algoritmo implementado no KSP.
 	\caption{KSP-Proof-Search}
 \end{algorithm}
 
-KSP utiliza uma variação de conjunto de suporte, técnica que restringe os candidatos possíveis para resolução, e a demostração da correção e completude dessa extensão para $SNF_{ml}$ pode ser encontrada em \cite{nalontocl}.
-
-Na versão para lógica clássica de conjunto de suporte o conjunto de cláusulas $\Delta$ é particionado em dois conjuntos $\Gamma$, o conjunto de suporte ou não processado, e $\Lambda$, o conjunto \textit{usable} ou processado. Cláusulas são selecionadas de $\Gamma$ e resolvidas com cláusulas em $\Lambda$. A cláusula selecionada é removida de $\Gamma$ e acrescentada a $\Lambda$. Os resolventes produzidos são inseridos em $\Gamma$.
-
-Na extensão para $SNF_{ml}$, onde as clásulas são rotuladas pelo nível modal, as clásulas de todo nível modal $ml$ é particionado em três conjuntos $\Gamma^{lit}_{ml}$, $\Lambda^{lit}_{ml}$ e $\Lambda^{mod}_{ml}$. Cláusulas proposicionais são particionadas em $\Gamma^{lit}_{ml}$ e $\Lambda^{lit}_{ml}$ como no caso em lógica clássica. Cláusulas modais são armazenadas em $\Lambda^{mod}_{ml}$. Note que nenhuma regra de inferência descrita na Seção \ref{secao:regrasinf} produz novas cláusulas modais.
-
 As Linhas 1-3 aplicam algumas regras de simplificação, traduzem a fórmula para linguagem $SNF_{ml}$ e constroem os conjuntos \textit{usable} e de suporte. As Linhas 9-11 aplicam regras de inferências descritas na Seção~\ref{secao:regrasinf}.
 
 A função {\sf given}, Linha 7, é responsável por escolher uma cláusula dentre todas as candidatas possíveis do conjunto de suporte. Cada nível modal é independente. Naturalmente, a função {\sf given} só considera as cláusulas do nível modal pedido. KSP implementa cinco variações dessa função: \textit{menor}, \textit{mais antiga}, \textit{mais nova}, \textit{mínima} e \textit{máxima}; e o usuário pode escolher qual deseja utilizar.
 
 Na variação \textit{menor}, é selecionada uma cláusula com o menor tamanho de $\Gamma^{lit}_{ml}$.
 
-Na variação \textit{mais antiga}, é salvo a ordem nas quais as cláusulas foram adicionadas à $\Gamma^{lit}_{ml}$ e é selecionada a que foi adicionada antes de todas as outras.
+Na variação \textit{mais antiga}, é salvo a ordem nas quais as cláusulas foram adicionadas ao conjunto de cláusulas e é selecionada a que foi adicionada antes de todas em $\Gamma^{lit}_{ml}$.
 
 \textit{Mais nova} é análoga a \textit{mais antiga}, mas é selecionada a que foi adicionada depois de todas as outras.
 
@@ -233,9 +234,9 @@ Em \textit{mínima}, é escolhida uma cláusula com o menor tamanho dentre as cl
 
 Em \textit{máxima}, é feita escolha análoga a \textit{mínima} mas dentre cláusulas com o maior literal máximo em $\Gamma^{lit}_{ml}$.
 
-Neste trabalho propomos novos métodos para seleção de cláusulas e comparamos com os métodos previamente utilizados no KSP. Para comparação usaremos o \textit{benchmark} \cite{lwb} contendo 9 famílias de fórmulas e para cada família 21 fórmulas satisfatíveis e 21 insatisfatíveis.
+Neste trabalho propomos novos métodos para seleção de cláusulas e comparamos com os métodos previamente utilizados no KSP. Para comparação usaremos o LWB\cite{lwb}, que descreve geradores de \textit{benchmark} de tamanho arbitrário para 9 famílias de fórmulas. Iniciaremos com 21 fórmulas satisfatíveis e 21 insatisfatíveis para cada família.
 
-A Tabela \ref{table:primeiro10} abaixo mostra o resultado para cada uma das cinco estratégias disponíveis no KSP. Cada célula da tabela tem a quantidade de fórmulas resolvidas em até dez segundos e a média de tempo entre as fórmulas resolvidas.
+A Tabela \ref{table:primeiro10} abaixo mostra o resultado para cada uma das cinco estratégias disponíveis no KSP. Cada célula da tabela tem a quantidade de fórmulas resolvidas em até dez segundos e a média de tempo entre as fórmulas que o provador proveu solução. Sufixo \_p é usado para fórmulas satisfatíveis e sufixo \_n eh usado para fórmulas insatisfatíveis.
 
 \begin{table*}[t]
 	\[
