@@ -3,28 +3,24 @@ Neste capítulo propomos novos métodos de seleção de cláusula para o KSP.
 \section{Trabalhos anteriores}
 Uma análise de heurísticas de seleção de cláusula para provadores baseados em saturação, assim como KSP, foi feita por \cite{stephan}. O experimento foi feito no provador E sobre 13774 fórmulas do \textit{benchmark} TPTP \cite{TPTP} com 300 segundos de tempo limite.
 
-As heurísticas avaliadas foram: \textit{Mais antiga}, Contagem de Símbolos e Ordenada. Em Contagem de Símbolos, é atribuído um peso a cada símbolo e é selecionada uma cláusula com a menor soma de pesos. No caso em que todos os símbolos têm peso 1 esta variação é identica a \textit{menor} usada no KSP. Ordenada é uma variação de Contagem de Símbolos onde é preferida cláusulas com o menor número de literais máximais.
+As heurísticas avaliadas foram: \textit{Mais antiga}, Contagem de Símbolos e Ordenada. Em Contagem de Símbolos, é atribuído um peso a cada símbolo e é selecionada uma cláusula com a menor soma de pesos. No caso em que todos os símbolos têm peso 1 esta variação é idêntica a \textit{menor} usada no KSP. Ordenada é uma variação de Contagem de Símbolos onde é preferida cláusulas com o menor número de literais máximais.
 
-Também foram analisadas várias intercalações de duas dessas heurísticas em distribuições diferentes. Por exemplo, a cada 11 seleções de cláusulas, 10 são feitas pela heurística Contagem de Símbolo e 1 é feita pela heurística FIFO.
+Também foram analisadas várias intercalações de duas dessas heurísticas em distribuições diferentes. Por exemplo, a cada 11 seleções de cláusulas, 10 são feitas pela heurística Contagem de Símbolo e 1 é feita pela heurística \textit{Mais antiga}.
 
-São apresentados vários resultados como número de fórmulas resolvidas, tamanho da prova, número de inferências na prova, etc para todas as estratégias utilizadas. Vemos que a maioria das fórmulas resolvidas foram resolvidas em poucos segundos mesmo com 300 segundos disponíveis. Os experimentos apontam não haver melhora em performance ao usar diferentes funções de peso para os literais. Todas as estratégias de contagem de símbolos tiveram ganho significativo de desempenho quando intercaladas com FIFO. Selecionar sempre cláusulas dadas na entrada primeiro melhorou performance no geral, mas não tanto com estratégias utilizando FIFO.
+São apresentados vários resultados como número de fórmulas resolvidas, tamanho da prova, número de inferências na prova, etc para todas as estratégias utilizadas. Vemos que a maioria das fórmulas resolvidas foram resolvidas em poucos segundos mesmo com 300 segundos disponíveis. Os experimentos apontam não haver melhora em performance ao usar diferentes funções de peso para os literais. Todas as estratégias de contagem de símbolos tiveram ganho significativo de desempenho quando intercaladas com \textit{Mais antiga}. Selecionar sempre cláusulas dadas na entrada primeiro melhorou performance no geral, mas não tanto com estratégias utilizando \textit{Mais antiga}.
 
 \section{Primeira proposta}
-Baseado no trabalho de \cite{stephan}, nossa primeira proposta de seleção de cláusula será intercalação de \textit{menor} e \textit{mais antiga}, já implementadas no KSP, numa razão 10:1. Dessa forma, as primeiras dez execuções da função {\sf given} será conforme \textit{menor}, a próxima será conforme \textit{mais antiga}, as próximas dez conforme \textit{menor} e assim por diante.
+Baseado no trabalho de \cite{stephan}, nossa primeira proposta de seleção de cláusula será intercalação de \textit{menor} e \textit{mais antiga}, já implementadas no KSP, numa razão $p$:$q$ informada pelo usuário. Dessa forma, as primeiras $p$ execuções da função {\sf given} serão conforme \textit{menor}, as próximas $q$ serão conforme \textit{mais antiga}, as próximas $p$ conforme \textit{menor} e assim por diante.
 
 A implementação dessa proposta não é muito complexa por ser intercalação de métodos já implementados e nos permite comparar os resultados do KSP com os encontrados por \cite{stephan} no provador E.
 
-O experimento será feitos com um \textit{benchmark} do LWB\cite{lwb} com 21 fórmulas satisfatíveis e 21 insatisfatíveis para cada uma das 9 famílias de fórmulas.
-
-Para este experimento utilizaremos um sistema com processador AMD FX-6300 com clock base de 3.5 GHz, 6 Gigabyte de memória RAM no Sistema Operacional Ubuntu 18.04. Escolhemos a versão 0.1.2 do KSP, a última versão pública na data do teste. Cada fórmula será resolvida em uma única \textit{thread} com 300 segundos de tempo limite.
 
 \section{Segunda proposta}
+%razao diferente pra cada nivel
 
-%Contagem de símbolo + FIFO 10:1
 %starexec
 
 %montar inferencia
-
 
 %dtodos os niveis usando msm razao 1:10
 %razao diferente com base numa metrica
