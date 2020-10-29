@@ -101,13 +101,13 @@ A satisfatibilidade de uma fórmula em $SNF_{ml}$ é definida a partir da satisf
 
 Uma função de tradução de $K_n$ para $SNF_{ml}$ bem como prova de que a tradução de uma fórmula preserva satisfatibilidade podem ser encontradas em \cite{nalontocl}.
 
-Seja $\ge$ uma ordem total sobre os símbolos proposicionais. Extendemos esta ordem para os literais da seguinte forma: Se $p \in \set{P}$, então $\neg p \ge \neg p$ e $\neg p \ge p$; Se $p, q \in \set{P}, p \not= q$ e $p \ge q$, então $p \ge \neg q$.
+Seja $\ge$ uma ordem total sobre os símbolos proposicionais. Estendemos esta ordem para os literais da seguinte forma: Se $p \in \set{P}$, então $\neg p \ge p$; Se $p, q \in \set{P}, p \not= q$ e $p \ge q$, então $\neg p \ge q$.
 
 \begin{definition}
 	O literal $l$ é máximo em $\varphi \in SNF_{ml}$ se e somente se $l$ ocorre em $\varphi$ e não há $l_2 \not= l$ em $\varphi$ tal que $l_2 \ge l$.
 \end{definition}
 
-Note que podemos escolher qualquer ordem sobre os símbolos proposionais, assim $l$ pode ser máximo numa ordem e não ser máximo em outra ordem.
+Note que podemos escolher qualquer ordem sobre os símbolos proposicionais, assim $l$ pode ser máximo numa ordem e não ser máximo em outra ordem.
 
 \begin{definition}
 	O tamanho de uma cláusula em $SNF_{ml}$ é a cardinalidade do conjunto contendo somente os literais na cláusula.
@@ -183,11 +183,11 @@ O cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$ foi des
 
 
 \section{Algoritmo}
-Neste trabalho usaremos o provador KSP \cite{Nalon2020}. Provador baseado em resolução que provê a satisfatibilidade de fórmulas em $K_n$ bem como uma prova. Embora o KSP tome fórmulas em $K_n$ como entrada, este faz a tradução para $SNF_{ml}$ e todo o processamento é feito nessa linguagem.
+Neste trabalho usaremos o KSP \cite{Nalon2020}, um provador baseado no cálculo visto na Seção ~\ref{secao:regrasinf} e determina a satisfatibilidade de fórmulas em $K_n$. Caso insatisfatível, uma prova é fornecida. Embora o KSP tome fórmulas em $K_n$ como entrada, este faz a tradução para $SNF_{ml}$ e todo o processamento é feito nessa linguagem.
 
-KSP utiliza uma variação de conjunto de suporte, técnica que restringe os candidatos possíveis para resolução, e a demostração da correção e completude dessa extensão para $SNF_{ml}$ pode ser encontrada em \cite{nalontocl}.
+KSP utiliza uma variação de conjunto de suporte, técnica que restringe os candidatos possíveis para resolução. A demostração da correção e completude dessa extensão para $SNF_{ml}$ pode ser encontrada em \cite{nalontocl}.
 
-Na versão para lógica clássica de conjunto de suporte o conjunto de cláusulas $\Delta$ é particionado em dois conjuntos $\Gamma$, o conjunto de suporte ou não processado, e $\Lambda$, o conjunto \textit{usable} ou processado. Cláusulas são selecionadas de $\Gamma$ e resolvidas com cláusulas em $\Lambda$. A cláusula selecionada é removida de $\Gamma$ e acrescentada a $\Lambda$. Os resolventes produzidos são inseridos em $\Gamma$.
+Na versão para lógica clássica de conjunto de suporte, o conjunto de cláusulas $\Delta$ é particionado em dois conjuntos $\Gamma$, o conjunto de suporte ou não processado, e $\Lambda$, o conjunto \textit{usable} ou processado. Cláusulas são selecionadas de $\Gamma$ e resolvidas com cláusulas em $\Lambda$. A cláusula selecionada é removida de $\Gamma$ e acrescentada a $\Lambda$. Os resolventes produzidos são inseridos em $\Gamma$.
 
 Na extensão para $SNF_{ml}$, onde as clásulas são rotuladas pelo nível modal, as clásulas de todo nível modal $ml$ é particionado em três conjuntos $\Gamma^{lit}_{ml}$, $\Lambda^{lit}_{ml}$ e $\Lambda^{mod}_{ml}$. Cláusulas proposicionais são particionadas em $\Gamma^{lit}_{ml}$ e $\Lambda^{lit}_{ml}$ como no caso em lógica clássica. Cláusulas modais são armazenadas em $\Lambda^{mod}_{ml}$. Note que nenhuma regra de inferência descrita na Seção \ref{secao:regrasinf} produz novas cláusulas modais.
 
@@ -235,11 +235,11 @@ Em \textit{mínima}, é escolhida uma cláusula com o menor tamanho dentre as cl
 
 Em \textit{máxima}, é feita escolha análoga a \textit{mínima} mas dentre cláusulas com o maior literal máximo em $\Gamma^{lit}_{ml}$.
 
-Neste trabalho propomos novos métodos para seleção de cláusulas e comparamos com os métodos previamente utilizados no KSP. Para comparação usaremos o LWB\cite{lwb}, que descreve geradores de \textit{benchmark} de tamanho arbitrário para 9 famílias de fórmulas.
+Neste trabalho propomos novos métodos para seleção de cláusulas e comparamos com os métodos previamente utilizados no KSP. Para comparação usaremos o LWB \cite{lwb}, que descreve geradores de \textit{benchmark} de tamanho arbitrário para 9 famílias de fórmulas.
 
 Fizemos um experimento inicial para averiguar o desempenho do KSP sobre o LWB com os algoritmos de seleção de cláusula já implementados. O sistema utilizado tem processador AMD FX-6300 com clock base de 3.5 GHz, 6 Gigabyte de memória RAM no Sistema Operacional Ubuntu 18.04. Escolhemos a versão 0.1.2 do KSP, a versão pública mais recente na data do experimento. Nesse experimento usamos 21 fórmulas satisfatíveis e 21 insatisfatíveis para cada família. Para cada fórmula foram dados 10 segundos de tempo limite.
 
-A Tabela \ref{table:primeiro10} abaixo mostra o resultado desse experimento. Para cada família de fórmulas temos uma linha na tabela para as satisfatíveis, representada pelo sufixo \_ n, e uma linha para as insatisfatíveis, representada pelo sufixo \_p. Cada coluna representa um algoritmo de seleção de cláusula. Cada célula da tabela informa a quantidade de fórmulas que o provador proveu solução dentro do tempo limite e a média de tempo entre essas.
+A Tabela \ref{table:primeiro10} abaixo mostra o resultado desse experimento. Para cada família de fórmulas temos uma linha na tabela para as satisfatíveis, representada pelo sufixo \_ n, e uma linha para as insatisfatíveis, representada pelo sufixo \_p. Cada coluna representa uma heurística de seleção de cláusula. Cada célula da tabela informa a quantidade de fórmulas que o provador proveu solução dentro do tempo limite e a média de tempo entre essas.
 
 \begin{table*}[t]
 	\[

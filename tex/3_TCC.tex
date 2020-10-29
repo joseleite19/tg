@@ -3,24 +3,34 @@ Neste capítulo propomos novos métodos de seleção de cláusula para o KSP.
 \section{Trabalhos anteriores}
 Uma análise de heurísticas de seleção de cláusula para provadores baseados em saturação, assim como KSP, foi feita por \cite{stephan}. O experimento foi feito no provador E sobre 13774 fórmulas do \textit{benchmark} TPTP \cite{TPTP} com 300 segundos de tempo limite.
 
-As heurísticas avaliadas foram: \textit{Mais antiga}, Contagem de Símbolos e Ordenada. Em Contagem de Símbolos, é atribuído um peso a cada símbolo e é selecionada uma cláusula com a menor soma de pesos. No caso em que todos os símbolos têm peso 1 esta variação é idêntica a \textit{menor} usada no KSP. Ordenada é uma variação de Contagem de Símbolos onde é preferida cláusulas com o menor número de literais máximais.
+As heurísticas avaliadas foram: \textit{Mais antiga}, Contagem de Símbolos e Ordenada. Em Contagem de Símbolos, é atribuído um peso a cada símbolo e é selecionada uma cláusula com a menor soma de pesos. No caso em que todos os símbolos têm peso um esta variação é idêntica a \textit{menor} usada no KSP. Ordenada é uma variação de Contagem de Símbolos onde é preferida cláusulas com o menor número de literais máximais.
 
 Também foram analisadas várias intercalações de duas dessas heurísticas em distribuições diferentes. Por exemplo, a cada 11 seleções de cláusulas, 10 são feitas pela heurística Contagem de Símbolo e 1 é feita pela heurística \textit{Mais antiga}.
 
 São apresentados vários resultados como número de fórmulas resolvidas, tamanho da prova, número de inferências na prova, etc para todas as estratégias utilizadas. Vemos que a maioria das fórmulas resolvidas foram resolvidas em poucos segundos mesmo com 300 segundos disponíveis. Os experimentos apontam não haver melhora em performance ao usar diferentes funções de peso para os literais. Todas as estratégias de contagem de símbolos tiveram ganho significativo de desempenho quando intercaladas com \textit{Mais antiga}. Selecionar sempre cláusulas dadas na entrada primeiro melhorou performance no geral, mas não tanto com estratégias utilizando \textit{Mais antiga}.
 
-\section{Primeira proposta}
+\section{Primeira proposta} \label{secao:1proposta}
 Baseado no trabalho de \cite{stephan}, nossa primeira proposta de seleção de cláusula será intercalação de \textit{menor} e \textit{mais antiga}, já implementadas no KSP, numa razão $p$:$q$ informada pelo usuário. Dessa forma, as primeiras $p$ execuções da função {\sf given} serão conforme \textit{menor}, as próximas $q$ serão conforme \textit{mais antiga}, as próximas $p$ conforme \textit{menor} e assim por diante.
 
 A implementação dessa proposta não é muito complexa por ser intercalação de métodos já implementados e nos permite comparar os resultados do KSP com os encontrados por \cite{stephan} no provador E.
 
+%- Inferencia por nivel.
+
+%- 
+%- escrever
+%- pensar num jeito de normalizar pra ver onde ta indo bem
 
 \section{Segunda proposta}
-%razao diferente pra cada nivel
+Como a seleção de cláusula em cada nível é feita de forma independente, podemos também usar algoritmos distintos em níveis distintos.
+
+Com base nos resultados dos experimentos descritos na Seção ~\ref{secao:1proposta}, propomos intercalação de \textit{menor} e \textit{mais antiga} com razão dinâmica para todo nível.
+
+Cada nível terá um escalonador responsável por escolher uma razão eficiente. Como não conhemos a melhor solução a priori, está razão mudará ao longo da execução do provador. Neste experimento usamos somente o número de inferências feitas para determinar a troca de proporção na intercalação dos algoritmos.
+
+Avaliaremos também o desempenho por nível.
 
 %starexec
 
-%montar inferencia
 
 %dtodos os niveis usando msm razao 1:10
 %razao diferente com base numa metrica
