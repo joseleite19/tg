@@ -3,11 +3,40 @@
 % area da computacao, definir prob de forma nao tecnica
 % falar de ideias que ja existem e pq nao sao satisfatorias
 
-Lógica nos fornece ferramentas para criar e reconhecer argumentos válidos. Embora seja custoso % TODO citar
-formalizar problemas do mundo real para poder utilizar estas ferramentas, é desejável, principalmente em sistemas críticos, ter a certeza de que a solução aplicada está correta. Alguns exemplos onde isto é empregado são: verificação de \textit{hardware}, verificação de programas, verificação de protocolos etc. % TODO citar, e acho q ta estranho
+%Lógica nos fornece ferramentas para criar e reconhecer argumentos válidos. Embora seja custoso % TODO citar
+%formalizar problemas do mundo real para poder utilizar estas ferramentas, é desejável, principalmente em sistemas críticos, ter a certeza de que a solução aplicada está correta. Alguns exemplos onde isto é empregado são: verificação de \textit{hardware}, verificação de programas, verificação de protocolos etc. % TODO citar, e acho q ta estranho
 
-Formalmente, um argumento válido pode ser reescrito como prova de teorema.
+%Formalmente, um argumento válido pode ser reescrito como prova de teorema.
 
-Cientistas da computação são apaixonados por automação, %TODO citar?
-então é natural que esforços para prova automática de teoremas sejam feitos. %TODO um pouco de historia e resolucao
+%Cientistas da computação são apaixonados por automação, %TODO citar?
+%então é natural que esforços para prova automática de teoremas sejam feitos. %TODO um pouco de historia e resolucao
 
+
+
+Em computacao, estudamos classes de problemas que ajudam a expressar quão dificil resolver um problema é. P é a classe de problemas que podem ser resolvidos em tempo polinomial em uma máquina determinística. NP é a classe de problemas que podem ser resolvidos em tempo polinomial em uma máquina não deterministica. P-SPACE é a classe de problemas que podem ser resolvidos em espaço polinomial. %TODO dar uma olhada no livro de automatos
+Logica Modal proposicional $K_n$ pode expressar qualquer problema da classe P-SPACE. %TODO citar
+
+Expressar problemas formalmente nos permite usar ferramentas para garantidamente formular ou reconhecer uma resposta.
+%Lógica nos fornece ferramentas para garantidamente formular e reconhecer argumentos válidos.
+A grande espressividade de $K_n$ permite até representar modelos de outras lógicas \cite{correspkn} o que permite seu uso desde geração contos de fadas\cite{fairytale} a engenharia de requisitos \cite{reqeng}.
+
+Assim é desejavel ter ferramentar para resolver problemas em $K_n$ e que estas sejam eficientes. Por isso, muitos provadores de teoremas foram construídos para tal lógica. \ksp é um provador automático baseado em resolução descrito em \cite{Nalon2020}. Provadores automáticos são interessantes por diminuir o risto de erro humano na prova. Um dos passos de todo provador baseado em resolução é a seleção de cláusula. Muitas heurísticas de seleção de cláusula já foram estudadas mas ainda ainda há muito a ser melhorarado mesmo ao que é considerado estado da arte \cite{stephan}.
+
+%TODO "pq escolher o KSP?"
+
+Neste trabalho queremos resolver eficientemente o problema de selecao de clausula no \ksp.
+
+%Area da computacao eh logica computacional.
+
+No Capítulo \ref{2_Def} apresentamos toda a teoria necessária para o trabalho. O Capítulo \ref{3_TCC} descreve os experimentos feitos.
+
+% breve descricao dos capitulos
+% logica modal consegue expressar tudo em P-Space
+% procurar aplicacoes
+% dizer do q trata no artigo e a citacao
+% prcurar ontologias, planejamento, verificacao de hardware, verificacao de protocolos, verificacao de software, especificacao de sistemas multi agente, verificacao de sistemas multiagente.
+% importante ter ferramentas pra resolv prob
+% apresentar oq ja existe do KSP
+% apresentar oq pode ser melhorado
+
+% ALC sem raciocinio local para individuos
