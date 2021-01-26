@@ -15,12 +15,14 @@ Trabalharemos com a linguagem lógica modal $K_n$.
 
 \begin{definition}
 	Denotamos por $\set{LP}$ o conjunto de literais proposicionais e por $\set{LM}$ o conjunto de literais modais.
-	$\forall p \in \set{P}, \forall \agent \in \set{A}$, então $ p \in \set{LP}, \neg p \in \set{LP}, \nec{\agent} p \in \set{LM}, \nec{\agent} \neg p \in \set{LM}, \pos{\agent} p \in \set{LM}, \pos{\agent} \neg p \in \set{LM}$
+	$\forall p \in \set{P}, \forall \agent \in \set{A}$, temos que $ p \in \set{LP}, \neg p \in \set{LP}, \nec{\agent} p \in \set{LM}, \nec{\agent} \neg p \in \set{LM}, \pos{\agent} p \in \set{LM}, \pos{\agent} \neg p \in \set{LM}$
 \end{definition}
 
 \begin{definition}
 	Uma cláusula proposicional é uma disjunção de literais proposicionais.
 \end{definition}
+
+Assim, uma cláusula proposicional tem a forma $p_1 \lor p_2 \lor \cdots p_m$ com $p_i \in \set{P}$.
 
 Seja $\Sigma = \{0, 1\}$, $\Sigma^*$ é o conjunto de todas as cadeias formadas com elementos de $\Sigma$. Em particular, $\epsilon$ representa a cadeia vazia. Construiremos cadeias em $\Sigma^*$ para codificar a posição de ocorrência de uma subfórmula em uma fórmula. Seja $inv \colon \{\text{positiva, negativa}\} \mapsto \{\text{positiva, negativa}\}$ tal que $inv(\text{positiva}) = \text{negativa}$ e $inv(\text{negativa}) = \text{positiva}$.
 
@@ -58,20 +60,57 @@ A semântica para lógica modal proposicional é dada por estruturas de Kripke. 
 $\set{W}$ é um conjunto de mundos possíveis, $\st_0 \in \set{W}$, $\pi:\set{W} \times \set{P} \rightarrow \{\vtrue, \vfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfeita na lógica modal K no modelo $M$ no mundo $\st$ se, e somente se, $\langle M,w \rangle \models \varphi$, conforme segue:
 
 \begin{itemize}
-	\item $\langle M,\st \rangle \models \varphi$, se e somente se $\varphi \in \set{P}$ e $\pi(\st, \varphi) = \vtrue$
+	\item $\langle M,\st \rangle \models p$, se e somente se $\pi(\st, p) = \vtrue$, para $p \in \set{P}$
 	\item $\langle M,\st \rangle \models \neg\varphi$, se e somente se $\langle M,\st \rangle \not\models \varphi$
-	\item $\langle M,\st \rangle \models (\varphi \land \psi)$, se e somente se $\langle M,\st \rangle \models \varphi$ e $\langle M,\st \rangle \models \psi $
-	\item $\langle M,\st \rangle \models (\varphi \lor \psi)$, se e somente se $\langle M,\st \rangle \models \varphi$ ou $\langle M,\st \rangle \models \psi $
-	\item $\langle M,\st \rangle \models (\varphi \then \psi)$, se e somente se $\langle M,\st \rangle \not\models \varphi$ ou $\langle M,\st \rangle \models \psi $
+	\item $\langle M,\st \rangle \models (\varphi \land \psi)$, se e somente se $\langle M,\st \rangle \models \varphi$ e $\langle M,\st \rangle \models \psi$
+	\item $\langle M,\st \rangle \models (\varphi \lor \psi)$, se e somente se $\langle M,\st \rangle \models \varphi$ ou $\langle M,\st \rangle \models \psi$
+	\item $\langle M,\st \rangle \models (\varphi \then \psi)$, se e somente se $\langle M,\st \rangle \not\models \varphi$ ou $\langle M,\st \rangle \models \psi$
 	
 	\item $\langle M,\st \rangle \models \pos{\agent}\varphi$, se e somente se $\exists\st', (\st, \st') \in \set{R}_\agent, \langle M,\st' \rangle \models \varphi$
 	\item $\langle M,\st \rangle \models \nec{\agent}\varphi$, se e somente se $\forall\st', (\st, \st') \in \set{R}_\agent, \langle M,\st' \rangle \models \varphi$
 	
 \end{itemize}
 
-Uma fórmula $\varphi$ é localmente satisfatível se existe um modelo $M$ tal que $\langle M,\st_0 \rangle \models \varphi$. Uma formula $\varphi$ é globalmente satisfatível se existe um modelo $M$ tal que para todo $\st \in \set{W}$ temos que $\langle M,\st \rangle \models \varphi$. Escrevemos $M \models \varphi$ se, e somente se, $\langle M, \st_0 \rangle \models \varphi$
+Uma fórmula $\varphi$ é localmente satisfatível se existe um modelo $M$ tal que $\langle M,\st_0 \rangle \models \varphi$. Uma formula $\varphi$ é globalmente satisfatível se existe um modelo $M$ tal que para todo $\st \in \set{W}$ temos que $\langle M,\st \rangle \models \varphi$. Escrevemos $M \models \varphi$ se, e somente se, $\langle M, \st_0 \rangle \models \varphi$.
 
-Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatibilidade local com a extensão da linguagem K pelo operador universal $\nec{*}$. Seja $M = (\set{W}, \st_0, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, $\langle M,\st \rangle \models \nec{*}\varphi$ se, e somente se, para todo $\st' \in \set{W}$, $\langle M,\st \rangle \models \varphi$.
+% p & (box 1 p) & dia 2 (q \lor)
+Abaixo apresentamos visualizações para modelos possíveis para as fórmulas $(p \land \nec{1} (p \land \pos{2}q)$, $\nec{1} (p \land \pos{2}\nec{1}\pos{2}\nec{1} q)$, repectivamente.
+
+\begin{tikzpicture}
+\begin{scope}[every node/.style={circle,thick,draw}]
+    \node[initial by arrow, initial text={$w_0$}, align=center] (A) at (0,0) {$p$, $\pos{2}q$,\\ $p \land \nec{1} (p \land \pos{2}q$};
+    \node (B) at (5, 0) {$q$};
+\end{scope}
+
+\begin{scope}[>={Stealth[black]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=black,very thick}]
+    \path [->] (A) edge node {$2$} (B);
+    \path [->] (A) edge [loop above] node {$1$} (A);    
+\end{scope}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+\begin{scope}[every node/.style={circle,thick,draw}]
+    \node[initial by arrow, initial text={$w_0$}, align=center] (A) at (0,0) {$p$, $\pos{2}\nec{1}\pos{2}\nec{1} q$,\\ $\nec{1}(p \land \pos{2}\nec{1}\pos{2}\nec{1} q)$};
+    \node (B) at (5, 0) {$\nec{1}\pos{2}\nec{1} q$};
+\end{scope}
+
+\begin{scope}[>={Stealth[black]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=black,very thick}]
+    \path [->] (A) edge node {$2$} (B);
+    \path [->] (A) edge [loop above] node {$1$} (A);    
+\end{scope}
+\end{tikzpicture}
+
+
+\begin{definition}
+	Para um modelo $M$, definimos a profundidade de um mundo pela função $depth \colon \set{W} \mapsto \mathbb{N}$, onde $depth(w) = $ menor caminho de $w_0$ a $w$ no grafo $(\set{W}, \bigcup_{i=1}^n R_i)$. Chamamos de nível modal a classe de equivalência com todos os mundos com mesma profundidade.
+\end{definition}
+
+Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatibilidade local com a extensão da linguagem K pelo operador universal $\nec{*}$. Seja $M = (\set{W}, \st_0, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, $\langle M,\st \rangle \models \nec{*}\varphi$ se, e somente se, para todo $\st' \in \set{W}$, $\langle M,\st' \rangle \models \varphi$.
 
 \begin{definition}
 	Uma fórmula está na forma normal negada caso seja formada somente por símbolos proposicionais, $\neg$, $\land$, $\lor$, $\nec{\agent}$ e $\pos{\agent}$ para $\agent \in \set{A}$, e a negação só é aplicada a símbolos proposicionais.
@@ -189,7 +228,7 @@ KSP utiliza uma variação de conjunto de suporte, técnica que restringe os can
 
 Na versão para lógica clássica de conjunto de suporte, o conjunto de cláusulas $\Delta$ é particionado em dois conjuntos $\Gamma$, o conjunto de suporte ou não processado, e $\Lambda$, o conjunto \textit{usable} ou processado. Cláusulas são selecionadas de $\Gamma$ e resolvidas com cláusulas em $\Lambda$. A cláusula selecionada é removida de $\Gamma$ e acrescentada a $\Lambda$. Os resolventes produzidos são inseridos em $\Gamma$.
 
-Na extensão para $SNF_{ml}$, onde as clásulas são rotuladas pelo nível modal, as clásulas de todo nível modal $ml$ é particionado em três conjuntos $\Gamma^{lit}_{ml}$, $\Lambda^{lit}_{ml}$ e $\Lambda^{mod}_{ml}$. Cláusulas proposicionais são particionadas em $\Gamma^{lit}_{ml}$ e $\Lambda^{lit}_{ml}$ como no caso em lógica clássica. Cláusulas modais são armazenadas em $\Lambda^{mod}_{ml}$. Note que nenhuma regra de inferência descrita na Seção \ref{secao:regrasinf} produz novas cláusulas modais.
+Na extensão para $SNF_{ml}$, onde as clásulas são rotuladas pelo nível modal, as clásulas de todo nível modal $ml$ são particionadas em três conjuntos $\Gamma^{lit}_{ml}$, $\Lambda^{lit}_{ml}$ e $\Lambda^{mod}_{ml}$. Cláusulas proposicionais são particionadas em $\Gamma^{lit}_{ml}$ e $\Lambda^{lit}_{ml}$ como no caso em lógica clássica. Cláusulas modais são armazenadas em $\Lambda^{mod}_{ml}$. Note que nenhuma regra de inferência descrita na Seção \ref{secao:regrasinf} produz novas cláusulas modais.
 
 A seguir, descrevemos o algoritmo implementado no KSP.
 
@@ -275,8 +314,8 @@ A Tabela \ref{table:primeiro10} abaixo mostra o resultado desse experimento. Par
 
 Esses resultados indicam que o KSP é muito eficiente para a maioria das famílias independente da estratégia utilizada, mas muito pode ser melhorado em k\_branch e k\_ph.
 
-\section{Grafo}
-Um grafo é um par um ordenado $(V, E)$, onde $E \subseteq V\times V$, chamamos $V$ o conjunto de vértices e $E$ o conjunto de arestas.
+%\section{Grafo}
+%Um grafo é um par um ordenado $(V, E)$, onde $E \subseteq V\times V$, chamamos $V$ o conjunto de vértices e $E$ o conjunto de arestas.
 
 \section{Matroide}
 Seja $X$ um conjunto de objetos e $I \subseteq 2^X$ o conjunto de conjuntos independentes tal que:
