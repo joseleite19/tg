@@ -20,6 +20,30 @@ A implementação dessa proposta não é muito complexa por ser intercalação d
 %- escrever
 %- pensar num jeito de normalizar pra ver onde ta indo bem
 
+Na tabela \ref{table:300stam5ant1}, apresentamos os resultados para razão de 5 seleções por \textit{Menor tamanho} para cada seleção por \textit{Mais antiga}. Usamos sat como abreviação de satisfatível e unsat como abreviação de unsatisfatível.
+\begin{table*}[t]
+	\[
+\begin{array}{|c|c|c|c|c|}
+	\hline - & \textnormal{Tempo médio(sat)} & \textnormal{Resolvidas(sat)} & \textnormal{Tempo médio(unsat)} & \textnormal{Resolvidas(unsat)} \\
+	
+	\hline \textnormal{k\_branch} & 5.23 & 2 & 3.68 & 3 \\
+	\hline \textnormal{k\_d4} & 13.93 & 9 & 0.021 & 21 \\
+	\hline \textnormal{k\_dum} & 0.017 & 21 & 0.012 & 21 \\
+	\hline \textnormal{k\_grz} & 1.37 & 21 & 0.00 & 21 \\
+	\hline \textnormal{k\_lin} & 0.00 & 21 & 0.00 & 21 \\
+	\hline \textnormal{k\_path} & 0.01 & 21 & 0.01 & 21 \\
+	\hline \textnormal{k\_ph} & 1.46 & 3 & 0.05 & 3 \\
+	\hline \textnormal{k\_poly} & 60.24 & 16 & 38.16 & 15 \\
+	\hline \textnormal{k\_t4p} & 0.04 & 21 & 0.01 & 21 \\
+	
+	\hline
+	
+\end{array}
+	\]
+\caption{Fórmulas resolvidas com razão 5:1 entre tamanho e mais antiga em até 300 segundos e tempo médio em segundos.}
+\label{table:300stam5ant1}
+\end{table*} % using results from 20210103.163648_300 tam_5_ant_1
+
 \section{Segunda proposta}
 Como a seleção de cláusula em cada nível é feita de forma independente, podemos também usar algoritmos distintos em níveis distintos.
 

@@ -74,12 +74,12 @@ $\set{W}$ é um conjunto de mundos possíveis, $\st_0 \in \set{W}$, $\pi:\set{W}
 Uma fórmula $\varphi$ é localmente satisfatível se existe um modelo $M$ tal que $\langle M,\st_0 \rangle \models \varphi$. Uma formula $\varphi$ é globalmente satisfatível se existe um modelo $M$ tal que para todo $\st \in \set{W}$ temos que $\langle M,\st \rangle \models \varphi$. Escrevemos $M \models \varphi$ se, e somente se, $\langle M, \st_0 \rangle \models \varphi$.
 
 % p & (box 1 p) & dia 2 (q \lor)
-Abaixo apresentamos visualizações para modelos possíveis para as fórmulas $(p \land \nec{1} (p \land \pos{2}q)$, $\nec{1} (p \land \pos{2}\nec{1}\pos{2}\nec{1} q)$, repectivamente.
+Abaixo apresentamos visualizações para modelos possíveis para as fórmulas $(p \land \nec{1} (p \land \pos{2}q)$, $\nec{1} (p \land \pos{2}\pos{1}\nec{1}\pos{2}\nec{1} q)$, repectivamente.
 
 \begin{tikzpicture}
 \begin{scope}[every node/.style={circle,thick,draw}]
-    \node[initial by arrow, initial text={$w_0$}, align=center] (A) at (0,0) {$p$, $\pos{2}q$,\\ $p \land \nec{1} (p \land \pos{2}q$};
-    \node (B) at (5, 0) {$q$};
+    \node (A) at (0, 0) {$A$};
+    \node (B) at (5, 0) {$B$};
 \end{scope}
 
 \begin{scope}[>={Stealth[black]},
@@ -90,10 +90,11 @@ Abaixo apresentamos visualizações para modelos possíveis para as fórmulas $(
 \end{scope}
 \end{tikzpicture}
 
+Aqui temos $\set{W} = \{A, B\}$.
 
 \begin{tikzpicture}
 \begin{scope}[every node/.style={circle,thick,draw}]
-    \node[initial by arrow, initial text={$w_0$}, align=center] (A) at (0,0) {$p$, $\pos{2}\nec{1}\pos{2}\nec{1} q$,\\ $\nec{1}(p \land \pos{2}\nec{1}\pos{2}\nec{1} q)$};
+    \node (A) at (0,0) {$p$, $\pos{2}\nec{1}\pos{2}\nec{1} q$,\\ $\nec{1}(p \land \pos{2}\nec{1}\pos{2}\nec{1} q)$};
     \node (B) at (5, 0) {$\nec{1}\pos{2}\nec{1} q$};
 \end{scope}
 
@@ -102,7 +103,7 @@ Abaixo apresentamos visualizações para modelos possíveis para as fórmulas $(
               every edge/.style={draw=black,very thick}]
     \path [->] (A) edge node {$2$} (B);
     \path [->] (A) edge [loop above] node {$1$} (A);    
-\end{scope}
+\end{scope}	
 \end{tikzpicture}
 
 
