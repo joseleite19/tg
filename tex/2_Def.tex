@@ -73,42 +73,86 @@ $\set{W}$ é um conjunto de mundos possíveis, $\st_0 \in \set{W}$, $\pi:\set{W}
 
 Uma fórmula $\varphi$ é localmente satisfatível se existe um modelo $M$ tal que $\langle M,\st_0 \rangle \models \varphi$. Uma formula $\varphi$ é globalmente satisfatível se existe um modelo $M$ tal que para todo $\st \in \set{W}$ temos que $\langle M,\st \rangle \models \varphi$. Escrevemos $M \models \varphi$ se, e somente se, $\langle M, \st_0 \rangle \models \varphi$.
 
-% p & (box 1 p) & dia 2 (q \lor)
-Abaixo apresentamos visualizações para modelos possíveis para as fórmulas $(p \land \nec{1} (p \land \pos{2}q)$, $\nec{1} (p \land \pos{2}\pos{1}\nec{1}\pos{2}\nec{1} q)$, repectivamente.
+Na figura~\ref{table:exemplomodelo1} apresentamos a visualização de um modelos possível para a fórmula $(p \land \nec{1} (p \land \pos{2}q)$. Na figura~\ref{table:exemplomodelo2}, um modelo para $(\nec{1}\nec{2}\pos{1}\pos{1}\nec{3}(p \then q)) \lor (\pos{1}\nec{3}(p \then q) \land \nec{1}\nec{1}(\pos{1}\neg q \lor \nec{1}q)$.
 
+\begin{figure*}
+\[
+\begin{tabular}{cc}
 \begin{tikzpicture}
 \begin{scope}[every node/.style={circle,thick,draw}]
-    \node (A) at (0, 0) {$A$};
-    \node (B) at (5, 0) {$B$};
+    \node (w0) at (0, 0) {$w_0$};
+    \node (w1) at (1, 2) {$w_1$};
+    \node (w2) at (4, 1) {$w_2$};
 \end{scope}
 
 \begin{scope}[>={Stealth[black]},
               every node/.style={fill=white,circle},
               every edge/.style={draw=black,very thick}]
-    \path [->] (A) edge node {$2$} (B);
-    \path [->] (A) edge [loop above] node {$1$} (A);    
+    \path [->] (w0) edge node {$1$} (w1);
+    \path [->] (w0) edge node {$1$} (w2);
+    \path [->] (w1) edge node {$2$} (w2);
+    \path [->] (w2) edge [loop right] node {$2$} (w2);    
 \end{scope}
 \end{tikzpicture}
+&
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline $\pi$ & $w_0$ & $w_1$ & $w_2$ \\
 
-Aqui temos $\set{W} = \{A, B\}$.
+	\hline \textnormal{p} & $\vfalse$ & $\vtrue$ & $\vfalse$ \\
+	\hline \textnormal{q} & $\vfalse$ & $\vtrue$ & $\vtrue$ \\
 
+	\hline
+\end{tabular}
+\\
+\end{tabular}
+\]
+\caption{Primeiro exemplo de modelo.}
+\label{table:exemplomodelo1}
+\end{figure*}
+
+\begin{figure*}
+\[
+\begin{tabular}{cc}
 \begin{tikzpicture}
 \begin{scope}[every node/.style={circle,thick,draw}]
-    \node (A) at (0,0) {$p$, $\pos{2}\nec{1}\pos{2}\nec{1} q$,\\ $\nec{1}(p \land \pos{2}\nec{1}\pos{2}\nec{1} q)$};
-    \node (B) at (5, 0) {$\nec{1}\pos{2}\nec{1} q$};
+    \node (w0) at (0, 0) {$w_0$};
+    \node (w1) at (1, 2) {$w_1$};
+    \node (w2) at (4, 1) {$w_2$};
+    \node (w3) at (0, 4) {$w_3$};
+    \node (w4) at (3, 4) {$w_4$};
 \end{scope}
 
 \begin{scope}[>={Stealth[black]},
               every node/.style={fill=white,circle},
               every edge/.style={draw=black,very thick}]
-    \path [->] (A) edge node {$2$} (B);
-    \path [->] (A) edge [loop above] node {$1$} (A);    
-\end{scope}	
+    \path [->] (w0) edge node {$1$} (w1);
+    \path [->] (w0) edge [bend right] node {$1$} (w2);
+    \path [->] (w1) edge node {$1$} (w4);
+    \path [->] (w1) edge node {$2$} (w2);
+    \path [->] (w1) edge node {$3$} (w3);
+    \path [->] (w2) edge node {$1$} (w0);
+    \path [->] (w2) edge [loop right] node {$2$} (w2);    
+\end{scope}
 \end{tikzpicture}
+&
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline $\pi$ & $w_0$ & $w_1$ & $w_2$ & $w_3$ & $w_4$ \\
+
+	\hline \textnormal{p} & $\vfalse$ & $\vfalse$ & $\vtrue$ & $\vtrue$ & $\vfalse$ \\
+	\hline \textnormal{q} & $\vfalse$ & $\vfalse$ & $\vfalse$ & $\vfalse$ & $\vfalse$ \\
+
+	\hline
+\end{tabular}
+\\
+\end{tabular}
+\]
+\caption{Segundo exemplo de modelo.}
+\label{table:exemplomodelo2}
+\end{figure*}
 
 
 \begin{definition}
-	Para um modelo $M$, definimos a profundidade de um mundo pela função $depth \colon \set{W} \mapsto \mathbb{N}$, onde $depth(w) = $ menor caminho de $w_0$ a $w$ no grafo $(\set{W}, \bigcup_{i=1}^n R_i)$. Chamamos de nível modal a classe de equivalência com todos os mundos com mesma profundidade.
+	Para um modelo $M$, definimos a profundidade de um mundo pela função $depth \colon \set{W} \mapsto \mathbb{N}$, onde $depth(w)$ é tamanho do menor caminho de $w_0$ a $w$ no grafo $(\set{W}, \bigcup_{i=1}^n R_i)$. Chamamos de nível modal a classe de equivalência com todos os mundos com mesma profundidade.
 \end{definition}
 
 Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatibilidade local com a extensão da linguagem K pelo operador universal $\nec{*}$. Seja $M = (\set{W}, \st_0, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, $\langle M,\st \rangle \models \nec{*}\varphi$ se, e somente se, para todo $\st' \in \set{W}$, $\langle M,\st' \rangle \models \varphi$.
@@ -117,7 +161,7 @@ Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatib
 	Uma fórmula está na forma normal negada caso seja formada somente por símbolos proposicionais, $\neg$, $\land$, $\lor$, $\nec{\agent}$ e $\pos{\agent}$ para $\agent \in \set{A}$, e a negação só é aplicada a símbolos proposicionais.
 \end{definition}
 
-É importante ressaltar se $\varphi \in \set{FBF}$ que não está na forma normal negada pode ser reescrita como $\psi \in \set{FBF}$ na forma normal negada com semântica equivalente. Isto é, para todo $\langle M, w \rangle$, $\langle M, w \rangle \models \varphi$ se, e somente se, $\langle M, w \rangle \models \psi$.
+É importante ressaltar se $\varphi \in \set{FBF}$ não está na forma normal negada, então $\varphi$ pode ser reescrita como $\psi \in \set{FBF}$ na forma normal negada com semântica equivalente. Isto é, para todo $\langle M, w \rangle$, $\langle M, w \rangle \models \varphi$ se, e somente se, $\langle M, w \rangle \models \psi$.
 
 \section{Forma Normal em Camadas}
 O cálculo a ser apresentado utiliza uma outra linguagem chamada de Forma Normal Separada em Níveis Modais ($SNF_{ml}$).
@@ -235,28 +279,29 @@ A seguir, descrevemos o algoritmo implementado no KSP.
 
 \begin{algorithm}[H]
 	\SetAlgoLined
-	\KwResult{Satisfatibilidade da fórmula}
+	\Entrada{Fórmula em $K_n$}
+	\Saida{Satisfatibilidade da fórmula}
 	preprocessamento-da-entrada\;
 	tradução-para-SNF\;
 	preprocessamento-de-clausulas\;
 
 	$\Gamma^{lit} \leftarrow \bigcup \Gamma^{lit}_{ml}$\;
-	\While{$\Gamma^{lit} \not= \emptyset$}{
-		\For{todo nível modal $ml$}{
+	\Enqto{$\Gamma^{lit} \not= \emptyset$}{
+		\ParaTodo{nível modal $ml$}{
 			$clausula$ $\leftarrow$ given($ml$)\;
-			\If{não \textrm{redundante}($clausula$)}{
+			\Se{não \textrm{redundante}($clausula$)}{
 				GEN1($clausula, ml, ml - 1$)\;
 				GEN3($clausula, ml, ml - 1$)\;
 				LRES($clausula, ml, ml$)\;
 				$\Lambda^{lit}_{ml} \leftarrow \Lambda^{lit}_{ml} \cup \{clausula\}$\;
 			}
 			$\Gamma^{lit}_{ml} \leftarrow \Gamma^{lit}_{ml} \setminus \{clausula\}$\;
-			\If{$0: \cfalse \in \Gamma^{lit}_{0}$}{
-				\Return insatisfatível\;
+			\Se{$0: \cfalse \in \Gamma^{lit}_{0}$}{
+				\Retorna insatisfatível\;
 			}
 			$\Gamma^{lit} \leftarrow \bigcup \Gamma^{lit}_{ml}$\;
 		}
-		\Return satisfatível\;
+		\Retorna satisfatível\;
 	}
 	\caption{KSP-Proof-Search}
 \end{algorithm}

@@ -3,7 +3,7 @@ Neste capítulo propomos novos métodos de seleção de cláusula para o KSP.
 \section{Trabalhos anteriores}
 Uma análise de heurísticas de seleção de cláusula para provadores baseados em saturação, assim como KSP, foi feita por \cite{stephan}. O experimento foi feito no provador E sobre 13774 fórmulas do \textit{benchmark} TPTP \cite{TPTP} com 300 segundos de tempo limite.
 
-As heurísticas avaliadas foram: \textit{Mais antiga}, Contagem de Símbolos e Ordenada. Em Contagem de Símbolos, é atribuído um peso a cada símbolo e é selecionada uma cláusula com a menor soma de pesos. No caso em que todos os símbolos têm peso um esta variação é idêntica a \textit{menor} usada no KSP. Ordenada é uma variação de Contagem de Símbolos onde é preferida cláusulas com o menor número de literais máximais.
+As heurísticas avaliadas foram: \textit{Mais antiga}, Contagem de Símbolos e Ordenada. Em Contagem de Símbolos, é atribuído um peso a cada símbolo e é selecionada uma cláusula com a menor soma de pesos. No caso em que todos os símbolos têm peso um esta variação é idêntica a \textit{menor} usada no KSP. Ordenada é uma variação de Contagem de Símbolos onde é preferida cláusulas com o menor número de literais maximais.
 
 Também foram analisadas várias intercalações de duas dessas heurísticas em distribuições diferentes. Por exemplo, a cada 11 seleções de cláusulas, 10 são feitas pela heurística Contagem de Símbolo e 1 é feita pela heurística \textit{Mais antiga}.
 
@@ -28,13 +28,13 @@ Na tabela \ref{table:300stam5ant1}, apresentamos os resultados para razão de 5 
 	
 	\hline \textnormal{k\_branch} & 5.23 & 2 & 3.68 & 3 \\
 	\hline \textnormal{k\_d4} & 13.93 & 9 & 0.021 & 21 \\
-	\hline \textnormal{k\_dum} & 0.017 & 21 & 0.012 & 21 \\
-	\hline \textnormal{k\_grz} & 1.37 & 21 & 0.00 & 21 \\
-	\hline \textnormal{k\_lin} & 0.00 & 21 & 0.00 & 21 \\
-	\hline \textnormal{k\_path} & 0.01 & 21 & 0.01 & 21 \\
+	% \hline \textnormal{k\_dum} & 0.017 & 21 & 0.012 & 21 \\
+	% \hline \textnormal{k\_grz} & 1.37 & 21 & 0.00 & 21 \\
+	% \hline \textnormal{k\_lin} & 0.00 & 21 & 0.00 & 21 \\
+	% \hline \textnormal{k\_path} & 0.01 & 21 & 0.01 & 21 \\
 	\hline \textnormal{k\_ph} & 1.46 & 3 & 0.05 & 3 \\
 	\hline \textnormal{k\_poly} & 60.24 & 16 & 38.16 & 15 \\
-	\hline \textnormal{k\_t4p} & 0.04 & 21 & 0.01 & 21 \\
+	% \hline \textnormal{k\_t4p} & 0.04 & 21 & 0.01 & 21 \\
 	
 	\hline
 	
@@ -47,13 +47,11 @@ Na tabela \ref{table:300stam5ant1}, apresentamos os resultados para razão de 5 
 \section{Segunda proposta}
 Como a seleção de cláusula em cada nível é feita de forma independente, podemos também usar algoritmos distintos em níveis distintos.
 
-Com base nos resultados dos experimentos descritos na Seção ~\ref{secao:1proposta}, propomos intercalação de \textit{menor} e \textit{mais antiga} com razão dinâmica para todo nível.
+Com base nos resultados dos experimentos descritos na Seção~\ref{secao:1proposta}, propomos intercalação de \textit{menor} e \textit{mais antiga} com razão dinâmica para todo nível.
 
-Cada nível terá um escalonador responsável por escolher uma razão eficiente. Como não conhemos a melhor solução a priori, está razão mudará ao longo da execução do provador. Neste experimento usamos somente o número de inferências feitas para determinar a troca de proporção na intercalação dos algoritmos.
+Cada nível terá um escalonador responsável por escolher uma razão eficiente. Como não conhecemos a melhor solução a priori, esta razão mudará ao longo da execução do provador. Neste experimento usamos somente o número de inferências feitas para determinar a troca de proporção na intercalação dos algoritmos.`
 
-Avaliaremos também o desempenho por nível.
-
-
+Para o nível modal $ml$, o escalonador usará apenas a cardinalidade de $\Gamma^{lit}_{ml}$ para determinar qual razão aplicar. O usuário define $r_1, l_1, r_2, l_2, \ldots, r_x$, onde $r_i$ é uma razão descrita na Seção~\ref{secao:1proposta} e $l_i$ é uma sequência ordenada de limiares para troca de razões. Para cardinalidade menor ou igual a $l_1$ é usada razão $r_1$, para cardinalidade maior que $l_1$ e menor ou igual a $l_2$ é usada razão $r_2$ e assim por diante. Note que não há limite superior para a ultima razão, a $r_x$.
 
 %starexec
 
