@@ -322,43 +322,6 @@ Em \textit{máxima}, é feita escolha análoga a \textit{mínima} mas dentre cl�
 
 Neste trabalho propomos novos métodos para seleção de cláusulas e comparamos com os métodos previamente utilizados no KSP. Para comparação usaremos o LWB \cite{lwb}, que descreve geradores de \textit{benchmark} de tamanho arbitrário para 9 famílias de fórmulas.
 
-Fizemos um experimento inicial para averiguar o desempenho do KSP sobre o LWB com os algoritmos de seleção de cláusula já implementados. O sistema utilizado tem processador AMD FX-6300 com clock base de 3.5 GHz, 6 Gigabyte de memória RAM no Sistema Operacional Ubuntu 18.04. Escolhemos a versão 0.1.2 do KSP, a versão pública mais recente na data do experimento. Nesse experimento usamos 21 fórmulas satisfatíveis e 21 insatisfatíveis para cada família. Para cada fórmula foram dados 10 segundos de tempo limite.
-
-A Tabela \ref{table:primeiro10} abaixo mostra o resultado desse experimento. Para cada família de fórmulas temos uma linha na tabela para as satisfatíveis, representada pelo sufixo \_ n, e uma linha para as insatisfatíveis, representada pelo sufixo \_p. Cada coluna representa uma heurística de seleção de cláusula. Cada célula da tabela informa a quantidade de fórmulas que o provador proveu solução dentro do tempo limite e a média de tempo entre essas.
-
-\begin{table*}[t]
-	\[
-\begin{array}{|c|c|c|c|c|c|}
-	\hline - & \textit{mais antiga} & \textit{mais nova} & \textit{mínima} & \textit{máxima} & \textit{menor} \\
-
-	\hline \textnormal{k\_branch\_n} & 1(0.01) & 1(0.02) & 2(4.91) & 1(0.00) & 2(4.28) \\
-	\hline \textnormal{k\_branch\_p} & 2(1.54) & 1(0.00) & 3(1.38) & 1(0.00) & 3(1.38) \\
-	\hline \textnormal{k\_d4\_n} & 7(1.32) & 4(1.17) & 7(0.79) & 6(1.69) & 7(2.03) \\
-	\hline \textnormal{k\_d4\_p} & 21(0.14) & 21(0.16) & 21(0.04) & 21(0.18) & 21(0.04) \\
-	\hline \textnormal{k\_dum\_n} & 21(0.02) & 21(0.14) & 21(0.05) & 21(0.03) & 21(0.05) \\
-	\hline \textnormal{k\_dum\_p} & 21(0.09) & 21(0.36) & 21(0.04) & 21(0.10) & 21(0.04) \\
-	\hline \textnormal{k\_grz\_n} & 17(1.60) & 13(0.45) & 21(0.48) & 13(2.58) & 21(0.48) \\
-	\hline \textnormal{k\_grz\_p} & 21(0.00) & 21(0.00) & 21(0.00) & 21(0.00) & 21(0.00) \\
-	\hline \textnormal{k\_lin\_n} & 21(0.00) & 21(0.00) & 21(0.00) & 21(0.00) & 21(0.00) \\
-	\hline \textnormal{k\_lin\_p} & 21(0.00) & 21(0.00) & 21(0.00) & 21(0.00) & 21(0.00) \\
-	\hline \textnormal{k\_path\_n} & 21(0.01) & 21(0.02) & 21(0.03) & 21(0.01) & 21(0.03) \\
-	\hline \textnormal{k\_path\_p} & 21(0.01) & 21(0.04) & 21(0.04) & 21(0.01) & 21(0.04) \\
-	\hline \textnormal{k\_ph\_n} & 2(0.00) & 2(0.00) & 3(1.54) & 2(0.00) & 3(1.67) \\
-	\hline \textnormal{k\_ph\_p} & 2(0.00) & 2(0.00) & 3(0.01) & 2(0.00) & 3(0.02) \\
-	\hline \textnormal{k\_poly\_n} & 8(1.16) & 5(1.29) & 8(1.58) & 8(0.86) & 8(1.12) \\
-	\hline \textnormal{k\_poly\_p} & 8(2.21) & 6(1.12) & 9(1.18) & 8(1.76) & 9(1.26) \\
-	\hline \textnormal{k\_t4p\_n} & 21(0.05) & 21(0.14) & 21(0.10) & 21(0.05) & 21(0.03) \\
-	\hline \textnormal{k\_t4p\_p} & 21(0.03) & 21(0.09) & 21(0.04) & 21(0.03) & 21(0.01) \\
-	
-	\hline
-	
-\end{array}
-	\]
-\caption{Fórmulas resolvidas em até 10 seg e tempo médio em segundos.}
-\label{table:primeiro10}
-\end{table*}
-
-Esses resultados indicam que o KSP é muito eficiente para a maioria das famílias independente da estratégia utilizada, mas muito pode ser melhorado em k\_branch e k\_ph.
 
 %\section{Grafo}
 %Um grafo é um par um ordenado $(V, E)$, onde $E \subseteq V\times V$, chamamos $V$ o conjunto de vértices e $E$ o conjunto de arestas.

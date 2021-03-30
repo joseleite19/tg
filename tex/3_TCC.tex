@@ -1,5 +1,42 @@
 Neste capítulo propomos novos métodos de seleção de cláusula para o KSP.
 
+Fizemos um experimento inicial para averiguar o desempenho do KSP sobre o LWB com os algoritmos de seleção de cláusula já implementados. O sistema utilizado tem processador AMD FX-6300 com clock base de 3.5 GHz, 6 Gigabyte de memória RAM no Sistema Operacional Ubuntu 18.04. Escolhemos a versão 0.1.2 do KSP, a versão pública mais recente na data do experimento. Nesse experimento usamos 21 fórmulas satisfatíveis e 21 insatisfatíveis para cada família. Para cada fórmula foram dados 10 segundos de tempo limite.
+
+A Tabela \ref{table:primeiro10} mostra o resultado desse experimento. Para cada família de fórmulas temos uma linha na tabela para as satisfatíveis, representada pelo sufixo \_n, e uma linha para as insatisfatíveis, representada pelo sufixo \_p. Cada coluna representa uma heurística de seleção de cláusula. Cada célula da tabela informa a quantidade de fórmulas que o provador proveu solução dentro do tempo limite e a média de tempo entre essas.
+
+\begin{table*}[t]
+	\[
+\begin{array}{|c|c|c|c|c|c|}
+	\hline - & \textit{mais antiga} & \textit{mais nova} & \textit{mínima} & \textit{máxima} & \textit{menor} \\
+
+	\hline \textnormal{k\_branch\_n} & 2(59.6) & 1(0.06) & 1(0.00) & 1(0.05) & 2(4.34) \\
+	\hline \textnormal{k\_branch\_p} & 2(1.52) & 2(88.84) & 2(29.37)& 2(101.32) & 3(1.4) \\
+	\hline \textnormal{k\_d4\_n} & 9(14.5) & 7(44.42) & 8(27.48)& 8(21.68) & 9(13.5) \\
+	\hline \textnormal{k\_d4\_p} & 21(0.16) & 21(0.08) & 21(0.03) & 21(0.57) & 21(0.08) \\
+	\hline \textnormal{k\_dum\_n} & 21(0.03) & 21(0.05) & 21(0.04) & 21(0.12) & 21(0.08) \\
+	\hline \textnormal{k\_dum\_p} & 21(0.09) & 21(0.14) & 21(0.51) & 21(0.34) & 21(0.06) \\
+	\hline \textnormal{k\_grz\_n} & 21(9.56) & 17(3.01) & 17(5.9) & 17(16.35) & 21(3.15) \\
+	\hline \textnormal{k\_grz\_p} & 21(0.02) & 21(0.01) & 21(0.01) & 21(0.01) & 21(0.01) \\
+	\hline \textnormal{k\_lin\_n} & 21(0.01) & 21(0.01) & 21(0.01) & 21(0.01) & 21(0.02) \\
+	\hline \textnormal{k\_lin\_p} & 21(0.01) & 21(0.01) & 21(0.01) & 21(0.01) & 21(0.03) \\
+	\hline \textnormal{k\_path\_n} & 21(0.02) & 21(0.02) & 21(0.02) & 21(0.02) & 21(0.03) \\
+	\hline \textnormal{k\_path\_p} & 21(0.03) & 21(0.02) & 21(0.02) & 21(0.02) & 21(0.02) \\
+	\hline \textnormal{k\_ph\_n} & 3(4.08) & 3(10.88) & 3(1.85) & 3(5.81) & 3(0.65) \\
+	\hline \textnormal{k\_ph\_p} & 2(0.02) & 2(0.00) & 3(14.82) & 3(89.8) & 3(0.03) \\
+	\hline \textnormal{k\_poly\_n} & 16(50.45) & 8(27.89) & 14(42.53) & 13(39.82) & 16(52.46) \\
+	\hline \textnormal{k\_poly\_p} & 15(36.83) & 10(38.17) & 14(45.65) & 14(39.16) & 15(43.32) \\
+	\hline \textnormal{k\_t4p\_n} & 21(0.06) & 21(0.16) & 21(0.1) & 21(0.06) & 21(0.05) \\
+	\hline \textnormal{k\_t4p\_p} & 21(0.04) & 21(0.1) & 21(0.03) & 21(0.04) & 21(0.02) \\
+	
+	\hline
+\end{array}
+	\]
+\caption{Fórmulas resolvidas em até 300 seg e tempo médio em segundos.}
+\label{table:primeiro10}
+\end{table*}
+
+Esses resultados indicam que o KSP é muito eficiente para a maioria das famílias independente da estratégia utilizada, mas muito pode ser melhorado em k\_branch, k\_d4, k\_ph e k\_poly.
+
 \section{Trabalhos anteriores}
 Uma análise de heurísticas de seleção de cláusula para provadores baseados em saturação, assim como KSP, foi feita por \cite{stephan}. O experimento foi feito no provador E sobre 13774 fórmulas do \textit{benchmark} TPTP \cite{TPTP} com 300 segundos de tempo limite.
 
@@ -15,8 +52,6 @@ Baseado no trabalho de \cite{stephan}, nossa primeira proposta de seleção de c
 A implementação dessa proposta não é muito complexa por ser intercalação de métodos já implementados e nos permite comparar os resultados do KSP com os encontrados por \cite{stephan} no provador E.
 
 %- Inferencia por nivel.
-
-%- 
 %- escrever
 %- pensar num jeito de normalizar pra ver onde ta indo bem
 
@@ -49,9 +84,33 @@ Como a seleção de cláusula em cada nível é feita de forma independente, pod
 
 Com base nos resultados dos experimentos descritos na Seção~\ref{secao:1proposta}, propomos intercalação de \textit{menor} e \textit{mais antiga} com razão dinâmica para todo nível.
 
-Cada nível terá um escalonador responsável por escolher uma razão eficiente. Como não conhecemos a melhor solução a priori, esta razão mudará ao longo da execução do provador. Neste experimento usamos somente o número de inferências feitas para determinar a troca de proporção na intercalação dos algoritmos.`
+Cada nível terá um escalonador responsável por escolher uma razão eficiente. Como não conhecemos a melhor solução a priori, esta razão mudará ao longo da execução do provador. Neste experimento usamos somente o número de inferências feitas para determinar a troca de proporção na intercalação dos algoritmos.
 
 Para o nível modal $ml$, o escalonador usará apenas a cardinalidade de $\Gamma^{lit}_{ml}$ para determinar qual razão aplicar. O usuário define $r_1, l_1, r_2, l_2, \ldots, r_x$, onde $r_i$ é uma razão descrita na Seção~\ref{secao:1proposta} e $l_i$ é uma sequência ordenada de limiares para troca de razões. Para cardinalidade menor ou igual a $l_1$ é usada razão $r_1$, para cardinalidade maior que $l_1$ e menor ou igual a $l_2$ é usada razão $r_2$ e assim por diante. Note que não há limite superior para a ultima razão, a $r_x$.
+
+\begin{table*}[t]
+	\[
+\begin{array}{|c|c|c|c|c|}
+	\hline - & \textnormal{Tempo médio(sat)} & \textnormal{Resolvidas(sat)} & \textnormal{Tempo médio(unsat)} & \textnormal{Resolvidas(unsat)} \\
+	
+	\hline \textnormal{k\_branch} & 5.27 & 2 & 11.64 & 3 \\
+	\hline \textnormal{k\_d4} & 14.89 & 9 & 0.03 & 21 \\
+	\hline \textnormal{k\_ph} & 2.04 & 3 & 0.02 & 3 \\
+	\hline \textnormal{k\_poly} & 53.04 & 16 & 37.76 & 15 \\
+	
+	\hline
+	
+\end{array}
+	\]
+\caption{Fórmulas resolvidas com configuração A em até 300 segundos e tempo médio em segundos.}
+\label{table:300threshold1}
+% using results from 20210316.061043_300
+% 1, oldest; 20;
+% 3, shortest, 2, oldest; 200;
+% 5, shortest, 1, oldest; 10000;
+% 10, shortest, 1, oldest; 30000;
+% 1, oldest
+\end{table*}
 
 %starexec
 
