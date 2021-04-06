@@ -79,10 +79,10 @@ Na figura~\ref{table:exemplomodelo1} apresentamos a visualização de um modelos
 \[
 \begin{tabular}{cc}
 \begin{tikzpicture}
-\begin{scope}[every node/.style={circle,thick,draw}]
-    \node (w0) at (0, 0) {$w_0$};
-    \node (w1) at (1, 2) {$w_1$};
-    \node (w2) at (4, 1) {$w_2$};
+\begin{scope}[every node/.style={circle,thick,draw}, node distance=2cm]
+    \node (w0)  {$w_0$};
+    \node (w1) [right of=w0,yshift=1cm] {$w_1$};
+    \node (w2) [right of=w0,yshift=-1cm] {$w_2$};
 \end{scope}
 
 \begin{scope}[>={Stealth[black]},
@@ -97,11 +97,9 @@ Na figura~\ref{table:exemplomodelo1} apresentamos a visualização de um modelos
 &
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline $\pi$ & $w_0$ & $w_1$ & $w_2$ \\
-
 	\hline \textnormal{p} & $\vfalse$ & $\vtrue$ & $\vfalse$ \\
 	\hline \textnormal{q} & $\vfalse$ & $\vtrue$ & $\vtrue$ \\
-
-	\hline
+        \hline
 \end{tabular}
 \\
 \end{tabular}
