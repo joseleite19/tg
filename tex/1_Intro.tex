@@ -11,18 +11,18 @@
 %Cientistas da computação são apaixonados por automação, %TODO citar?
 %então é natural que esforços para prova automática de teoremas sejam feitos. %TODO um pouco de historia e resolucao
 
-Em computação, estudamos classes de problemas que ajudam a expressar quão dificil resolver um problema é. P é a classe de problemas que podem ser resolvidos em tempo polinomial em uma máquina determinística. NP é a classe de problemas que podem ser resolvidos em tempo polinomial em uma máquina não deterministica. P-SPACE é a classe de problemas que podem ser resolvidos em espaço polinomial. %TODO dar uma olhada no livro de automatos
-Logica Modal proposicional $K_n$ pode expressar qualquer problema da classe P-SPACE. %TODO citar
+Em computação, estudamos classes de problemas que ajudam a expressar quão difícil resolver um problema é, classificando por tempo ou espaço. P é a classe de problemas que podem ser resolvidos em tempo polinomial em uma máquina determinística. NP é a classe de problemas que podem ser resolvidos em tempo polinomial em uma máquina não deterministica. O problema de P vs NP consiste em determinar se P $\not=$ NP e tem implicações na matemática, criptografia. PSPACE é a classe de problemas que podem ser resolvidos em espaço polinomial. Dentre outras, as classes P e NP estão contidas dentro da classe PSPACE o que demonstra um pouco a sua representatividade. %TODO dar uma olhada no livro de automatos
+Logica Modal proposicional $K_n$ pode expressar qualquer problema da classe PSPACE. %TODO citar
 
-Expressar problemas formalmente nos permite usar ferramentas para garantidamente formular ou reconhecer uma resposta.
+Representar problemas formalmente nos permite usar ferramentas para garantidamente formular ou reconhecer uma resposta.
 %Lógica nos fornece ferramentas para garantidamente formular e reconhecer argumentos válidos.
-A grande espressividade de $K_n$ permite até representar modelos de outras lógicas \cite{correspkn} o que permite seu uso desde geração contos de fadas \cite{fairytale} a engenharia de requisitos \cite{reqeng}.
+A grande expressividade de $K_n$ permite minimização de Automatos Finitos Não determinísticos\cite{nfahard}, computar o Equilíbrio de Nash para qualquer jogo de dois jogadores em forma normal \cite{nashpspace}, ou até representar modelos de outras lógicas \cite{correspkn} o que possibilita seu uso desde engenharia de requisitos \cite{reqeng} a geração contos de fadas \cite{fairytale}.
 
-Assim é desejavel ter ferramentar para resolver problemas em $K_n$ e que estas sejam eficientes. Por isso, muitos provadores de teoremas foram construídos para tal lógica. \ksp é um provador automático baseado em resolução descrito em \cite{Nalon2020}. Provadores automáticos são interessantes por diminuir o risto de erro humano na prova. Um dos passos de todo provador baseado em resolução é a seleção de cláusula. Muitas heurísticas de seleção de cláusula já foram estudadas mas ainda ainda há muito a ser melhorado mesmo ao que é considerado estado da arte \cite{stephan}.
+Assim, é desejável ter ferramentar para resolver problemas em $K_n$ e que estas sejam eficientes. Para isso, muitos provadores de teoremas foram construídos para tal lógica. \ksp é um provador automático baseado em resolução descrito em \cite{Nalon2020}. Provadores automáticos são interessantes por diminuir o risco de erro humano na prova. Um dos passos de todo provador baseado em resolução é a seleção de cláusula. Muitas heurísticas para tal já foram estudadas mas ainda há muito a ser melhorado mesmo ao estado da arte \cite{stephan}.
 
 %TODO "pq escolher o KSP?"
 
-Neste trabalho queremos resolver eficientemente o problema de selecao de clausula no \ksp.
+Neste trabalho queremos resolver eficientemente o problema de seleção de cláusula no \ksp.
 
 %Area da computacao eh logica computacional.
 

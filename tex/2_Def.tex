@@ -113,11 +113,11 @@ Na figura~\ref{table:exemplomodelo1} apresentamos a visualização de um modelos
 \begin{tabular}{cc}
 \begin{tikzpicture}
 \begin{scope}[every node/.style={circle,thick,draw}]
-    \node (w0) at (0, 0) {$w_0$};
-    \node (w1) at (1, 2) {$w_1$};
-    \node (w2) at (4, 1) {$w_2$};
-    \node (w3) at (0, 4) {$w_3$};
-    \node (w4) at (3, 4) {$w_4$};
+    \node (w0) {$w_0$};
+    \node (w1) [right of=w0, xshift=2cm] {$w_1$};
+    \node (w2) [below of=w0,yshift=-2cm] {$w_2$};
+    \node (w3) [below of=w1,yshift=-2cm]{$w_3$};
+    \node (w4) [right of=w1, xshift=2cm] {$w_4$};
 \end{scope}
 
 \begin{scope}[>={Stealth[black]},

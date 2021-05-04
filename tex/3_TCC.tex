@@ -102,7 +102,7 @@ Para o nível modal $ml$, o escalonador usará apenas a cardinalidade de $\Gamma
 	
 \end{array}
 	\]
-\caption{Fórmulas resolvidas com configuração A em até 300 segundos e tempo médio em segundos.}
+\caption{Fórmulas resolvidas em até 300 segundos e tempo médio em segundos.}
 \label{table:300threshold1}
 % using results from 20210316.061043_300
 % 1, oldest; 20;
@@ -111,6 +111,9 @@ Para o nível modal $ml$, o escalonador usará apenas a cardinalidade de $\Gamma
 % 10, shortest, 1, oldest; 30000;
 % 1, oldest
 \end{table*}
+
+\section{Terceira proposta}
+A regra de inferência GEN1 no laço principal do \ksp precisa de alguma cláusula com um literal que aparece num operador $\pos{\alpha}$, para qualquer $\alpha$. Para facilitar esta aplicação, vamos fazer seleção entre cláusulas com algum literal destes caso exista. Por exemplo, para o algoritmo de \testit{Menor tamanho}, vamos selecionar a cláusula de menor tamanho dentre as que têm algum literal de $\pos{\alpha}$.
 
 %starexec
 
