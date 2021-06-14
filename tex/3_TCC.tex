@@ -46,7 +46,7 @@ Também foram analisadas várias intercalações de duas dessas heurísticas em 
 
 São apresentados vários resultados como número de fórmulas resolvidas, tamanho da prova, número de inferências na prova, etc para todas as estratégias utilizadas. Vemos que a maioria das fórmulas resolvidas foram resolvidas em poucos segundos mesmo com 300 segundos disponíveis. Os experimentos apontam não haver melhora em performance ao usar diferentes funções de peso para os literais. Todas as estratégias de contagem de símbolos tiveram ganho significativo de desempenho quando intercaladas com \textit{Mais antiga}. Selecionar sempre cláusulas dadas na entrada primeiro melhorou performance no geral, mas não tanto com estratégias utilizando \textit{Mais antiga}.
 
-\section{Primeira proposta} \label{secao:1proposta}
+\section{Intercalação estática de estratégias} \label{secao:1proposta}
 Baseado no trabalho de \cite{stephan}, nossa primeira proposta de seleção de cláusula será intercalação de \textit{menor} e \textit{mais antiga}, já implementadas no KSP, numa razão $p$:$q$ informada pelo usuário. Dessa forma, as primeiras $p$ execuções da função {\sf given} serão conforme \textit{menor}, as próximas $q$ serão conforme \textit{mais antiga}, as próximas $p$ conforme \textit{menor} e assim por diante.
 
 A implementação dessa proposta não é muito complexa por ser intercalação de métodos já implementados e nos permite comparar os resultados do KSP com os encontrados por \cite{stephan} no provador E.
@@ -79,7 +79,7 @@ Na tabela \ref{table:300stam5ant1}, apresentamos os resultados para razão de 5 
 \label{table:300stam5ant1}
 \end{table*} % using results from 20210103.163648_300 tam_5_ant_1
 
-\section{Segunda proposta}
+\section{Intercalação dinâmica de estratégias}
 Como a seleção de cláusula em cada nível é feita de forma independente, podemos também usar algoritmos distintos em níveis distintos.
 
 Com base nos resultados dos experimentos descritos na Seção~\ref{secao:1proposta}, propomos intercalação de \textit{menor} e \textit{mais antiga} com razão dinâmica para todo nível.
@@ -102,7 +102,7 @@ Para o nível modal $ml$, o escalonador usará apenas a cardinalidade de $\Gamma
 	
 \end{array}
 	\]
-\caption{Fórmulas resolvidas em até 300 segundos e tempo médio em segundos.}
+\caption{Fórmulas resolvidas em até 300 segundos e tempo médio em segundos com intecalação dinâmica.}
 \label{table:300threshold1}
 % using results from 20210316.061043_300
 % 1, oldest; 20;
@@ -112,9 +112,26 @@ Para o nível modal $ml$, o escalonador usará apenas a cardinalidade de $\Gamma
 % 1, oldest
 \end{table*}
 
-\section{Terceira proposta}
-A regra de inferência GEN1 no laço principal do \ksp precisa de alguma cláusula com um literal que aparece num operador $\pos{\alpha}$, para qualquer $\alpha$. Para facilitar esta aplicação, vamos fazer seleção entre cláusulas com algum literal destes caso exista. Por exemplo, para o algoritmo de \testit{Menor tamanho}, vamos selecionar a cláusula de menor tamanho dentre as que têm algum literal de $\pos{\alpha}$.
+\section{Intercalação dinâmica agregada à preferência literais}
+A regra de inferência GEN1 no laço principal do \ksp precisa de alguma cláusula com um literal que aparece num operador $\pos{\alpha}$, para qualquer $\alpha$. Para facilitar esta aplicação, vamos fazer seleção entre cláusulas com algum literal destes caso exista. Por exemplo, para o algoritmo de \textit{Menor tamanho}, vamos selecionar a cláusula de menor tamanho dentre as que têm algum literal de $\pos{\alpha}$.
 
+\begin{table*}[t]
+	\[
+\begin{array}{|c|c|c|c|c|}
+	\hline - & \textnormal{Tempo médio(sat)} & \textnormal{Resolvidas(sat)} & \textnormal{Tempo médio(unsat)} & \textnormal{Resolvidas(unsat)} \\
+	
+	\hline \textnormal{k\_branch} & 3.17 & 2 & 0.23 & 3 \\
+	\hline \textnormal{k\_d4} & 16.94 & 9 & 0.03 & 21 \\
+	\hline \textnormal{k\_ph} & 1.25 & 3 & 0.02 & 3 \\
+	\hline \textnormal{k\_poly} & 40.03 & 15 & 37.34 & 15 \\
+	
+	\hline
+	
+\end{array}
+	\]
+\caption{Fórmulas resolvidas em até 300 segundos e tempo médio em segundos com intercalação dinâmica agregada.}
+\label{table:300big1}
+\end{table*}
 %starexec
 
 %dtodos os niveis usando msm razao 1:10
