@@ -1,11 +1,11 @@
 
-Nesta seção apresentamos as definições básicas para o resto do texto.
+Neste capítulo apresentamos as definições básicas para o resto do texto.
 
 \section{Linguagem}
-Trabalharemos com a linguagem lógica modal $K_n$.
+Trabalharemos com a linguagem lógica modal $K_n$. %TODO write a small introduction for the section and describe its structure, probably define syntax and semantics
 
 \begin{definition}
-	Seja $P = \{p, q, r, \dots\}$ um conjunto enumerável de símbolos proposicionais, $\Agents = \{1, 2, 3, \dots, n\}, n \in \mathbb{N}$. Definimos o conjunto de fórmulas $\mathcal{FBF}$ indutivamente.
+	Seja $P = \{p, q, r, \dots\}$ um conjunto enumerável de símbolos proposicionais, $\Agents = \{1, 2, 3, \dots, n\}, n \in \mathbb{N}$. Definimos o conjunto de fórmulas bem formadas $\mathcal{FBF}$ indutivamente.
 	
 	\begin{itemize}
 		\item Se $\varphi \in \set{P}$ então $\varphi \in \set{FBF}$
@@ -19,10 +19,10 @@ Trabalharemos com a linguagem lógica modal $K_n$.
 \end{definition}
 
 \begin{definition}
-	Uma cláusula proposicional é uma disjunção de literais proposicionais.
+	Uma cláusula proposicional é uma disjunção de literais proposicionais. %TODO describe disjuntion, maybe create a lexical subsection before syntax
 \end{definition}
 
-Assim, uma cláusula proposicional tem a forma $p_1 \lor p_2 \lor \cdots p_m$ com $p_i \in \set{P}$.
+Assim, uma cláusula proposicional tem a forma $p_1 \lor p_2 \lor \cdots p_m$ com $p_i \in \set{P}$ e $m \in \mathbf{N}$, para $m = 0$ a cláusula é dita vazia.
 
 Seja $\Sigma = \{0, 1\}$, $\Sigma^*$ é o conjunto de todas as cadeias formadas com elementos de $\Sigma$. Em particular, $\epsilon$ representa a cadeia vazia. Construiremos cadeias em $\Sigma^*$ para codificar a posição de ocorrência de uma subfórmula em uma fórmula. Seja $inv \colon \{\text{positiva, negativa}\} \mapsto \{\text{positiva, negativa}\}$ tal que $inv(\text{positiva}) = \text{negativa}$ e $inv(\text{negativa}) = \text{positiva}$.
 
@@ -40,7 +40,7 @@ Seja $\Sigma = \{0, 1\}$, $\Sigma^*$ é o conjunto de todas as cadeias formadas 
 	\end{itemize}
 	
 \end{definition}
-Dizemos que a polaridade de $\chi_1$ em $\varphi$ na posição $s$ é $pol(\varphi, \chi_1, s)$.
+Dizemos que a polaridade de $\psi$ em $\varphi$ na posição $s$ é $pol(\varphi, \psi, s)$.
 
 \begin{definition}
 	Definimos o nível modal de uma subfórmula pela função $mlevel \colon \set{FBF} \times \set{FBF} \times \Sigma^* \mapsto \mathbb{N}$. Para $\varphi, \chi_1, \chi_2 \in \set{FBF}, s \in \Sigma^*, \agent \in \set{A}, val \in \mathbb{N}$.
@@ -57,23 +57,24 @@ Dizemos que a polaridade de $\chi_1$ em $\varphi$ na posição $s$ é $pol(\varp
 Dizemos que o nível modal de $\chi_1$ em $\varphi$ na posição $s$ é $mlevel(\varphi, \psi, s)$.
 
 A semântica para lógica modal proposicional é dada por estruturas de Kripke. Uma estrutura de Kripke $M$ é da forma $M = (\set{W}, \st_0, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, onde % TODO Cita
-$\set{W}$ é um conjunto de mundos possíveis, $\st_0 \in \set{W}$, $\pi:\set{W} \times \set{P} \rightarrow \{\vtrue, \vfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfeita na lógica modal K no modelo $M$ no mundo $\st$ se, e somente se, $\langle M,w \rangle \models \varphi$, conforme segue:
+$\set{W}$ é um conjunto%TODO colocar mundo? (mundos possíveis)
+, $\st_0 \in \set{W}$, $\pi:\set{W} \times \set{P} \rightarrow \{\vtrue, \vfalse\}$, $\set{R}_\agent \subseteq \set{W} \times \set{W}$ para todo $\agent \in \Agents$. Dizemos que uma fórmula $\varphi$ é satisfeita na lógica modal $K_n$ no modelo $M$ no mundo $\st$ se, e somente se, $\langle M,w \rangle \models \varphi$, conforme segue:
 
 \begin{itemize}
-	\item $\langle M,\st \rangle \models p$, se e somente se $\pi(\st, p) = \vtrue$, para $p \in \set{P}$
-	\item $\langle M,\st \rangle \models \neg\varphi$, se e somente se $\langle M,\st \rangle \not\models \varphi$
-	\item $\langle M,\st \rangle \models (\varphi \land \psi)$, se e somente se $\langle M,\st \rangle \models \varphi$ e $\langle M,\st \rangle \models \psi$
-	\item $\langle M,\st \rangle \models (\varphi \lor \psi)$, se e somente se $\langle M,\st \rangle \models \varphi$ ou $\langle M,\st \rangle \models \psi$
-	\item $\langle M,\st \rangle \models (\varphi \then \psi)$, se e somente se $\langle M,\st \rangle \not\models \varphi$ ou $\langle M,\st \rangle \models \psi$
+	\item $\langle M,\st \rangle \models p$ se, e somente se $\pi(\st, p) = \vtrue$, para $p \in \set{P}$
+	\item $\langle M,\st \rangle \models \neg\varphi$ se, e somente se $\langle M,\st \rangle \not\models \varphi$
+	\item $\langle M,\st \rangle \models (\varphi \land \psi)$ se, e somente se $\langle M,\st \rangle \models \varphi$ e $\langle M,\st \rangle \models \psi$
+	\item $\langle M,\st \rangle \models (\varphi \lor \psi)$ se, e somente se $\langle M,\st \rangle \models \varphi$ ou $\langle M,\st \rangle \models \psi$
+	\item $\langle M,\st \rangle \models (\varphi \then \psi)$ se, e somente se $\langle M,\st \rangle \not\models \varphi$ ou $\langle M,\st \rangle \models \psi$
 	
-	\item $\langle M,\st \rangle \models \pos{\agent}\varphi$, se e somente se $\exists\st', (\st, \st') \in \set{R}_\agent, \langle M,\st' \rangle \models \varphi$
-	\item $\langle M,\st \rangle \models \nec{\agent}\varphi$, se e somente se $\forall\st', (\st, \st') \in \set{R}_\agent, \langle M,\st' \rangle \models \varphi$
+	\item $\langle M,\st \rangle \models \pos{\agent}\varphi$ se, e somente se $\exists\st', (\st, \st') \in \set{R}_\agent, \langle M,\st' \rangle \models \varphi$
+	\item $\langle M,\st \rangle \models \nec{\agent}\varphi$ se, e somente se $\forall\st', (\st, \st') \in \set{R}_\agent, \langle M,\st' \rangle \models \varphi$
 	
 \end{itemize}
 
 Uma fórmula $\varphi$ é localmente satisfatível se existe um modelo $M$ tal que $\langle M,\st_0 \rangle \models \varphi$. Uma formula $\varphi$ é globalmente satisfatível se existe um modelo $M$ tal que para todo $\st \in \set{W}$ temos que $\langle M,\st \rangle \models \varphi$. Escrevemos $M \models \varphi$ se, e somente se, $\langle M, \st_0 \rangle \models \varphi$.
 
-Na figura~\ref{table:exemplomodelo1} apresentamos a visualização de um modelos possível para a fórmula $(p \land \nec{1} (p \land \pos{2}q)$. Na figura~\ref{table:exemplomodelo2}, um modelo para $(\nec{1}\nec{2}\pos{1}\pos{1}\nec{3}(p \then q)) \lor (\pos{1}\nec{3}(p \then q) \land \nec{1}\nec{1}(\pos{1}\neg q \lor \nec{1}q)$.
+Na Figura~\ref{table:exemplomodelo1} apresentamos a visualização de um modelos possível para a fórmula $(p \land \nec{1} (p \land \pos{2}q))$. Na Figura~\ref{table:exemplomodelo2}, um modelo para $\nec{1}\nec{2}\pos{1}\pos{1}\nec{3}(p \then q) \lor \pos{1}\nec{3}(p \then q) \land \nec{1}\nec{1}(\pos{1}\neg q \lor \nec{1}q$.
 
 \begin{figure*}
 \[
@@ -150,10 +151,10 @@ Na figura~\ref{table:exemplomodelo1} apresentamos a visualização de um modelos
 
 
 \begin{definition}
-	Para um modelo $M$, definimos a profundidade de um mundo pela função $depth \colon \set{W} \mapsto \mathbb{N}$, onde $depth(w)$ é tamanho do menor caminho de $w_0$ a $w$ no grafo $(\set{W}, \bigcup_{i=1}^n R_i)$. Chamamos de nível modal a classe de equivalência com todos os mundos com mesma profundidade.
+	Para um modelo $M$, definimos a profundidade de um mundo pela função $depth \colon \set{W} \mapsto \mathbb{N}$, onde $depth(w)$ é tamanho do menor caminho de $w_0$ a $w$ no grafo $(\set{W}, \bigcup_{i=1}^n \set{R}_i)$. Chamamos de nível modal a classe de equivalência com todos os mundos com mesma profundidade.
 \end{definition}
 
-Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatibilidade local com a extensão da linguagem K pelo operador universal $\nec{*}$. Seja $M = (\set{W}, \st_0, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$, $\langle M,\st \rangle \models \nec{*}\varphi$ se, e somente se, para todo $\st' \in \set{W}$, $\langle M,\st' \rangle \models \varphi$.
+Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatibilidade local com a extensão da linguagem $K_n$ pelo operador universal $\nec{*}$. A semântica deste operador é definida como $\langle M,\st \rangle \models \nec{*}\varphi$ se, e somente se, para todo $\st' \in \set{W}$, $\langle M,\st' \rangle \models \varphi$, onde $M = (\set{W}, \st_0, \set{R}_1, \ldots, \set{R}_{|\Agents|}, \pi)$.
 
 \begin{definition}
 	Uma fórmula está na forma normal negada caso seja formada somente por símbolos proposicionais, $\neg$, $\land$, $\lor$, $\nec{\agent}$ e $\pos{\agent}$ para $\agent \in \set{A}$, e a negação só é aplicada a símbolos proposicionais.
@@ -161,7 +162,7 @@ Podemos reduzir o problema de satisfatibilidade global ao problema de satisfatib
 
 É importante ressaltar se $\varphi \in \set{FBF}$ não está na forma normal negada, então $\varphi$ pode ser reescrita como $\psi \in \set{FBF}$ na forma normal negada com semântica equivalente. Isto é, para todo $\langle M, w \rangle$, $\langle M, w \rangle \models \varphi$ se, e somente se, $\langle M, w \rangle \models \psi$.
 
-\section{Forma Normal em Camadas}
+\section{Forma Normal Separada em Níveis Modais}
 O cálculo a ser apresentado utiliza uma outra linguagem chamada de Forma Normal Separada em Níveis Modais ($SNF_{ml}$).
 
 \begin{definition}
@@ -173,7 +174,7 @@ O cálculo a ser apresentado utiliza uma outra linguagem chamada de Forma Normal
 	\end{itemize}
 \end{definition}
 
-A satisfatibilidade de uma fórmula em $SNF_{ml}$ é definida a partir da satisfatibilidade de $K_n$. Sejam $ml: \varphi$ e $ml: \psi$ cláusulas $SNF_{ml}$ e $M$ um modelo na lógica $K_n$.
+A satisfatibilidade de uma fórmula em $SNF_{ml}$ é definida a partir da satisfatibilidade em $K_n$. Sejam $ml: \varphi$ e $ml: \psi$ cláusulas em $SNF_{ml}$ e $M$ um modelo na lógica $K_n$.
 
 \begin{itemize}
 	\item $M \models *: \varphi$ se, e somente se, $M \models \nec{*}\varphi$.
@@ -181,22 +182,22 @@ A satisfatibilidade de uma fórmula em $SNF_{ml}$ é definida a partir da satisf
 	\item $M \models ml: \varphi$ se, e somente se, para todo $\st$ tal que $depth(\st) = ml$, temos $\langle M, \st \rangle \models ml: \varphi$.
 \end{itemize}
 
-Uma função de tradução de $K_n$ para $SNF_{ml}$ bem como prova de que a tradução de uma fórmula preserva satisfatibilidade podem ser encontradas em \cite{nalontocl}.
+Uma função de tradução de $K_n$ para $SNF_{ml}$ bem como a prova de que a tradução de uma fórmula preserva satisfatibilidade podem ser encontradas em \cite{nalontocl}.
 
-Seja $\ge$ uma ordem total sobre os símbolos proposicionais. Estendemos esta ordem para os literais da seguinte forma: Se $p \in \set{P}$, então $\neg p \ge p$; Se $p, q \in \set{P}, p \not= q$ e $p \ge q$, então $\neg p \ge q$.
+Seja $\ge$ uma ordem total sobre os símbolos proposicionais. Estendemos esta ordem para os literais da seguinte forma: Se $p \in \set{P}$, então $\neg p \ge p$; Se $p, q \in \set{P}, p \not= q$ e $p \ge q$, então $\neg p \ge q$. %TODO check this. "p >= !q porque >= é transitiva(ou seja, você obtemo que está definido a partir do fato de que !p >= q e p >= q)
 
 \begin{definition}
 	O literal $l$ é máximo em $\varphi \in SNF_{ml}$ se e somente se $l$ ocorre em $\varphi$ e não há $l_2 \not= l$ em $\varphi$ tal que $l_2 \ge l$.
 \end{definition}
 
-Note que podemos escolher qualquer ordem sobre os símbolos proposicionais, assim $l$ pode ser máximo numa ordem e não ser máximo em outra ordem.
+Note que podemos escolher qualquer ordem sobre os símbolos proposicionais, assim um literal $l$ pode ser máximo numa ordem e não ser máximo em outra ordem.
 
 \begin{definition}
 	O tamanho de uma cláusula em $SNF_{ml}$ é a cardinalidade do conjunto contendo somente os literais na cláusula.
 \end{definition}
 
 \section{Regras de inferência} \label{secao:regrasinf}
-O cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$ foi descrito em \cite{nalontocl}. Para simplificar a descrição das regras de inferência faremos uso de uma função parcial de unificação $\sigma \colon P(\Nat \cup \{*\}) \mapsto \Nat \cup \{*\}$, tal que $\sigma(\{ml, *\}) = ml$, $\sigma(\{ml\}) = ml$, e indefinida caso contrário. As regras de inferência de $RES_{ml}$ são apresentadas na Figura~\ref{figura:regrasinf}, onde $*-1=*$ e $m$ pode ser 0. Essas regras só valem se o resultado da unificação for definido. Demostrações de correção e corretude podem ser encotradas em \cite{nalontocl}.
+O cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$ foi descrito em \cite{nalontocl}. Para simplificar a descrição das regras de inferência faremos uso de uma função parcial de unificação $\sigma \colon P(\Nat \cup \{*\}) \mapsto \Nat \cup \{*\}$, tal que $\sigma(\{ml, *\}) = ml$, $\sigma(\{ml\}) = ml$, e indefinida caso contrário. As regras de inferência de $RES_{ml}$ são apresentadas na Figura~\ref{figura:regrasinf}, onde $*-1=*$ e $m$ pode ser 0. Essas regras só podem ser aplicadas se o resultado da unificação for definido. Demostrações de correção e corretude do cálculo podem ser encotradas em \cite{nalontocl}.
 
 \begin{figure*}[t]
 	\[
@@ -265,9 +266,11 @@ O cálculo dedutivo baseado em resolução $RES_{ml}$ para lógica $K_n$ foi des
 
 
 \section{Algoritmo}
-Neste trabalho usaremos o KSP \cite{Nalon2020}, um provador baseado no cálculo visto na Seção ~\ref{secao:regrasinf} e determina a satisfatibilidade de fórmulas em $K_n$. Caso insatisfatível, uma prova é fornecida. Embora o KSP tome fórmulas em $K_n$ como entrada, este faz a tradução para $SNF_{ml}$ e todo o processamento é feito nessa linguagem.
+Neste trabalho usaremos o KSP \cite{Nalon2020}, um provador baseado no cálculo visto na Seção ~\ref{secao:regrasinf} e que determina a satisfatibilidade de fórmulas em $K_n$. Caso insatisfatível%TODO define unsatisfiability
+, uma prova é fornecida. Embora o KSP tome fórmulas em $K_n$ como entrada, este faz a tradução para $SNF_{ml}$ e todo o cálculo é feito nessa linguagem.
 
-KSP utiliza uma variação de conjunto de suporte, técnica que restringe os candidatos possíveis para resolução. A demostração da correção e completude dessa extensão para $SNF_{ml}$ pode ser encontrada em \cite{nalontocl}.
+KSP utiliza uma variação de conjunto de suporte%TODO add reference
+, técnica que restringe os candidatos possíveis para resolução. A demostração da completude dessa restrição para $SNF_{ml}$ pode ser encontrada em \cite{nalontocl}. %TODO check proof
 
 Na versão para lógica clássica de conjunto de suporte, o conjunto de cláusulas $\Delta$ é particionado em dois conjuntos $\Gamma$, o conjunto de suporte ou não processado, e $\Lambda$, o conjunto \textit{usable} ou processado. Cláusulas são selecionadas de $\Gamma$ e resolvidas com cláusulas em $\Lambda$. A cláusula selecionada é removida de $\Gamma$ e acrescentada a $\Lambda$. Os resolventes produzidos são inseridos em $\Gamma$.
 
@@ -294,7 +297,7 @@ A seguir, descrevemos o algoritmo implementado no KSP.
 				$\Lambda^{lit}_{ml} \leftarrow \Lambda^{lit}_{ml} \cup \{clausula\}$\;
 			}
 			$\Gamma^{lit}_{ml} \leftarrow \Gamma^{lit}_{ml} \setminus \{clausula\}$\;
-			\Se{$0: \cfalse \in \Gamma^{lit}_{0}$}{
+			\Se{$0: \cfalse \in \Gamma^{lit}_{0}$}{%TODO undefined
 				\Retorna insatisfatível\;
 			}
 			$\Gamma^{lit} \leftarrow \bigcup \Gamma^{lit}_{ml}$\;
@@ -310,7 +313,7 @@ A função {\sf given}, Linha 7, é responsável por escolher uma cláusula dent
 
 Na variação \textit{menor}, é selecionada uma cláusula com o menor tamanho de $\Gamma^{lit}_{ml}$.
 
-Na variação \textit{mais antiga}, é salvo a ordem nas quais as cláusulas foram adicionadas ao conjunto de cláusulas e é selecionada a que foi adicionada antes de todas em $\Gamma^{lit}_{ml}$.
+Na variação \textit{mais antiga}, o provador armazenada a ordem nas quais as cláusulas foram adicionadas ao conjunto de cláusulas e é selecionada a que foi adicionada antes de todas em $\Gamma^{lit}_{ml}$.
 
 \textit{Mais nova} é análoga a \textit{mais antiga}, mas é selecionada a que foi adicionada depois de todas as outras.
 
@@ -318,7 +321,7 @@ Em \textit{mínima}, é escolhida uma cláusula com o menor tamanho dentre as cl
 
 Em \textit{máxima}, é feita escolha análoga a \textit{mínima} mas dentre cláusulas com o maior literal máximo em $\Gamma^{lit}_{ml}$.
 
-Neste trabalho propomos novos métodos para seleção de cláusulas e comparamos com os métodos previamente utilizados no KSP. Para comparação usaremos o LWB \cite{lwb}, que descreve geradores de \textit{benchmark} de tamanho arbitrário para 9 famílias de fórmulas.
+Neste trabalho propomos novos métodos para seleção de cláusulas e comparamos com os métodos previamente utilizados no KSP. Para comparação usaremos o LWB \cite{lwb}, que descreve geradores de \textit{benchmark} de tamanho arbitrário para nove famílias de fórmulas.
 
 
 %\section{Grafo}
