@@ -2,7 +2,7 @@
 Neste capítulo apresentamos as definições básicas para o resto do texto.
 
 \section{Linguagem}
-Trabalharemos com a linguagem lógica modal $K_n$. %TODO write a small introduction for the section and describe its structure, probably define syntax and semantics
+Trabalharemos com a linguagem lógica modal $K_n$. Nesta seção descreveremos primeiro a sintaxe da linguagem, isto é, como podemos construir e reconhecer fórmula nesta linguagem. Depois descrevemos a sua semântica, isto é, como atribuímos significado à fórmulas. %TODO write a small introduction for the section and describe its structure, probably define syntax and semantics
 
 \begin{definition}
 	Seja $P = \{p, q, r, \dots\}$ um conjunto enumerável de símbolos proposicionais, $\Agents = \{1, 2, 3, \dots, n\}, n \in \mathbb{N}$. Definimos o conjunto de fórmulas bem formadas $\mathcal{FBF}$ indutivamente.
@@ -19,10 +19,8 @@ Trabalharemos com a linguagem lógica modal $K_n$. %TODO write a small introduct
 \end{definition}
 
 \begin{definition}
-	Uma cláusula proposicional é uma disjunção de literais proposicionais. %TODO describe disjuntion, maybe create a lexical subsection before syntax
+	Uma cláusula proposicional é uma disjunção de literais proposicionais, ou seja, tem a forma $p_1 \lor p_2 \lor \cdots p_m$ com $p_i \in \set{P}$ e $m \in \mathbf{N}$. Caso $m = 0$ a cláusula é dita vazia. %TODO describe disjuntion, maybe create a lexical subsection before syntax
 \end{definition}
-
-Assim, uma cláusula proposicional tem a forma $p_1 \lor p_2 \lor \cdots p_m$ com $p_i \in \set{P}$ e $m \in \mathbf{N}$, para $m = 0$ a cláusula é dita vazia.
 
 Seja $\Sigma = \{0, 1\}$, $\Sigma^*$ é o conjunto de todas as cadeias formadas com elementos de $\Sigma$. Em particular, $\epsilon$ representa a cadeia vazia. Construiremos cadeias em $\Sigma^*$ para codificar a posição de ocorrência de uma subfórmula em uma fórmula. Seja $inv \colon \{\text{positiva, negativa}\} \mapsto \{\text{positiva, negativa}\}$ tal que $inv(\text{positiva}) = \text{negativa}$ e $inv(\text{negativa}) = \text{positiva}$.
 
@@ -87,12 +85,14 @@ Na Figura~\ref{table:exemplomodelo1} apresentamos a visualização de um modelos
 \end{scope}
 
 \begin{scope}[>={Stealth[black]},
+el/.style = {inner sep=2pt, align=left, sloped},
+every label/.append style = {font=\tiny},
               every node/.style={fill=white,circle},
               every edge/.style={draw=black,very thick}]
-    \path [->] (w0) edge node {$1$} (w1);
-    \path [->] (w0) edge node {$1$} (w2);
-    \path [->] (w1) edge node {$2$} (w2);
-    \path [->] (w2) edge [loop right] node {$2$} (w2);    
+    \path [->] (w0) edge node[el,above] {$1$} (w1);
+    \path [->] (w0) edge node[el,below] {$1$} (w2);
+    \path [->] (w1) edge node[el,above] {$2$} (w2);
+    \path [->] (w2) edge [loop right] node[el,above] {$2$} (w2);    
 \end{scope}
 \end{tikzpicture}
 &
@@ -122,14 +122,16 @@ Na Figura~\ref{table:exemplomodelo1} apresentamos a visualização de um modelos
 \end{scope}
 
 \begin{scope}[>={Stealth[black]},
+el/.style = {inner sep=2pt, align=left, sloped},
+every label/.append style = {font=\tiny},
               every node/.style={fill=white,circle},
               every edge/.style={draw=black,very thick}]
-    \path [->] (w0) edge node {$1$} (w1);
-    \path [->] (w0) edge [bend right] node {$1$} (w2);
-    \path [->] (w1) edge node {$1$} (w4);
-    \path [->] (w1) edge node {$2$} (w2);
-    \path [->] (w1) edge node {$3$} (w3);
-    \path [->] (w2) edge node {$1$} (w0);
+    \path [->] (w0) edge node[el,above] {$1$} (w1);
+    \path [->] (w0) edge [bend right] node[el,below] {$1$} (w2);
+    \path [->] (w1) edge node[el,above] {$1$} (w4);
+    \path [->] (w1) edge node[el,below] {$2$} (w2);
+    \path [->] (w1) edge node[el,above] {$3$} (w3);
+    \path [->] (w2) edge node[el,below] {$1$} (w0);
     \path [->] (w2) edge [loop right] node {$2$} (w2);    
 \end{scope}
 \end{tikzpicture}
@@ -184,7 +186,7 @@ A satisfatibilidade de uma fórmula em $SNF_{ml}$ é definida a partir da satisf
 
 Uma função de tradução de $K_n$ para $SNF_{ml}$ bem como a prova de que a tradução de uma fórmula preserva satisfatibilidade podem ser encontradas em \cite{nalontocl}.
 
-Seja $\ge$ uma ordem total sobre os símbolos proposicionais. Estendemos esta ordem para os literais da seguinte forma: Se $p \in \set{P}$, então $\neg p \ge p$; Se $p, q \in \set{P}, p \not= q$ e $p \ge q$, então $\neg p \ge q$. %TODO check this. "p >= !q porque >= é transitiva(ou seja, você obtemo que está definido a partir do fato de que !p >= q e p >= q)
+Seja $\ge$ uma ordem total sobre os símbolos proposicionais. Estendemos esta ordem para os literais da seguinte forma: Se $p \in \set{P}$, então $\neg p \ge p$; Se $p, q \in \set{P}, p \not= q$ e $p \ge \neg q$, então $p \ge q$. %TODO check this. "p >= !q porque >= é transitiva(ou seja, você obtemo que está definido a partir do fato de que !p >= q e p >= q)
 
 \begin{definition}
 	O literal $l$ é máximo em $\varphi \in SNF_{ml}$ se e somente se $l$ ocorre em $\varphi$ e não há $l_2 \not= l$ em $\varphi$ tal que $l_2 \ge l$.

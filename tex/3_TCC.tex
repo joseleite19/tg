@@ -38,7 +38,7 @@ A Tabela \ref{table:primeiro10} mostra o resultado desse experimento. Para cada 
 Esses resultados indicam que o KSP é muito eficiente para a maioria das famílias independente da estratégia utilizada, mas muito pode ser melhorado em k\_branch, k\_d4, k\_ph e k\_poly.
 
 \section{Trabalhos anteriores}
-Uma análise de heurísticas de seleção de cláusula para provadores baseados em saturação, assim como KSP, foi feita em \cite{stephan}. O experimento foi feito no provador E sobre 13774 fórmulas do \textit{benchmark} TPTP \cite{TPTP} com 300 segundos de tempo limite.
+Uma análise de heurísticas de seleção de cláusula para provadores baseados em saturação, assim como KSP, foi feita em \cite{stephan}. O experimento foi feito no provador E, um provador para lógica de primeira-ordem com igualdade baseado em superposição, sobre 13774 fórmulas do \textit{benchmark} TPTP \cite{TPTP} com 300 segundos de tempo limite.
 
 As heurísticas avaliadas foram: \textit{Mais antiga}, Contagem de Símbolos e Ordenada.%TODO acrescentar que E é um provador para lógica de primeira-ordem com igualdade baseado em superposição(uma variação de resolução com ordenação para esta lógica)
  Em Contagem de Símbolos, é atribuído um peso a cada símbolo e é selecionada uma cláusula com a menor soma de pesos. No caso em que todos os símbolos têm peso um esta variação é idêntica a \textit{menor} usada no KSP. Ordenada é uma variação de Contagem de Símbolos onde são preferida cláusulas com o menor número de literais maximais.
